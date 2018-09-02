@@ -1,0 +1,31 @@
+<view class='main'>
+  <!-- 搜索区域 -->
+  <view class='searchCenter'>
+    <input type='text' class='search-bar' placeholder="搜索"></input>
+    <icon type='search' class='search-icon' size="16"></icon>
+    <text class='cancel-btn'>取消</text>
+  </view>
+  <view class='init-page'>
+    <!-- 搜索记录 -->
+    <view class='history '>
+      <view class='history-title search-title'>
+        <text>历史纪录</text>
+      </view>
+      <view class='history-tags tags'>
+        <view class='history-tag tag' wx:for="{{historyList}}" wx:for-item="item">{{item.title}}</view>
+      </view>
+    </view>
+    <!-- 热搜推荐 -->
+    <view class='hot'>
+      <view class='hot-title search-title'>
+        <text>热搜推荐</text>
+      </view>
+      <view class='hot-tags tags'>
+        <view class='hot-tag tag' wx:for="{{hotList}}" wx:for-item="item">{{item.title}}</view>
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

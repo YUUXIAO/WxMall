@@ -1,0 +1,37 @@
+<!--pages/detail/index.wxml-->
+<view class='main'>
+  <!--详情轮播图  -->
+  <view class='detail-images'>
+    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+      <block wx:for="{{detailImgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="carouselImg" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 详情信息 -->
+  <view class='detail-info'>
+    <view class='detail-price'>
+      <text class='price'>￥ {{price}}</text>
+      <view class='oldPrice'> 价格
+        <text>￥ {{oldPrice}}</text>
+      </view>
+    </view>
+    <view class='detail-title'>{{title}}</view>
+    <view class='detail-base'>
+      <text class='detail-deliver'>邮费：{{deliver}}</text>
+      <text class='detail-amount'>月销{{amount}}笔</text>
+      <text class='detail-address'>地址：{{address}}</text>
+    </view>
+  </view>
+  <!-- 详情操作 -->
+  <view class='detail-tabs'>
+    <view class='detail-nav'>
+      <view class='detail-tab detail-cur'>商品详情</view>
+      <view class='detail-tab'>产品参数</view>
+      <view class='detail-tab'>售后保障</view>
+    </view>
+    <view class='detail-tab-show'>内容详情</view>
+  </view>
+</view>

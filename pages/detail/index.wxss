@@ -1,0 +1,85 @@
+/* pages/detail/index.wxss */
+
+.main {
+  /* border: 1px solid red; */
+}
+
+/* 详情描述 */
+
+.detail-images {
+  height: 375rpx;
+}
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.carouselImg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 详情基本信息 */
+
+.detail-info {
+  padding: 30rpx 10rpx;
+}
+
+.detail-price {
+}
+
+.detail-price .price {
+  color: red;
+  font-weight: bolder;
+}
+
+.detail-price .oldPrice {
+  color: #999;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+  display: inline-block;
+}
+
+.oldPrice text {
+  text-decoration: line-through;
+}
+
+.detail-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 15rpx 0;
+}
+
+.detail-base {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #888;
+}
+/* 详情操作 */
+.detail-tabs{
+  border-top: 1px solid #888;
+}
+.detail-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+.detail-tab{
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+.detail-cur{
+  border-bottom: 5rpx solid #888;
+}
+/* 详情内容 */
+.detail-tab-show{
+  padding: 40rpx 10rpx;
+}

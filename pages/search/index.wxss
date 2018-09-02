@@ -1,0 +1,60 @@
+/* search.wxss*/
+
+.main {
+  padding: 0 20rpx;
+}
+
+/*  搜索区域-Start */
+
+.searchCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.search-bar {
+  flex: 1;
+  font-size: 32rpx;
+  padding: 6rpx 10rpx 6rpx 70rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+}
+
+.search-icon {
+  position: absolute;
+  width: 50rpx;
+  padding-left: 20rpx;
+}
+
+.cancel-btn {
+  font-size: 32rpx;
+  padding-left: 20rpx;
+}
+
+/*  搜索区域-End */
+
+/*  搜索记录-Start */
+
+.history {
+}
+
+/*  搜索记录-End */
+
+/* common */
+
+.search-title {
+  font-size: 36rpx;
+  font-weight: bolder;
+  padding: 20rpx 0;
+}
+
+.tag {
+  border: 1px solid #888;
+  display: inline-block;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  padding: 6rpx 12rpx;
+  margin: 0 20rpx 20rpx 0;
+}
