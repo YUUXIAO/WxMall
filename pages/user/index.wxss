@@ -1,0 +1,107 @@
+/* pages/user/index.wxss */
+page{
+  height: 100%;
+}
+.main {
+  height: 100%;
+  background: #efefef;
+}
+
+/* 用户信息-Start */
+.user-info{
+  background: #efefef;
+  padding: 30rpx;
+}
+.user-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-base>view:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.user-name {
+  font-size: 40rpx;
+  display: inline-block;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+
+.user-setting {
+  font-size: 28rpx;
+  color: #888;
+}
+.user-bar{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.user-bar>view{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 28rpx;
+}
+/* 用户信息-End */
+
+
+/* 我的订单-Start */
+.user-myorder{
+  padding: 10rpx;
+}
+.user-orders {
+  background: #fff;
+  padding: 25rpx;
+  border-radius: 30rpx;
+}
+
+.order-banner {
+  padding: 15rpx 0;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;  
+}
+.order-banner>text:first-child{
+  font-size: 30rpx;
+  font-weight: bolder;
+}
+.order-banner>text:last-child{
+  font-size: 26rpx;
+  color: #888;
+}
+
+.order-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.order-group>view {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.order-icon{
+}
+.order-item{
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 10rpx;
+}
+
+/* 我的订单-End */

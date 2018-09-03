@@ -1,0 +1,65 @@
+<!--pages/user/index.wxml-->
+<view class='main'>
+  <!-- 用户信息 -->
+  <view class='user-info'>
+    <view class='user-base'>
+      <view>
+        <view class='user-image'>
+          <image src='{{userInfo.image}}'></image>
+        </view>
+        <view class='user-name'>{{userInfo.name}}</view>
+      </view>
+      <view class='user-setting'>设置</view>
+    </view>
+    <view class='user-bar'>
+      <view class='user-collection'>
+        <text>8</text>
+        <text>收藏夹</text>
+      </view>
+      <view class='user-follow'>
+        <text>8</text>
+        <text>关注店铺</text>
+      </view>
+      <view class='user-trace'>
+        <text>8</text>
+        <text>足迹</text>
+      </view>
+      <view class='user-cards'>
+        <text>8</text>
+        <text>红包卡劵</text>
+      </view>
+    </view>
+  </view>
+  <!-- 我的订单  -->
+  <view class='user-myorder'>
+    <view class='user-orders'>
+      <view class='order-banner'>
+        <text>我的订单</text>
+        <text>查看更多订单</text>
+      </view>
+      <view class='order-group'>
+        <view class='order-unpaid'>
+          <icon class='order-icon' type='success'></icon>
+          <text class='order-item'>待付款</text>
+        </view>
+        <view class='order-undeliver'>
+          <icon class='order-icon' type='success'></icon>
+          <text class='order-item'>待发货</text>
+        </view>
+        <view class='order-unreceive'>
+          <icon class='order-icon' type='success'></icon>
+          <text class='order-item'>待收货</text>
+        </view>
+        <view class='order-uncomment'>
+          <icon class='order-icon' type='success'></icon>
+          <text class='order-item'>待评价</text>
+        </view>
+        <view class='order-refund'>
+          <icon class='order-icon' type='success'></icon>
+          <text class='order-item'>退款/售后</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
