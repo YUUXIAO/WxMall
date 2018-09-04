@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/category/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/detail/index",
     "pages/search/index"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
