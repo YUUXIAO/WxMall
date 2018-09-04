@@ -163,43 +163,43 @@ Page({
         "product": [
           {
             "image": "/images/bg1.jpg",
-            "title": '水果1'
+            "title": '玩具1'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果2'
+            "title": '玩具2'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果3'
+            "title": '玩具3'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果4'
+            "title": '玩具4'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果5'
+            "title": '玩具5'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果6'
+            "title": '玩具6'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果7'
+            "title": '玩具7'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果8'
+            "title": '玩具8'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果9'
+            "title": '玩具9'
           },
           {
             "image": "/images/bg1.jpg",
-            "title": '水果10'
+            "title": '玩具10'
           }
         ]
       },
