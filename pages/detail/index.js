@@ -1,21 +1,17 @@
 // pages/detail/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    detailImgUrls:[
-      '/images/bg1.jpg',
-      '/images/bg2.jpg'
-    ],
-    price:'67.89',
-    oldPrice:'89.89',
-    title:'荔枝新鲜水果大果甘甜5斤冷冻荔枝黑叶妃子笑 桂味 孕妇水果包邮',
-    selectedImg: '/images/bg1.jpg',
-    deliver:'免邮费',
-    amount:8887,
-    address:'浙江宁波',
+    bannerImage: [],
+    price: '',
+    oldPrice: '',
+    title: '',
+    deliver: '',
+    amount: 0,
+    address: '',
+    currentTab: 0,
     indicatorDots: false,
     autoplay: false,
     interval: 3000,
@@ -25,57 +21,84 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+    let that = this;
+    // 获取商品信息
+    wx.request({
+      url: "https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/goods/detail",
+      success: function(res) {
+        that.setData({
+          bannerImage: res.data.bannerImage,
+          price: res.data.price,
+          oldPrice: res.data.oldPrice,
+          title: res.data.title,
+          deliver: res.data.deliver,
+          amount: res.data.amount,
+          address: res.data.address
+        })
+      }
+    })
   },
-
+  tabClick: function(e) {
+    let current = e.currentTarget.dataset.index;
+    if (this.data.currentTab == current) {
+      return false;
+    } else {
+      this.setData({
+        currentTab: current
+      })
+    }
+  },
+  tabsChange: function(e) {
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   }
 
 })

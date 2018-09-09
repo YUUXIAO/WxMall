@@ -5,9 +5,9 @@ index.wxml
 <view class="main">
   <!--首页轮播图  -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
       <swiper-item>
-        <image src="{{item}}" class="carouselImg" />
+        <image src="{{item}}" class="carouselImg" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
@@ -26,18 +26,16 @@ index.wxml
     </view>
     <view class='selected-goods'>
       <view class='selected-top'>
-        <navigator url='/pages/detail/index'>
-          <view class='selected-small'>
-            <image src='{{selectedImg}}'></image>
-          </view>
-        </navigator>
-        <view class='selected-small'>
-          <image src='{{selectedImg}}'></image>
+        <view class='selected-small' bindtap='goodsDetail'>
+          <image src='{{wellChosen[0]}}' mode='aspectFill'></image>
+        </view>
+        <view class='selected-small' bindtap='goodsDetail'>
+          <image src='{{wellChosen[1]}}' mode='aspectFill'></image>
         </view>
       </view>
-      <view class='selected-bottom'>
+      <view class='selected-bottom' bindtap='goodsDetail'>
         <view class='selected-big'>
-          <image src='{{selectedImg}}'></image>
+          <image src='{{wellChosen[2]}}' mode='aspectFill'></image>
         </view>
       </view>
     </view>
@@ -47,9 +45,9 @@ index.wxml
     <view class='lastest-title page-title'>
       <text>最近新品</text>
     </view>
-    <view class='lastest-list' wx:for='{{lastestLists}}' wx:for-item='item'>
-      <view class='lastest-image'>
-        <image src='{{item.image}}'></image>
+    <view class='lastest-list' wx:for='{{lastestLists}}' wx:for-item='item' bindtap='goodsDetail'>
+      <view class='lastest-image' >
+        <image src='{{item.image}}' mode='aspectFit'></image>
       </view>
       <view class='lastest-title'>
         <text>{{item.title}}</text>

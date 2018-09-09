@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/detail/index",
+    "pages/index/index",
     "pages/category/index",
     "pages/user/index",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/detail/index",
     "pages/search/index"
   ],
   "window": {

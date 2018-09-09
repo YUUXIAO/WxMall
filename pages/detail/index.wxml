@@ -3,7 +3,7 @@
   <!--详情轮播图  -->
   <view class='detail-images'>
     <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-      <block wx:for="{{detailImgUrls}}" wx:key="{{index}}">
+      <block wx:for="{{bannerImage}}" wx:key="{{index}}">
         <swiper-item>
           <image src="{{item}}" class="carouselImg" />
         </swiper-item>
@@ -28,10 +28,41 @@
   <!-- 详情操作 -->
   <view class='detail-tabs'>
     <view class='detail-nav'>
-      <view class='detail-tab detail-cur'>商品详情</view>
-      <view class='detail-tab'>产品参数</view>
-      <view class='detail-tab'>售后保障</view>
+      <view class='detail-tab {{ currentTab == 0 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='0'>商品详情</view>
+      <view class='detail-tab {{ currentTab == 1 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='1'>产品参数</view>
+      <view class='detail-tab {{ currentTab == 2 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='2'>售后保障</view>
     </view>
-    <view class='detail-tab-show'>内容详情</view>
+  </view>
+  <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
+    <swiper-item>商品详情</swiper-item>
+    <swiper-item>产品参数</swiper-item>
+    <swiper-item>售后保障</swiper-item>
+  </swiper>
+  <!-- 底部操作栏 -->
+  <view class='goods-operation'>
+    <view class='shoppingCart'>
+      <image src='../../images/detail/cart.png'></image>
+    </view>
+    <view class='shoppingStore'>
+      <image src='../../images/detail/star.png'></image>
+    </view>
+    <view class='buyImmediatly'>立即购买</view>
+    <view class='addtoCart'>加入购物车</view>
+  </view>
+  <!-- 商品选择数量 -->
+  <view class='chooseNum'>
+    <view class='choose-top'>
+     <view>
+      <view class='choose-image'>
+        <image src='../../images/bg1.jpg' mode='aspectFill'></image>
+      </view>
+      <view class='choose-base'>
+        <view class='choose-title'>产品参数产品参数产品参数</view>
+        <view class='choose-price'>￥ 299</view>
+      </view>
+     </view>
+     <view class='choose-close'>X</view>
+    </view>
+    <view class='addCartBtn'>加入购物车</view>
   </view>
 </view>

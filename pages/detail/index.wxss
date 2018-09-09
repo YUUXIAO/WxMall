@@ -2,12 +2,14 @@
 
 .main {
   /* border: 1px solid red; */
+  padding-bottom: 130rpx;
 }
 
 /* 详情描述 */
 
 .detail-images {
-  height: 375rpx;
+  width: 100%;
+  height: 600rpx;
 }
 
 swiper {
@@ -57,11 +59,14 @@ swiper {
   font-size: 24rpx;
   color: #888;
 }
+
 /* 详情操作 */
-.detail-tabs{
+
+.detail-tabs {
   border-top: 1px solid #888;
 }
-.detail-nav{
+
+.detail-nav {
   display: flex;
   justify-content: space-between;
   padding: 0 10rpx;
@@ -69,17 +74,144 @@ swiper {
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
 }
-.detail-tab{
+
+.detail-tab {
   flex: 1;
   text-align: center;
   font-size: 28rpx;
   font-weight: bold;
   border-bottom: 1px solid #fff;
 }
-.detail-cur{
+
+.detail-cur {
   border-bottom: 5rpx solid #888;
 }
+
 /* 详情内容 */
-.detail-tab-show{
-  padding: 40rpx 10rpx;
+
+.swiper-tabs-show {
+  height: 300rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.swiper-tabs-show swiper-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 底部操作栏 */
+
+.goods-operation {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+
+.goods-operation view {
+  height: 100%;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-right: 1px solid #efefef;
+}
+
+.shoppingCart, .shoppingStore {
+  flex: 1;
+}
+
+.buyImmediatly, .addtoCart {
+  flex: 2;
+}
+
+.shoppingCart image, .shoppingStore image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.addtoCart {
+  background: red;
+  color: #fff;
+  border-right: 0;
+}
+
+/* 商品选择数量 */
+
+.chooseNum {
+  width: 100%;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.choose-top {
+  border: 1px solid red;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.choose-top>view:first-child {
+  border: 1px solid red;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.choose-image {
+  border: 1px solid green;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.choose-image image {
+  width: 100%;
+  height: 100%;
+  border: 1px solid green;
+}
+
+.choose-base {
+  display: flex;
+  height: 100%;
+  padding: 20rpx 0 20rpx 20rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.choose-title {
+  border: 1px solid green;
+}
+
+.choose-price {
+  border: 1px solid blue;
+  color: red;
+}
+
+.choose-close {
+  width: 50rpx;
+  height: 50rpx;
+  border: 1px solid #aaa;
+  font-size: 32rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50rpx;
+  color: #aaa;
+}
+
+.addCartBtn {
+  width: 100%;
+  color: #fff;
+  background: red;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-weight: bold;
 }
