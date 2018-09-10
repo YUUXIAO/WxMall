@@ -47,10 +47,10 @@
       <image src='../../images/detail/star.png'></image>
     </view>
     <view class='buyImmediatly'>立即购买</view>
-    <view class='addtoCart'>加入购物车</view>
+    <view class='addtoCart' bindtap="showChooseNum">加入购物车</view>
   </view>
   <!-- 商品选择数量 -->
-  <view class='chooseNum'>
+  <view class='chooseNum' animation="{{animation}}">
     <view class='choose-top'>
      <view>
       <view class='choose-image'>

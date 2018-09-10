@@ -92,6 +92,7 @@ swiper {
 .swiper-tabs-show {
   height: 300rpx;
   padding: 20rpx;
+  border: 2px solid red;
   box-sizing: border-box;
 }
 
@@ -145,26 +146,26 @@ swiper {
 
 .chooseNum {
   width: 100%;
+  height: 200rpx;
   border: 1px solid blue;
   box-sizing: border-box;
   background: #fff;
-}
+  position: fixed;
+  bottom: -200rpx;
+}a
 
 .choose-top {
-  border: 1px solid red;
   padding: 20rpx;
   display: flex;
   justify-content: space-between;
 }
 
 .choose-top>view:first-child {
-  border: 1px solid red;
   display: flex;
   justify-content: flex-start;
 }
 
 .choose-image {
-  border: 1px solid green;
   width: 200rpx;
   height: 200rpx;
 }
@@ -172,7 +173,6 @@ swiper {
 .choose-image image {
   width: 100%;
   height: 100%;
-  border: 1px solid green;
 }
 
 .choose-base {
@@ -187,11 +187,9 @@ swiper {
 }
 
 .choose-title {
-  border: 1px solid green;
 }
 
 .choose-price {
-  border: 1px solid blue;
   color: red;
 }
 

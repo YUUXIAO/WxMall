@@ -16,8 +16,21 @@ Page({
     autoplay: false,
     interval: 3000,
     duration: 800,
+    animation:''
   },
-
+  tabClick: function (e) {
+    let current = e.currentTarget.dataset.index;
+    if (this.data.currentTab == current) {
+      return false;
+    } else {
+      this.setData({
+        currentTab: current
+      })
+    }
+  },
+  tabsChange: function (e) {
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -39,26 +52,27 @@ Page({
       }
     })
   },
-  tabClick: function(e) {
-    let current = e.currentTarget.dataset.index;
-    if (this.data.currentTab == current) {
-      return false;
-    } else {
-      this.setData({
-        currentTab: current
-      })
-    }
-  },
-  tabsChange: function(e) {
-    console.log(e)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.animation = wx.createAnimation({
+      duration: 1000,
+      transformOrigin: "50% 50%",
+      timingFunction:"linear",
+      success: function(res){
+        console.log(res)
+      }
+    })
   },
-
+  showChooseNum: function(){
+    this.animation.translate(0,-200).step()
+    
+    this.setData({
+      animation: this.animation.export()
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

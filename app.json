@@ -5,7 +5,8 @@
     "pages/category/index",
     "pages/user/index",
     "pages/logs/logs",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/animation/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
