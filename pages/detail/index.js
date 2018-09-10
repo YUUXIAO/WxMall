@@ -16,9 +16,9 @@ Page({
     autoplay: false,
     interval: 3000,
     duration: 800,
-    animation:''
+    animation: ''
   },
-  tabClick: function (e) {
+  tabClick: function(e) {
     let current = e.currentTarget.dataset.index;
     if (this.data.currentTab == current) {
       return false;
@@ -28,7 +28,7 @@ Page({
       })
     }
   },
-  tabsChange: function (e) {
+  tabsChange: function(e) {
     console.log(e)
   },
   /**
@@ -58,17 +58,18 @@ Page({
    */
   onReady: function() {
     this.animation = wx.createAnimation({
-      duration: 1000,
+      duration: 100,
       transformOrigin: "50% 50%",
-      timingFunction:"linear",
-      success: function(res){
+      timingFunction: "linear",
+      success: function(res) {
         console.log(res)
       }
     })
   },
-  showChooseNum: function(){
-    this.animation.translate(0,-200).step()
-    
+  showChooseNum: function() {
+    let systemInfo = wx.getSystemInfoSync();
+    this.animation.translate(0, -340 / 750 * systemInfo.windowWidth).step()
+
     this.setData({
       animation: this.animation.export()
     })

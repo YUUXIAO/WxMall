@@ -146,15 +146,16 @@ swiper {
 
 .chooseNum {
   width: 100%;
-  height: 200rpx;
-  border: 1px solid blue;
+  height: 340rpx;
   box-sizing: border-box;
   background: #fff;
   position: fixed;
-  bottom: -200rpx;
-}a
+  bottom: -340rpx;
+}
 
 .choose-top {
+  height: 240rpx;
+  box-sizing: border-box;
   padding: 20rpx;
   display: flex;
   justify-content: space-between;
@@ -168,6 +169,7 @@ swiper {
 .choose-image {
   width: 200rpx;
   height: 200rpx;
+  overflow: hidden;
 }
 
 .choose-image image {
@@ -187,6 +189,11 @@ swiper {
 }
 
 .choose-title {
+  width: 380rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
 }
 
 .choose-price {
