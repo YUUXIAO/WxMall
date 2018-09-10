@@ -52,17 +52,29 @@
   <!-- 商品选择数量 -->
   <view class='chooseNum' animation="{{animation}}">
     <view class='choose-top'>
-     <view>
-      <view class='choose-image'>
-        <image src='../../images/bg1.jpg' mode='aspectFill'></image>
+      <view>
+        <view class='choose-image'>
+          <image src='../../images/bg1.jpg' mode='aspectFill'></image>
+        </view>
+        <view class='choose-base'>
+          <view class='choose-title'>产品参数产品产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数参数产品参数</view>
+          <view class='choose-price'>￥ 299</view>
+        </view>
       </view>
-      <view class='choose-base'>
-        <view class='choose-title'>产品参数产品产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数产品参数参数产品参数</view>
-        <view class='choose-price'>￥ 299</view>
+      <view class='choose-close' bindtap='closeChooseNum'>X</view>
+    </view>
+    <view class='choose-bottom'>
+      <view>
+        <text>购买数量</text>
       </view>
-     </view>
-     <view class='choose-close'>X</view>
+      <view class='countGroup'>
+        <view class='reduceBtn' bindtap='reduceCount'>-</view>
+        <view class='count'>{{ count }}</view>
+        <view class='increaseBtn' bindtap='increaseCount'>+</view>
+      </view>
     </view>
     <view class='addCartBtn'>加入购物车</view>
   </view>
+  <!-- mask遮罩层 -->
+  <view class='{{ maskShow ? "mask" : "" }}'></view>
 </view>

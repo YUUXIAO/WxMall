@@ -16,7 +16,9 @@ Page({
     autoplay: false,
     interval: 3000,
     duration: 800,
-    animation: ''
+    animation: '',
+    maskShow: false,
+    count: 1
   },
   tabClick: function(e) {
     let current = e.currentTarget.dataset.index;
@@ -57,6 +59,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    // 创建动画
     this.animation = wx.createAnimation({
       duration: 100,
       transformOrigin: "50% 50%",
@@ -68,10 +71,41 @@ Page({
   },
   showChooseNum: function() {
     let systemInfo = wx.getSystemInfoSync();
-    this.animation.translate(0, -340 / 750 * systemInfo.windowWidth).step()
+    this.animation.translate(0, -500 / 750 * systemInfo.windowWidth).step()
+    this.setData({
+      animation: this.animation.export(),
+      maskShow: true
+    })
+  },
+  reduceCount: function() {
+    var that = this
+    if(that.data.count>1){
+      that.setData({
+        count: that.data.count - 1
+      })
+    }else{
+     wx.showToast({
+       title: '不能再少了哦！',
+       icon:'error',
+       duration: 1000
+     })
+    }
+    
+  },
+  increaseCount: function() {
+    var that = this
+    that.setData({
+      count: that.data.count + 1
+    })
+  },
+  closeChooseNum: function(){
+    console.log(1231231)
+    let systemInfo = wx.getSystemInfoSync();
+    this.animation.translate(0, 500 / 750 * systemInfo.windowWidth).step()
 
     this.setData({
-      animation: this.animation.export()
+      animation: this.animation.export(),
+      maskShow: false
     })
   },
   /**
