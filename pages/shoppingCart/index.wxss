@@ -1,0 +1,57 @@
+/* pages/shoppingCart/index.wxss */
+/* 购物车列表内容-Start */
+.cart-list{
+  height: 240rpx;
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.cart-select{
+  width: 60rpx;
+}
+.cart-image{
+  width: 200rpx; height: 200rpx;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.cart-image image{
+  width: 100%; height: 100%;
+}
+.cart-base{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 410rpx; height: 100%;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+}
+.cart-base>view{
+  font-size: 30rpx;
+}
+.cart-title{
+  font-weight: bold;
+}
+.cart-count{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.count-group{
+  width: 180rpx;height:60rpx;
+  border: 1px solid #aaa;
+  display: flex;
+  justify-content: space-between;
+}
+.count-group>view{
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  line-height: 60rpx;
+}
+.countNumber{
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+}

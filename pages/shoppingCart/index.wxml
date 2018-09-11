@@ -1,0 +1,29 @@
+<!--pages/shoppingCart/index.wxml-->
+<view class='main'>
+  <!-- 购物车列表内容 -->
+  <view class='cart-list'>
+    <icon type='circle' class='cart-no-select cart-select'></icon>
+    <view class='cart-image'>
+      <image src='../../images/bg1.jpg' model='aspectFill'></image>
+    </view>
+    <view class='cart-base'>
+      <view class='cart-title'>玻璃内胆保温壶</view>
+      <view class='cart-count'>
+        <text class='cart-price'>￥ 95.20</text>
+        <view class='count-group'>
+          <view class='descCount'>-</view>
+          <view class='countNumber'>1</view>
+          <view class='incrCount'>+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 购物车底部 -->
+  <view class='cart-footer'>
+  <view class='footer-select'>
+    <icon type='circle' class='cart-no-select cart-select'></icon>
+    <text>全选</text>
+  </view>
+
+  </view>
+</view>
