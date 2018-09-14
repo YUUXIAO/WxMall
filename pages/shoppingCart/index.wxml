@@ -20,10 +20,13 @@
   </view>
   <!-- 购物车底部 -->
   <view class='cart-footer'>
-  <view class='footer-select'>
-    <icon type='circle' class='cart-no-select cart-select'></icon>
-    <text>全选</text>
-  </view>
-
+    <view class='footer-select'>
+      <icon type='circle' class='cart-no-select cart-select'></icon>
+      <text>全选</text>
+    </view>
+    <view class='footer-order'>
+      <text>￥ 0.00</text>
+      <view class='order-goods'>下单</view>
+    </view>
   </view>
 </view>

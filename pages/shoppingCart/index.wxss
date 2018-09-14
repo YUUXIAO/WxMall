@@ -1,6 +1,8 @@
 /* pages/shoppingCart/index.wxss */
+
 /* 购物车列表内容-Start */
-.cart-list{
+
+.cart-list {
   height: 240rpx;
   display: flex;
   /* justify-content: flex-start; */
@@ -8,50 +10,102 @@
   padding: 20rpx;
   box-sizing: border-box;
 }
-.cart-select{
+
+.cart-select {
   width: 60rpx;
 }
-.cart-image{
-  width: 200rpx; height: 200rpx;
+
+.cart-image {
+  width: 200rpx;
+  height: 200rpx;
   margin: 0 20rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }
-.cart-image image{
-  width: 100%; height: 100%;
+
+.cart-image image {
+  width: 100%;
+  height: 100%;
 }
-.cart-base{
+
+.cart-base {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 410rpx; height: 100%;
+  width: 410rpx;
+  height: 100%;
   padding: 10rpx 0;
   box-sizing: border-box;
 }
-.cart-base>view{
+
+.cart-base>view {
   font-size: 30rpx;
 }
-.cart-title{
+
+.cart-title {
   font-weight: bold;
 }
-.cart-count{
+
+.cart-count {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.count-group{
-  width: 180rpx;height:60rpx;
+
+.count-group {
+  width: 180rpx;
+  height: 60rpx;
   border: 1px solid #aaa;
   display: flex;
   justify-content: space-between;
 }
-.count-group>view{
+
+.count-group>view {
   flex: 1;
   height: 100%;
   text-align: center;
   line-height: 60rpx;
 }
-.countNumber{
+
+.countNumber {
   border-right: 1px solid #aaa;
   border-left: 1px solid #aaa;
+}
+
+/* 购物车底部 */
+
+.cart-footer {
+  width: 100%;
+  height: 100rpx;
+  border-top: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-left: 20rpx;
+}
+
+.cart-footer>view {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-select text{
+  font-size: 30rpx;
+  color: #888;
+}
+
+.order-goods {
+  width: 250rpx;
+  height: 100%;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  letter-spacing: 10rpx;
+  margin-left: 20rpx;
 }

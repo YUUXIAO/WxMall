@@ -5,27 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    categoryNavigation: [
-      {
-        "name":"水果"
+    currentIndex: 0,
+    toView: "fruits",
+    isScroll: false,
+    categoryNavigation: [{
+        "name": "水果",
+        "id": "fruits"
       },
       {
-        "name": "蔬菜"
+        "name": "蔬菜",
+        "id": "vegetables"
       },
       {
-        "name": "服饰"
+        "name": "服饰",
+        "id": "clothes"
       },
       {
-        "name": "玩具"
+        "name": "玩具",
+        "id": "plays"
       }
-    ], products:[
-      {
+    ],
+    products: [{
         "banner": "/images/bg1.jpg",
-        "title":'水果',
-        "product":[
-          {
-            "image":"/images/bg1.jpg",
-            "title":'水果1'
+        "title": '水果',
+        "product": [{
+            "image": "/images/bg1.jpg",
+            "title": '水果1'
           },
           {
             "image": "/images/bg1.jpg",
@@ -38,38 +43,13 @@ Page({
           {
             "image": "/images/bg1.jpg",
             "title": '水果4'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果5'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果6'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果7'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果8'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果9'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果10'
           }
         ]
       },
       {
         "banner": "/images/bg1.jpg",
         "title": '蔬菜',
-        "product": [
-          {
+        "product": [{
             "image": "/images/bg1.jpg",
             "title": '蔬菜1'
           },
@@ -114,8 +94,7 @@ Page({
       {
         "banner": "/images/bg1.jpg",
         "title": '服饰',
-        "product": [
-          {
+        "product": [{
             "image": "/images/bg1.jpg",
             "title": '服饰1'
           },
@@ -160,8 +139,7 @@ Page({
       {
         "banner": "/images/bg1.jpg",
         "title": '玩具',
-        "product": [
-          {
+        "product": [{
             "image": "/images/bg1.jpg",
             "title": '玩具1'
           },
@@ -204,6 +182,23 @@ Page({
         ]
       },
     ]
+  },
+  switchTab: function(e) {
+    const self = this;
+    this.setData({
+      isScroll: true
+    });
+    let timer = setTimeout(function() {
+      self.setData({
+        toView: e.target.dataset.id,
+        currentIndex: e.target.dataset.index
+      })
+    }, 0);
+    setTimeout(function () {
+      self.setData({
+        isScroll: false
+      })
+    }, 1)
   },
 
   /**

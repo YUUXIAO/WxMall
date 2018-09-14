@@ -2,13 +2,12 @@
 <view class="main">
   <!-- 左侧导航栏 -->
   <view class='category-nav'>
-    <view class='category-item' wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item'>
+    <view class='category-item {{currentIndex == index?"currItem":""}}' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item' bindtap="switchTab" >
       {{item.name}}
     </view>
-
   </view>
   <!-- 右侧内容栏 -->
-  <scroll-view class='category-content' scroll-y="true">
+  <scroll-view class='category-content' scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
     <block wx:for='{{products}}' wx:for-item='item'>
       <view class='category-products'>
         <view class='category-banner'>

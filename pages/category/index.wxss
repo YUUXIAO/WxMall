@@ -43,6 +43,9 @@ page {
 
 .category-products {
   margin-bottom: 60rpx;
+  min-height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
 }
 
 .category-banner {

@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/shoppingCart/index",
-    "pages/index/index",
-    "pages/detail/index",
     "pages/category/index",
+    "pages/detail/index",
+    "pages/index/index",
+    "pages/shoppingCart/index",
     "pages/user/index",
     "pages/logs/logs",
     "pages/search/index",
@@ -23,14 +23,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "/images/index/home.png",
-        "selectedIconPath": "/images/index/home_selected.png"
+        "iconPath": "/images/menu/icon_home.png",
+        "selectedIconPath": "/images/menu/icon_home.png"
       },
       {
-        "pagePath": "pages/index/index",
-        "text": "其他",
-        "iconPath": "/images/index/home.png",
-        "selectedIconPath": "/images/index/home_selected.png"
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "/images/menu/icon_type.png",
+        "selectedIconPath": "/images/menu/icon_type.png"
+      },
+      {
+        "pagePath": "pages/shoppingCart/index",
+        "text": "购物车",
+        "iconPath": "/images/menu/icon_cart.png",
+        "selectedIconPath": "/images/menu/icon_cart.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "/images/menu/icon_user.png",
+        "selectedIconPath": "/images/menu/icon_user.png"
       }
     ]
   }
