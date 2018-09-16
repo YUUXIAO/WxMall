@@ -1,15 +1,20 @@
 <!--pages/category/index.wxml-->
+<!-- 
+    BUG-待修复：
+    1、快速点击左边导航右边列表错位
+ -->
 <view class="main">
   <!-- 左侧导航栏 -->
-  <view class='category-nav'>
-    <view class='category-item {{currentIndex == index?"currItem":""}}' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item' bindtap="switchTab" >
+  <scroll-view class='category-nav' scroll-y>
+    <view class='category-item {{curIndex == index?"currItem":""}}' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item' bindtap="switchTab">
       {{item.name}}
     </view>
-  </view>
+    <view class='slideBar'></view>
+  </scroll-view>
   <!-- 右侧内容栏 -->
-  <scroll-view class='category-content' scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+  <scroll-view class='category-content' scroll-y='{{isScroll}}' scroll-into-view="{{toView}}" scroll-with-animation="true">
     <block wx:for='{{products}}' wx:for-item='item'>
-      <view class='category-products'>
+      <scroll-view class='category-products' id="{{item.id}}" scroll-y bindscrolltolower='onReachBottom' bindscrolltoupper="onscrolltoupper">
         <view class='category-banner'>
           <image src="{{item.banner}}"></image>
         </view>
@@ -18,11 +23,11 @@
         </view>
         <view class='category-product' wx:for='{{item.product}}' wx:for-item='itemChild'>
           <view class='product-image'>
-            <image src="{{itemChild.image}}"></image>
+            <image src="{{itemChild.image}}" model='aspectFill'></image>
           </view>
           <view class='product-desc'>{{itemChild.title}}</view>
         </view>
-      </view>
+      </scroll-view>
     </block>
   </scroll-view>
 </view>
