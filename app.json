@@ -6,8 +6,7 @@
     "pages/shoppingCart/index",
     "pages/user/index",
     "pages/logs/logs",
-    "pages/search/index",
-    "pages/animation/index"
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,260 +1,93 @@
 // pages/category/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    currentIndex: 0,
-    toView: "fruits",
+    curIndex: 0,
     isScroll: false,
     categoryNavigation: [{
-        "name": "水果",
-        "id": "fruits"
+        "name": "推荐专区",
+        "id": "introduce"
       },
       {
-        "name": "蔬菜",
-        "id": "vegetables"
+        "name": "爆品区",
+        "id": "hots"
+      },
+      {
+        "name": "居家",
+        "id": "furniture"
+      },
+      {
+        "name": "鞋包",
+        "id": "shoes"
       },
       {
         "name": "服饰",
-        "id": "clothes"
+        "id": "cloths"
       },
       {
-        "name": "玩具",
-        "id": "plays"
+        "name": "电器",
+        "id": "electrical"
+      },
+      {
+        "name": "洗护",
+        "id": "toiletries"
+      },
+      {
+        "name": "饮食",
+        "id": "foods"
+      },
+      {
+        "name": "餐厨",
+        "id": "kitchen"
+      },
+      {
+        "name": "婴童",
+        "id": "babies"
+      },
+      {
+        "name": "文体",
+        "id": "literary"
+      },
+      {
+        "name": "特色区",
+        "id": "special"
       }
     ],
-    products: [{
-        "banner": "/images/bg1.jpg",
-        "title": '水果',
-        "product": [{
-            "image": "/images/bg1.jpg",
-            "title": '水果1'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果2'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果3'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '水果4'
-          }
-        ]
-      },
-      {
-        "banner": "/images/bg1.jpg",
-        "title": '蔬菜',
-        "product": [{
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜1'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜2'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜3'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜4'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜5'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜6'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜7'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜8'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜9'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '蔬菜10'
-          }
-        ]
-      },
-      {
-        "banner": "/images/bg1.jpg",
-        "title": '服饰',
-        "product": [{
-            "image": "/images/bg1.jpg",
-            "title": '服饰1'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰2'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰3'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰4'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰5'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰6'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰7'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰8'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰9'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '服饰10'
-          }
-        ]
-      },
-      {
-        "banner": "/images/bg1.jpg",
-        "title": '玩具',
-        "product": [{
-            "image": "/images/bg1.jpg",
-            "title": '玩具1'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具2'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具3'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具4'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具5'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具6'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具7'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具8'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具9'
-          },
-          {
-            "image": "/images/bg1.jpg",
-            "title": '玩具10'
-          }
-        ]
-      },
-    ]
+    toView: "fruits",
+    products: []
   },
-  switchTab: function(e) {
-    console.log(e.target.dataset.id)
+  switchTab(e) {
     const self = this;
     this.setData({
       isScroll: true
-    });
-    let timer = setTimeout(function() {
+    })
+    setTimeout(function() {
       self.setData({
         toView: e.target.dataset.id,
-        currentIndex: e.target.dataset.index
+        curIndex: e.target.dataset.index
       })
-    }, 0);
-    setTimeout(function () {
+    }, 0)
+    setTimeout(function() {
       self.setData({
         isScroll: false
       })
-    }, 1)
-  },
+    }, 0.1)
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  },
   onLoad: function(options) {
-
+    var that = this;
+    // 获取banner图片
+    wx.request({
+      url: "https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/goods/category",
+      success: function(res) {
+        that.setData({
+          products: res.data.products
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  onReachBottom() {
+    this.setData({
+      isScroll: false
+    })
   }
 })
