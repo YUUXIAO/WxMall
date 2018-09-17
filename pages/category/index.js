@@ -184,6 +184,7 @@ Page({
     ]
   },
   switchTab: function(e) {
+    console.log(e.target.dataset.id)
     const self = this;
     this.setData({
       isScroll: true
