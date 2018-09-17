@@ -45,15 +45,17 @@ index.wxml
     <view class='lastest-title page-title'>
       <text>最近新品</text>
     </view>
-    <view class='lastest-list' wx:for='{{lastestLists}}' wx:for-item='item' bindtap='goodsDetail'>
-      <view class='lastest-image' >
-        <image src='{{item.image}}' mode='aspectFit'></image>
-      </view>
-      <view class='lastest-title'>
-        <text>{{item.title}}</text>
-      </view>
-      <view class='lastest-price'>
-        <text>$ {{item.price}}</text>
+    <view class='lastest-lists'>
+      <view class='lastest-list' wx:for='{{lastestLists}}' wx:for-item='item' bindtap='goodsDetail'>
+        <view class='lastest-image'>
+          <image src='{{item.image}}' mode='aspectFit'></image>
+        </view>
+        <view class='lastest-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='lastest-price'>
+          <text>$ {{item.price}}</text>
+        </view>
       </view>
     </view>
   </view>
