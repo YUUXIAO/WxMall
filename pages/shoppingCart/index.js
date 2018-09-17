@@ -5,14 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    cartList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getStorage({
+      //获取数据的key
+      key: 'shoppingCart',
+      success: function (res) {
+        that.setData({
+          cartList: that.data.cartList.concat(res.data)
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
   },
 
   /**

@@ -73,7 +73,7 @@
         <view class='increaseBtn' bindtap='increaseCount'>+</view>
       </view>
     </view>
-    <view class='addCartBtn'>加入购物车</view>
+    <view class='addCartBtn' bindtap='addtoCart'>加入购物车</view>
   </view>
   <!-- mask遮罩层 -->
   <view class='{{ maskShow ? "mask" : "" }}'></view>

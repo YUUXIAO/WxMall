@@ -54,10 +54,6 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function() {
     // 创建动画
     this.animation = wx.createAnimation({
@@ -79,18 +75,18 @@ Page({
   },
   reduceCount: function() {
     var that = this
-    if(that.data.count>1){
+    if (that.data.count > 1) {
       that.setData({
         count: that.data.count - 1
       })
-    }else{
-     wx.showToast({
-       title: '不能再少了哦！',
-       icon:'error',
-       duration: 1000
-     })
+    } else {
+      wx.showToast({
+        title: '不能再少了哦！',
+        icon: 'error',
+        duration: 1000
+      })
     }
-    
+
   },
   increaseCount: function() {
     var that = this
@@ -98,8 +94,7 @@ Page({
       count: that.data.count + 1
     })
   },
-  closeChooseNum: function(){
-    console.log(1231231)
+  closeChooseNum: function() {
     let systemInfo = wx.getSystemInfoSync();
     this.animation.translate(0, 500 / 750 * systemInfo.windowWidth).step()
 
@@ -108,46 +103,37 @@ Page({
       maskShow: false
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
+  // 商品加入购物车
+  addtoCart: function() {
+    let shoppingCart = {
+      "count": this.data.count,
+      "image": this.data.bannerImage[0],
+      "title": this.data.title,
+      "price": this.data.price
+    }
+    let self = this;
+    wx.setStorage({
+      key: 'shoppingCart',
+      data: shoppingCart,
+      success: function(res) {
+        wx.redirectTo({
+          url: "/pages/index/index"
+        })
+        let systemInfo = wx.getSystemInfoSync();
+        self.animation.translate(0, 500 / 750 * systemInfo.windowWidth).step()
+        self.setData({
+          animation: self.animation.export(),
+          maskShow: false
+        })
+        wx.showToast({
+          title: '加入购物车成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      }
+    })
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
-
 })
