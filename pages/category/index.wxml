@@ -1,8 +1,4 @@
-<!--pages/category/index.wxml-->
-<!-- 
-    BUG-待修复：
-    1、快速点击左边导航右边列表错位
- -->
+<!-- pages/category/index.wxml -->
 <view class="main">
   <!-- 左侧导航栏 -->
   <scroll-view class='category-nav' scroll-y>

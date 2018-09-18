@@ -1,6 +1,6 @@
-<!--pages/detail/index.wxml-->
+<!-- pages/detail/index.wxml -->
 <view class='main'>
-  <!--详情轮播图  -->
+  <!-- 详情轮播图 -->
   <view class='detail-images'>
     <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
       <block wx:for="{{bannerImage}}" wx:key="{{index}}">
@@ -14,7 +14,8 @@
   <view class='detail-info'>
     <view class='detail-price'>
       <text class='price'>￥ {{price}}</text>
-      <view class='oldPrice'> 价格
+      <view class='oldPrice'>
+        价格
         <text>￥ {{oldPrice}}</text>
       </view>
     </view>
@@ -28,9 +29,15 @@
   <!-- 详情操作 -->
   <view class='detail-tabs'>
     <view class='detail-nav'>
-      <view class='detail-tab {{ currentTab == 0 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='0'>商品详情</view>
-      <view class='detail-tab {{ currentTab == 1 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='1'>产品参数</view>
-      <view class='detail-tab {{ currentTab == 2 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='2'>售后保障</view>
+      <view class='detail-tab {{ currentTab == 0 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='0'>
+        商品详情
+      </view>
+      <view class='detail-tab {{ currentTab == 1 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='1'>
+        产品参数
+      </view>
+      <view class='detail-tab {{ currentTab == 2 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='2'>
+        售后保障
+      </view>
     </view>
   </view>
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>

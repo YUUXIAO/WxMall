@@ -42,7 +42,7 @@ page {
 }
 
 .currItem:after {
-  content: "";
+  content: '';
   width: 6rpx;
   height: 60rpx;
   background: #888;
@@ -122,6 +122,7 @@ page {
   padding: 0 20rpx;
   box-sizing: border-box;
   margin-bottom: 20rpx;
+  vertical-align: top;
 }
 
 .product-image {
