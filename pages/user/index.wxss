@@ -1,6 +1,7 @@
 /* pages/user/index.wxss */
 page {
   height: 100%;
+  background: #efefef;
 }
 view {
   box-sizing: border-box;
@@ -42,6 +43,11 @@ view {
   font-size: 36rpx;
 }
 /* 用户信息-End */
+/* 用户权力-Start */
+.user-center {
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
 .user-center view {
   width: 250rpx;
   height: 180rpx;
@@ -51,18 +57,31 @@ view {
   align-items: center;
   padding: 30rpx 0;
   float: left;
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #ddd;
   font-size: 32rpx;
+  background: #fff;
 }
 .user-center view:nth-child(3n + 1) {
-  border-right: 1px solid #888;
+  border-right: 1px solid #ddd;
 }
 
 .user-center view:nth-child(3n-1) {
-  border-right: 1px solid #888;
+  border-right: 1px solid #ddd;
 }
 .user-center view image {
   width: 64rpx;
   height: 64rpx;
   font-size: 0;
+}
+/* 用户权力-End */
+.switchCount {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  clear: both;
+  font-size: 36rpx;
 }

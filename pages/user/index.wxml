@@ -49,6 +49,7 @@
       <text>帮助中心</text>
     </view>
   </view>
+  <view class="switchCount">切换账号</view>
   <!-- 获取用户信息 -->
   <!-- <open-data type="userAvatarUrl"></open-data>
   <open-data type="userNickName" lang='zh_CN'></open-data>
