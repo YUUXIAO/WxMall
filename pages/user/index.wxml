@@ -1,65 +1,56 @@
-<!--pages/user/index.wxml-->
+<!-- pages/user/index.wxml -->
 <view class='main'>
   <!-- 用户信息 -->
-  <view class='user-info'>
-    <view class='user-base'>
-      <view>
-        <view class='user-image'>
-          <image src='{{userInfo.image}}'></image>
-        </view>
-        <view class='user-name'>{{userInfo.name}}</view>
-      </view>
-      <view class='user-setting'>设置</view>
+  <view class="user-info">
+    <view class="user-image">
+      <open-data type="userAvatarUrl"></open-data>
     </view>
-    <view class='user-bar'>
-      <view class='user-collection'>
-        <text>8</text>
-        <text>收藏夹</text>
-      </view>
-      <view class='user-follow'>
-        <text>8</text>
-        <text>关注店铺</text>
-      </view>
-      <view class='user-trace'>
-        <text>8</text>
-        <text>足迹</text>
-      </view>
-      <view class='user-cards'>
-        <text>8</text>
-        <text>红包卡劵</text>
-      </view>
+    <view class="user-name">
+      <text>未登陆</text>
+      <text>点击账号登陆</text>
     </view>
   </view>
-  <!-- 我的订单  -->
-  <view class='user-myorder'>
-    <view class='user-orders'>
-      <view class='order-banner'>
-        <text>我的订单</text>
-        <text>查看更多订单</text>
-      </view>
-      <view class='order-group'>
-        <view class='order-unpaid'>
-          <icon class='order-icon' type='success'></icon>
-          <text class='order-item'>待付款</text>
-        </view>
-        <view class='order-undeliver'>
-          <icon class='order-icon' type='success'></icon>
-          <text class='order-item'>待发货</text>
-        </view>
-        <view class='order-unreceive'>
-          <icon class='order-icon' type='success'></icon>
-          <text class='order-item'>待收货</text>
-        </view>
-        <view class='order-uncomment'>
-          <icon class='order-icon' type='success'></icon>
-          <text class='order-item'>待评价</text>
-        </view>
-        <view class='order-refund'>
-          <icon class='order-icon' type='success'></icon>
-          <text class='order-item'>退款/售后</text>
-        </view>
-      </view>
+  <!-- 用户权力 -->
+  <view class="user-center">
+    <view class="user-orders">
+      <image src="/images/user/orders.png" mode="aspectFit"></image>
+      <text>我的订单</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/ticket.png" mode="aspectFit"></image>
+      <text>我的积分</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/refund.png" mode="aspectFit"></image>
+      <text>退换/售后</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/coupon.png" mode="aspectFit"></image>
+      <text>优惠券</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/redPacket.png" mode="aspectFit"></image>
+      <text>红包</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/location.png" mode="aspectFit"></image>
+      <text>地址管理</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/contact.png" mode="aspectFit"></image>
+      <text>联系客服</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/feedBack.png" mode="aspectFit"></image>
+      <text>用户反馈</text>
+    </view>
+    <view class="user-orders">
+      <image src="/images/user/question.png" mode="aspectFit"></image>
+      <text>帮助中心</text>
     </view>
   </view>
-
+  <!-- 获取用户信息 -->
+  <!-- <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userNickName" lang='zh_CN'></open-data>
+  <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button> -->
 </view>

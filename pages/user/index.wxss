@@ -1,107 +1,68 @@
 /* pages/user/index.wxss */
-page{
+page {
   height: 100%;
+}
+view {
+  box-sizing: border-box;
 }
 .main {
   height: 100%;
-  background: #efefef;
 }
 
 /* 用户信息-Start */
-.user-info{
-  background: #efefef;
+.user-info {
+  width: 100%;
+  height: 250rpx;
+  background: #555;
   padding: 30rpx;
-}
-.user-base {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.user-base>view:first-child {
-  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
-
 .user-image {
-  width: 100rpx;
-  height: 100rpx;
+  width: 150rpx;
+  height: 150rpx;
   overflow: hidden;
   border-radius: 50%;
 }
-
-.user-image image {
-  width: 100%;
-  height: 100%;
-}
-
 .user-name {
-  font-size: 40rpx;
-  display: inline-block;
-  margin-left: 20rpx;
-  font-weight: bold;
-}
-
-.user-setting {
-  font-size: 28rpx;
-  color: #888;
-}
-.user-bar{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20rpx;
-}
-.user-bar>view{
+  height: 110rpx;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  font-size: 28rpx;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+.user-name text {
+  display: block;
+  font-size: 32rpx;
+  color: #aaa;
+}
+.user-name text:nth-child(1) {
+  color: #fff;
+  font-size: 36rpx;
 }
 /* 用户信息-End */
-
-
-/* 我的订单-Start */
-.user-myorder{
-  padding: 10rpx;
-}
-.user-orders {
-  background: #fff;
-  padding: 25rpx;
-  border-radius: 30rpx;
-}
-
-.order-banner {
-  padding: 15rpx 0;
-  border-bottom: 1px solid #efefef;
-  display: flex;
-  justify-content: space-between;  
-}
-.order-banner>text:first-child{
-  font-size: 30rpx;
-  font-weight: bolder;
-}
-.order-banner>text:last-child{
-  font-size: 26rpx;
-  color: #888;
-}
-
-.order-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20rpx;
-}
-
-.order-group>view {
+.user-center view {
+  width: 250rpx;
+  height: 180rpx;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  float: left;
+  border-bottom: 1px solid #888;
+  font-size: 32rpx;
 }
-.order-icon{
-}
-.order-item{
-  font-size: 28rpx;
-  color: #888;
-  margin-top: 10rpx;
+.user-center view:nth-child(3n + 1) {
+  border-right: 1px solid #888;
 }
 
-/* 我的订单-End */
+.user-center view:nth-child(3n-1) {
+  border-right: 1px solid #888;
+}
+.user-center view image {
+  width: 64rpx;
+  height: 64rpx;
+  font-size: 0;
+}

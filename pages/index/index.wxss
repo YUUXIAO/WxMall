@@ -1,76 +1,91 @@
 /**index.wxss**/
-.carouselImg{
-  width: 100%; height: 375rpx;
+.carouselImg {
+  width: 100%;
+  height: 375rpx;
 }
 /* 搜索框-Start  */
-.search{
+.search {
   padding: 20rpx;
 }
-.searchBar{
+.searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; height:70rpx;
+  width: 100%;
+  height: 70rpx;
   color: #111;
   border: 1px solid #333;
   border-radius: 20rpx;
 }
-.searchIcon{
+.searchIcon {
   margin-right: 10rpx;
 }
 /* 搜索框-End  */
 /* 精选主题-Start  */
-.selectedCenter{
+.selectedCenter {
   width: 100%;
 }
-.selected-top{
+.selected-top {
   display: flex;
   justify-content: space-between;
 }
-.selected-small{
-  flex:1;
-  width: 375rpx; height: 375rpx;
+.selected-small {
+  flex: 1;
+  width: 375rpx;
+  height: 375rpx;
   border: 3rpx solid #fff;
   overflow: hidden;
 }
-.selected-small image,.selected-big image{
-  width: 100%; height: 100%;
+.selected-small image,
+.selected-big image {
+  width: 100%;
+  height: 100%;
 }
-.selected-big{
+.selected-big {
   border: 3rpx solid #fff;
-  width: 100%; height: 375rpx;
+  width: 100%;
+  height: 375rpx;
 }
 /* 精选主题-End  */
 /* 最近新品-Start  */
-.lastest-list{
-  width: 365rpx;
+.lastest-lists {
+  box-sizing: border-box;
+  padding: 0 15rpx;
+}
+.lastest-list {
+  width: 230rpx;
   display: inline-block;
-  margin: 0 20rpx 20rpx 0; 
   text-align: center;
-  background: #efefef;
   padding-top: 20rpx;
-  
+  vertical-align: top;
+  margin-bottom: 20rpx;
 }
-.lastest-list:nth-child(odd){
-  margin-right: 0;
+.lastest-list:nth-child(3n + 1) {
+  margin-left: 15rpx;
+  margin-right: 15rpx;
 }
-.lastest-image{
-  width: 200rpx; height: 200rpx;
+.lastest-image {
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 20rpx;
   overflow: hidden;
   margin: 0 auto;
 }
-.lastest-image image{
-  width: 100%; height: 100%;
+.lastest-image image {
+  width: 100%;
+  height: 100%;
 }
-.lastest-title,.lastest-price{
+.lastest-title,
+.lastest-price {
   margin: 10rpx 0;
 }
-.lastest-title{
+.lastest-title {
   font-weight: bold;
   font-size: 28rpx;
+  line-height: 30rpx;
+  height: 60rpx;
 }
-.lastest-price{
+.lastest-price {
   color: red;
   font-size: 26rpx;
 }
