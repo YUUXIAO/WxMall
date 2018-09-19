@@ -45,9 +45,9 @@ Page({
     var count = cartList[index].count
     if (count > 1) {
       cartList[index].count--
-      that.setData({
-        cartList: cartList
-      })
+        that.setData({
+          cartList: cartList
+        })
     } else {
       wx.showToast({
         title: '不能再少了哦！',
@@ -62,9 +62,9 @@ Page({
     var cartList = this.data.cartList
     var index = e.currentTarget.dataset.index
     cartList[index].count++
-    this.setData({
-      cartList: cartList
-    })
+      this.setData({
+        cartList: cartList
+      })
     this.getTotalPrice()
   },
   // 选中商品
@@ -107,9 +107,47 @@ Page({
     })
   },
   // 开始滑动事件
-  touchS: function(e) {},
+  touchS: function(e) {
+    if (e.touches.length == 1) {
+      this.setData({
+        startX: e.touches[0].clientX
+      })
+    }
+  },
   // 滑动中事件
-  touchM: function(e) {},
+  touchM: function(e) {
+    var that = this
+    if (e.touches.length == 1) {
+      //手指移动时水平方向位置
+      var moveX = e.touches[0].clientX;
+      //手指起始点位置与移动期间的差值
+      var disX = this.data.startX - moveX;
+      var delBtnWidth = this.data.delBtnWidth;
+      var txtStyle = "";
+      if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变
+        txtStyle = "left:0rpx";
+      } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离
+        txtStyle = "left:-" + disX + "rpx";
+        if (disX >= delBtnWidth) {
+          //控制手指移动距离最大值为删除按钮的宽度
+          txtStyle = "left:-" + delBtnWidth + "rpx";
+        }
+      }
+      //获取手指触摸的是哪一项
+      var index = e.currentTarget.dataset.index;
+      var cartList = this.data.cartList;
+      console.log(index)
+      console.log(cartList)
+      console.log(txtStyle)
+      cartList[index].txtStyle = txtStyle;
+     
+      //更新列表的状态
+      this.setData({
+        cartList: cartList
+      });
+    }
+  },
+
   // 滑动中事件
   touchE: function(e) {},
 

@@ -107,7 +107,8 @@ Page({
       image: this.data.bannerImage[0],
       title: this.data.title,
       price: this.data.price,
-      selected: false
+      selected: false,
+      txtStyle: ""
     }
     let self = this
     wx.setStorage({

@@ -2,20 +2,22 @@
 <view class='main'>
   <!-- 购物车列表内容 -->
   <view wx:if='{{hasList}}'>
-    <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
-      <icon wx:if='{{item.selected}}' type='success' class='cart-no-select cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
-      <icon wx:else type='circle' class='cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
-      <view class='cart-image'>
-        <image src='{{item.image}}' model='aspectFill'></image>
-      </view>
-      <view class='cart-base'>
-        <view class='cart-title'>{{item.title}}</view>
-        <view class='cart-count'>
-          <text class='cart-price'>￥ {{item.price}}</text>
-          <view class='count-group'>
-            <view class='descCount' bindtap='reduceCount' data-index='{{index}}'>-</view>
-            <view class='countNumber'>{{item.count}}</view>
-            <view class='incrCount' bindtap='increaseCount' data-index='{{index}}'>+</view>
+    <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item' data-index="{{index}}">
+      <view class='cart-content' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+        <icon wx:if='{{item.selected}}' type='success' class='cart-no-select cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
+        <icon wx:else type='circle' class='cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
+        <view class='cart-image'>
+          <image src='{{item.image}}' model='aspectFill'></image>
+        </view>
+        <view class='cart-base'>
+          <view class='cart-title'>{{item.title}}</view>
+          <view class='cart-count'>
+            <text class='cart-price'>￥ {{item.price}}</text>
+            <view class='count-group'>
+              <view class='descCount' bindtap='reduceCount' data-index='{{index}}'>-</view>
+              <view class='countNumber'>{{item.count}}</view>
+              <view class='incrCount' bindtap='increaseCount' data-index='{{index}}'>+</view>
+            </view>
           </view>
         </view>
       </view>
