@@ -1,17 +1,24 @@
 /* pages/shoppingCart/index.wxss */
-
+page,
+.main {
+  height: 100%;
+}
 /* 购物车列表内容-Start */
 
 .cart-list {
   height: 240rpx;
   display: flex;
-  /* justify-content: flex-start; */
   align-items: center;
   padding: 20rpx;
   box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+  transition: left 0.2s ease-in-out;
+  border: 1px solid red;
+  background: #fff;
 }
 
-.cart-select {
+.cart-select-icon {
   width: 60rpx;
 }
 
@@ -38,7 +45,7 @@
   box-sizing: border-box;
 }
 
-.cart-base>view {
+.cart-base > view {
   font-size: 30rpx;
 }
 
@@ -60,7 +67,7 @@
   justify-content: space-between;
 }
 
-.count-group>view {
+.count-group > view {
   flex: 1;
   height: 100%;
   text-align: center;
@@ -71,7 +78,38 @@
   border-right: 1px solid #aaa;
   border-left: 1px solid #aaa;
 }
+.emptyCart {
+  width: 100%;
+  height: calc(100% - 100rpx);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
 
+.addGoods {
+  text-align: center;
+  font-size: 32rpx;
+  color: #888;
+  line-height: 50rpx;
+}
+
+.slideBar {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.deleteGoods {
+  background: red;
+  color: #fff;
+  width: 150rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 4;
+}
 /* 购物车底部 */
 
 .cart-footer {
@@ -87,14 +125,14 @@
   padding-left: 20rpx;
 }
 
-.cart-footer>view {
+.cart-footer > view {
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.footer-select text{
+.footer-select text {
   font-size: 30rpx;
   color: #888;
 }

@@ -1,31 +1,45 @@
-<!--pages/shoppingCart/index.wxml-->
+<!-- pages/shoppingCart/index.wxml -->
 <view class='main'>
   <!-- 购物车列表内容 -->
-  <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item'>
-    <icon type='circle' class='cart-no-select cart-select'></icon>
-    <view class='cart-image'>
-      <image src='{{item.image}}' model='aspectFill'></image>
-    </view>
-    <view class='cart-base'>
-      <view class='cart-title'>{{item.title}}</view>
-      <view class='cart-count'>
-        <text class='cart-price'>￥ {{item.price}}</text>
-        <view class='count-group'>
-          <view class='descCount'>-</view>
-          <view class='countNumber'>{{item.count}}</view>
-          <view class='incrCount'>+</view>
+  <view wx:if='{{hasList}}'>
+    <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
+      <icon wx:if='{{item.selected}}' type='success' class='cart-no-select cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
+      <icon wx:else type='circle' class='cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
+      <view class='cart-image'>
+        <image src='{{item.image}}' model='aspectFill'></image>
+      </view>
+      <view class='cart-base'>
+        <view class='cart-title'>{{item.title}}</view>
+        <view class='cart-count'>
+          <text class='cart-price'>￥ {{item.price}}</text>
+          <view class='count-group'>
+            <view class='descCount' bindtap='reduceCount' data-index='{{index}}'>-</view>
+            <view class='countNumber'>{{item.count}}</view>
+            <view class='incrCount' bindtap='increaseCount' data-index='{{index}}'>+</view>
+          </view>
         </view>
       </view>
+      <!-- 左滑删除按钮 -->
+      <view class="slideBar">
+        <view class="deleteGoods" bindtap="delItem" data-index="index">删除</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="emptyCart">
+    <view class="emptyTips">
+      <text>购物车暂时是空空的~</text>
+      <view class="addGoods">去添加</view>
     </view>
   </view>
   <!-- 购物车底部 -->
   <view class='cart-footer'>
     <view class='footer-select'>
-      <icon type='circle' class='cart-no-select cart-select'></icon>
-      <text>全选</text>
+      <icon wx:if='{{selectAll}}' type='success' class='cart-no-select cart-select-icon' bindtap='selectAllGoods'></icon>
+      <icon wx:else type='circle' class='cart-no-select cart-select-icon' bindtap='selectAllGoods'></icon>
+      <text bindtap='selectAllGoods'>全选</text>
     </view>
     <view class='footer-order'>
-      <text>￥ 0.00</text>
+      <text>￥ {{totalPrice}}</text>
       <view class='order-goods'>下单</view>
     </view>
   </view>

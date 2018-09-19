@@ -1,8 +1,5 @@
 // pages/detail/index.js
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     bannerImage: [],
     price: '',
@@ -21,9 +18,9 @@ Page({
     count: 1
   },
   tabClick: function(e) {
-    let current = e.currentTarget.dataset.index;
+    let current = e.currentTarget.dataset.index
     if (this.data.currentTab == current) {
-      return false;
+      return false
     } else {
       this.setData({
         currentTab: current
@@ -37,10 +34,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this;
+    let that = this
     // 获取商品信息
     wx.request({
-      url: "https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/goods/detail",
+      url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/goods/detail',
       success: function(res) {
         that.setData({
           bannerImage: res.data.bannerImage,
@@ -49,7 +46,8 @@ Page({
           title: res.data.title,
           deliver: res.data.deliver,
           amount: res.data.amount,
-          address: res.data.address
+          address: res.data.address,
+          selected: false
         })
       }
     })
@@ -58,16 +56,16 @@ Page({
     // 创建动画
     this.animation = wx.createAnimation({
       duration: 100,
-      transformOrigin: "50% 50%",
-      timingFunction: "linear",
+      transformOrigin: '50% 50%',
+      timingFunction: 'linear',
       success: function(res) {
         console.log(res)
       }
     })
   },
   showChooseNum: function() {
-    let systemInfo = wx.getSystemInfoSync();
-    this.animation.translate(0, -500 / 750 * systemInfo.windowWidth).step()
+    let systemInfo = wx.getSystemInfoSync()
+    this.animation.translate(0, (-500 / 750) * systemInfo.windowWidth).step()
     this.setData({
       animation: this.animation.export(),
       maskShow: true
@@ -86,7 +84,6 @@ Page({
         duration: 1000
       })
     }
-
   },
   increaseCount: function() {
     var that = this
@@ -95,8 +92,8 @@ Page({
     })
   },
   closeChooseNum: function() {
-    let systemInfo = wx.getSystemInfoSync();
-    this.animation.translate(0, 500 / 750 * systemInfo.windowWidth).step()
+    let systemInfo = wx.getSystemInfoSync()
+    this.animation.translate(0, (500 / 750) * systemInfo.windowWidth).step()
 
     this.setData({
       animation: this.animation.export(),
@@ -106,21 +103,22 @@ Page({
   // 商品加入购物车
   addtoCart: function() {
     let shoppingCart = {
-      "count": this.data.count,
-      "image": this.data.bannerImage[0],
-      "title": this.data.title,
-      "price": this.data.price
+      count: this.data.count,
+      image: this.data.bannerImage[0],
+      title: this.data.title,
+      price: this.data.price,
+      selected: false
     }
-    let self = this;
+    let self = this
     wx.setStorage({
       key: 'shoppingCart',
       data: shoppingCart,
       success: function(res) {
         wx.redirectTo({
-          url: "/pages/index/index"
+          url: '/pages/index/index'
         })
-        let systemInfo = wx.getSystemInfoSync();
-        self.animation.translate(0, 500 / 750 * systemInfo.windowWidth).step()
+        let systemInfo = wx.getSystemInfoSync()
+        self.animation.translate(0, (500 / 750) * systemInfo.windowWidth).step()
         self.setData({
           animation: self.animation.export(),
           maskShow: false
@@ -133,7 +131,5 @@ Page({
         })
       }
     })
-
-
   }
 })
