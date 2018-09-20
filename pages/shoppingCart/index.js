@@ -8,32 +8,43 @@ Page({
     hasList: false,
     selectAll: false,
     totalPrice: 0,
-    delBtnWidth: 185
+    delBtnWidth: 150
   },
   onLoad: function(options) {
     var that = this
-    wx.getStorage({
-      //获取数据的key
-      key: 'shoppingCart',
+    // 获取购物车列表数据
+    wx.request({
+      url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/getCartList',
       success: function(res) {
         that.setData({
-          cartList: that.data.cartList.concat(res.data)
+          cartList: res.data.cartList
         })
-        // 判断购物车是否有数据
-        console.log(that.data.cartList)
-        console.log(that.data.cartList.length)
-        if (that.data.cartList.length) {
-          that.setData({
-            hasList: true
-          })
-        } else {
-          that.setData({
-            hasList: false
-          })
-        }
-      },
-      fail: function(res) {
-        console.log(res)
+        // 获取新加入购物车数据
+        wx.getStorage({
+          //获取数据的key
+          key: 'shoppingCart',
+          success: function (res) {
+            that.setData({
+              cartList: that.data.cartList.concat(res.data)
+            })
+            // 判断购物车是否有数据
+            if (that.data.cartList.length) {
+              that.setData({
+                hasList: true,
+                selectAll: true
+              })
+            } else {
+              that.setData({
+                hasList: false,
+                selectAll: false
+              })
+            }
+            that.getTotalPrice()
+          },
+          fail: function (res) {
+            console.log(res)
+          }
+        })
       }
     })
   },
@@ -45,9 +56,9 @@ Page({
     var count = cartList[index].count
     if (count > 1) {
       cartList[index].count--
-        that.setData({
-          cartList: cartList
-        })
+      that.setData({
+        cartList: cartList
+      })
     } else {
       wx.showToast({
         title: '不能再少了哦！',
@@ -62,9 +73,9 @@ Page({
     var cartList = this.data.cartList
     var index = e.currentTarget.dataset.index
     cartList[index].count++
-      this.setData({
-        cartList: cartList
-      })
+    this.setData({
+      cartList: cartList
+    })
     this.getTotalPrice()
   },
   // 选中商品
@@ -96,15 +107,17 @@ Page({
   getTotalPrice: function() {
     let cartList = this.data.cartList
     let total = 0
+    console.log(cartList)
     cartList.map(m => {
       if (m.selected) {
-        total = m.price * m.count
+        console.log(total)
+        total += m.price * m.count
       }
     })
-    console.log(total)
     this.setData({
       totalPrice: total.toFixed(2)
     })
+    console.log(this.data.totalPrice)
   },
   // 开始滑动事件
   touchS: function(e) {
@@ -119,32 +132,30 @@ Page({
     var that = this
     if (e.touches.length == 1) {
       //手指移动时水平方向位置
-      var moveX = e.touches[0].clientX;
+      var moveX = e.touches[0].clientX
       //手指起始点位置与移动期间的差值
-      var disX = this.data.startX - moveX;
-      var delBtnWidth = this.data.delBtnWidth;
-      var txtStyle = "";
-      if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变
-        txtStyle = "left:0rpx";
-      } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离
-        txtStyle = "left:-" + disX + "rpx";
-        if (disX >= delBtnWidth) {
-          //控制手指移动距离最大值为删除按钮的宽度
-          txtStyle = "left:-" + delBtnWidth + "rpx";
-        }
+      var disX = this.data.startX - moveX
+      var delBtnWidth = this.data.delBtnWidth
+      var txtStyle = ''
+
+      if (disX == 0 || disX < 0 || disX < delBtnWidth / 2) {
+        //如果移动距离小于等于0，文本层位置不变
+        txtStyle = 'left:0rpx'
+      } else {
+        txtStyle = 'left:-' + delBtnWidth + 'rpx'
       }
       //获取手指触摸的是哪一项
-      var index = e.currentTarget.dataset.index;
-      var cartList = this.data.cartList;
+      var index = e.currentTarget.dataset.index
+      var cartList = this.data.cartList
       console.log(index)
       console.log(cartList)
       console.log(txtStyle)
-      cartList[index].txtStyle = txtStyle;
-     
+      cartList[index].txtStyle = txtStyle
+
       //更新列表的状态
       this.setData({
         cartList: cartList
-      });
+      })
     }
   },
 

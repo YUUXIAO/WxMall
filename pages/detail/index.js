@@ -107,9 +107,10 @@ Page({
       image: this.data.bannerImage[0],
       title: this.data.title,
       price: this.data.price,
-      selected: false,
-      txtStyle: ""
+      selected: true,
+      txtStyle: ''
     }
+
     let self = this
     wx.setStorage({
       key: 'shoppingCart',

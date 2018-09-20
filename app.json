@@ -7,7 +7,8 @@
     "pages/detail/index",
     "pages/logs/logs",
     "pages/search/index",
-    "pages/test/index"    
+    "pages/test/index",
+    "pages/address/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

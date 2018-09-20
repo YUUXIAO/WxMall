@@ -2,26 +2,24 @@
 page,
 .main {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  background: #efefef;
+  padding-bottom: 50rpx;
 }
 /* 购物车列表内容-Start */
-.cart-list{
-  width: 100%;
+.cart-list {
+  width: 100%; height: 240rpx;
   position: relative;
-  border: 1px solid blue;
+  margin-bottom: 20rpx;
 }
 .cart-content {
-  height: 240rpx;
+  height: 100%;
   display: flex;
   align-items: center;
   padding: 20rpx;
   box-sizing: border-box;
-  transition: left 0.2s ease-in-out;
-  border: 1px solid red;
+  transition: left 0.1s ease-in-out;
   background: #fff;
   position: absolute;
-  top: 0; 
   z-index: 5;
 }
 
@@ -103,19 +101,23 @@ page,
 
 .slideBar {
   position: absolute;
-  right: 0; 
+  right: 0;
   z-index: 4;
 }
 .deleteGoods {
   background: red;
   color: #fff;
   width: 150rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-  vertical-align: middle;
+  height: 240rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.deleteGoods image {
+  display: inline-block;
   text-align: center;
-  top: 50%;
-  transform: translateY(50%);
+  width: 64rpx;
+  height: 64rpx;
 }
 /* 购物车底部 */
 
@@ -130,6 +132,8 @@ page,
   left: 0;
   bottom: 0;
   padding-left: 20rpx;
+  z-index: 10;
+  background: #fff;
 }
 
 .cart-footer > view {

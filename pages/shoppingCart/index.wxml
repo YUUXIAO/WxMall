@@ -23,7 +23,9 @@
       </view>
       <!-- 左滑删除按钮 -->
       <view class="slideBar">
-        <view class="deleteGoods" bindtap="delItem" data-index="index">删除</view>
+        <view class="deleteGoods" bindtap="delItem" data-index="index">
+          <image src="/images/cart/delete.png"></image>
+        </view>
       </view>
     </view>
   </view>
