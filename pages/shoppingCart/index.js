@@ -23,7 +23,7 @@ Page({
         wx.getStorage({
           //获取数据的key
           key: 'shoppingCart',
-          success: function (res) {
+          success: function(res) {
             that.setData({
               cartList: that.data.cartList.concat(res.data)
             })
@@ -41,7 +41,7 @@ Page({
             }
             that.getTotalPrice()
           },
-          fail: function (res) {
+          fail: function(res) {
             console.log(res)
           }
         })

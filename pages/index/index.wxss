@@ -21,6 +21,50 @@
   margin-right: 10rpx;
 }
 /* 搜索框-End  */
+/* 限时折扣-Start  */
+.discount {
+  width: 100%;
+  border: 1px solid blue;
+  padding-bottom: 30rpx;
+}
+.discount-good {
+  width: 180rpx;
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.discount-image {
+  width: 100%;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.discount-price {
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+.discount-tag {
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 10rpx;
+}
+.discount-prePrice {
+  font-size: 30rpx;
+  color: red;
+  vertical-align: middle;
+  font-weight: bold;
+  display: inline-block;
+}
+.discount-oldPrice {
+  font-size: 30rpx;
+  color: #888;
+  text-decoration: line-through;
+  display: block;
+  text-align: center;
+}
+/* 限时折扣-End  */
 /* 精选主题-Start  */
 .selectedCenter {
   width: 100%;

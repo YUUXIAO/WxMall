@@ -10,13 +10,43 @@
     </block>
   </swiper>
   <!-- 搜索框 -->
-  <view class='search'>
+  <!-- <view class='search'>
     <navigator url='/pages/search/index'>
       <view class='searchBar'>
         <icon class='searchIcon' type="search" size="14"></icon>
         搜索
       </view>
     </navigator>
+  </view> -->
+  <!-- 限时特惠 -->
+  <view class="discount">
+    <view class='discount-title page-title'>
+      <text>限时特惠</text>
+    </view>
+    <view class="discount-good">
+      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
+      <view class="discount-price">
+        <view class="discount-tag">限时</view>
+        <text class="discount-prePrice">￥23.9</text>
+      </view>
+      <view class="discount-oldPrice">￥38.9</view>
+    </view>
+    <view class="discount-good">
+      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
+      <view class="discount-price">
+        <view class="discount-tag">限时</view>
+        <text class="discount-prePrice">￥23.9</text>
+      </view>
+      <view class="discount-oldPrice">￥38.9</view>
+    </view>
+    <view class="discount-good">
+      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
+      <view class="discount-price">
+        <view class="discount-tag">限时</view>
+        <text class="discount-prePrice">￥23.9</text>
+      </view>
+      <view class="discount-oldPrice">￥38.9</view>
+    </view>
   </view>
   <!-- 精选主题 -->
   <view class='selectedCenter'>
