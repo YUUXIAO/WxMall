@@ -2,6 +2,7 @@
 page {
   height: 100%;
   background: #efefef;
+  border: 1px solid red;
 }
 view {
   box-sizing: border-box;
