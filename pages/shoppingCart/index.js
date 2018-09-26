@@ -34,7 +34,7 @@ Page({
                                 selectAll: true
                             })
                         } else {
-                            that.setData({s
+                            that.setData({
                                 hasList: false,
                                 selectAll: false
                             })
