@@ -19,35 +19,19 @@
     </navigator>
   </view> -->
   <!-- 限时特惠 -->
-  <view class="discount">
-    <view class='discount-title page-title'>
-      <text>限时特惠</text>
-    </view>
-    <view class="discount-good">
-      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
-      <view class="discount-price">
-        <view class="discount-tag">限时</view>
-        <text class="discount-prePrice">￥23.9</text>
-      </view>
-      <view class="discount-oldPrice">￥38.9</view>
-    </view>
-    <view class="discount-good">
-      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
-      <view class="discount-price">
-        <view class="discount-tag">限时</view>
-        <text class="discount-prePrice">￥23.9</text>
-      </view>
-      <view class="discount-oldPrice">￥38.9</view>
-    </view>
-    <view class="discount-good">
-      <image class="discount-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
-      <view class="discount-price">
-        <view class="discount-tag">限时</view>
-        <text class="discount-prePrice">￥23.9</text>
-      </view>
-      <view class="discount-oldPrice">￥38.9</view>
-    </view>
+  <view class='discount-title page-title'>
+    <text>限时特惠</text>
   </view>
+  <scroll-view scroll-x="true" class="discount">
+    <view class="discount-good" wx:for="{{discountList}}" wx:key="{{index}}">
+      <image class="discount-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="discount-price">
+        <view class="discount-tag">限时</view>
+        <text class="discount-prePrice">￥{{item.price}}</text>
+      </view>
+      <view class="discount-oldPrice">￥{{item.price}}</view>
+    </view>
+  </scroll-view>
   <!-- 精选主题 -->
   <view class='selectedCenter'>
     <view class='selected-title page-title'>
@@ -71,7 +55,7 @@
   </view>
   <!-- 最近新品 -->
   <view class='latestCenter'>
-    <view class='lastest-title page-title'>
+    <view class='selected-title page-title'>
       <text>最近新品</text>
     </view>
     <view class='lastest-lists'>
@@ -87,5 +71,10 @@
         </view>
       </view>
     </view>
+  </view>
+  <!-- 加载loading -->
+  <view class="loading" wx:if="loadingShow">
+    <image class="loadingGif" src="../../images/index/loading.gif" mode="aspectFit"></image>
+    正在加载中
   </view>
 </view>
