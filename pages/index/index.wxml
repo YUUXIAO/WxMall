@@ -17,7 +17,7 @@
         搜索
       </view>
     </navigator>
-  </view> -->
+  </view>
   <!-- 限时特惠 -->
   <view class='discount-title page-title'>
     <text>限时特惠</text>
