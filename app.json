@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/address/address_edit/index",
     "pages/address/index",
     "pages/index/index",
     "pages/shoppingCart/index",

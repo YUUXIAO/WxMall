@@ -1,0 +1,15 @@
+/* pages/address/address_add/index.wxss */
+.addressEdit {
+  width: 100%;
+  height: 100%;
+  border: 1px soilid red;
+}
+.inputView {
+  border: 1px solid green;
+  padding: 15rpx 15rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1px solid #888;
+}
+.inputView input {
+  font-size: 30rpx;
+}

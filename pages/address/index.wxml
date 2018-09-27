@@ -1,12 +1,12 @@
 <!-- pages/address/index.wxml -->
 <view class="addressManage">
     <!-- 没有保存地址显示 -->
-    <view class="no-address">
+    <!-- <view class="no-address">
         <view class="no-address-warp">
             <image class="no-address-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
             <text class="no-address-tip">收货地址在哪里</text>
         </view>
-    </view>
+    </view> -->
     <!-- 新建收货地址 -->
-    <view class="addAddress" >+ 新建地址</view>
+    <view class="addAddress">+ 新建地址</view>
 </view>
