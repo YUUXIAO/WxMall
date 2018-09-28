@@ -7,6 +7,13 @@
         <view class="phone inputView">
             <input name="input" placeholder="手机号码" />
         </view>
+        <view class="select-address">
+            <picker-view mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" range="{{multiArray}}">
+                <picker-view-column>
+                    <view wx:for="{{provinces}}" style="line-height: 50px">{{item}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
         <view class="address-detail inputView">
             <input name="input" placeholder="详细地址,如楼道、楼盘号等" />
         </view>

@@ -24,6 +24,9 @@ page {
   font-size: 32rpx;
   text-align: center;
 }
+.select-address {
+  border: 1px solid red;
+}
 /* 没有保存地址显示-End */
 /* 新建收货地址 */
 .addAddress {
