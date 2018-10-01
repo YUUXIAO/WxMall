@@ -28,7 +28,10 @@ Page({
     }
   },
   tabsChange: function(e) {
-    console.log(e)
+    let currentTab = e.detail.current
+    this.setData({
+      currentTab: currentTab
+    })
   },
   /**
    * 生命周期函数--监听页面加载

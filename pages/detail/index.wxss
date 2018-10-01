@@ -26,10 +26,6 @@ swiper {
 .detail-info {
   padding: 30rpx 10rpx;
 }
-
-.detail-price {
-}
-
 .detail-price .price {
   color: red;
   font-weight: bolder;

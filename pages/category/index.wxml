@@ -5,7 +5,7 @@
     <view class='category-item {{curIndex == index?"currItem":""}}' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item' bindtap="switchTab">
       {{item.name}}
     </view>
-    <view class='slideBar'></view>
+    <!-- <view class='slideBar'></view> -->
   </scroll-view>
   <!-- 右侧内容栏 -->
   <scroll-view class='category-content' scroll-y='{{isScroll}}' scroll-into-view="{{toView}}" scroll-with-animation="true">

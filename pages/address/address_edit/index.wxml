@@ -1,63 +1,45 @@
 <!-- pages/address/address_add/index.wxml -->
 <view class="addressEdit">
-    <form bindsubmit="formSubmit" bindreset="formReset">
-        <view class="userName inputView">
-            <input name="input" placeholder="姓名" />
-        </view>
-        <view class="phone inputView">
-            <input name="input" placeholder="手机号码" />
-        </view>
-        <view class="select-address">
-            <picker-view mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" range="{{multiArray}}">
-                <picker-view-column>
-                    <view wx:for="{{provinces}}" style="line-height: 50px">{{item}}</view>
-                </picker-view-column>
-            </picker-view>
-        </view>
-        <view class="address-detail inputView">
-            <input name="input" placeholder="详细地址,如楼道、楼盘号等" />
-        </view>
-        <!-- <view class="section section_gap">
-            <view class="section__title">switch</view>
-            <switch name="switch" />
-        </view>
-        <view class="section section_gap">
-            <view class="section__title">slider</view>
-            <slider name="slider" show-value></slider>
-        </view>
-        <view class="section">
-            <view class="section__title">input</view>
-            <input name="input" placeholder="please input here" />
-        </view>
-        <view class="section section_gap">
-            <view class="section__title">radio</view>
-            <radio-group name="radio-group">
-                <label>
-                    <radio value="radio1" />
-                    radio1
-                </label>
-                <label>
-                    <radio value="radio2" />
-                    radio2
-                </label>
-            </radio-group>
-        </view>
-        <view class="section section_gap">
-            <view class="section__title">checkbox</view>
-            <checkbox-group name="checkbox">
-                <label>
-                    <checkbox value="checkbox1" />
-                    checkbox1
-                </label>
-                <label>
-                    <checkbox value="checkbox2" />
-                    checkbox2
-                </label>
-            </checkbox-group>
-        </view>
-        <view class="btn-area">
-            <button formType="submit">Submit</button>
-            <button formType="reset">Reset</button>
-        </view> -->
-    </form>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="userName inputView">
+      <input name="input" placeholder="姓名" />
+    </view>
+    <view class="phone inputView">
+      <input name="input" placeholder="手机号码" />
+    </view>
+    <view class='address inputView' bindtap='showAddress'>省份、城市、区县</view>
+    <view class="address-detail inputView">
+      <input name="input" placeholder="详细地址,如楼道、楼盘号等" />
+    </view>
+  </form>
+  <!-- 地址选择器  -->
+  <view class="address-warpper" animation="{{animation}}">
+    <view class='address-header'>
+      <view class='header-tab'>
+        <view class='tab-item {{currentTab == "0" ? "tab-selected-item":""}}' data-index='0' bindtap="addressChange">{{chooseProvience}}</view>
+        <view wx:if="{{showCity}}" class='tab-item {{currentTab == "1" ? "tab-selected-item":""}}' data-index='1' bindtap="addressChange">{{chooseCity}}</view>
+        <view wx:if="{{showArea}}" class='tab-item {{currentTab == "2" ? "tab-selected-item":""}}' data-index='2' bindtap="addressChange">{{chooseArea}}</view>
+      </view>
+      <view class='{{!chooseConfirm?"preventSubmit":""}}' bindtap="handleConfirm">确定</view>
+    </view>
+    <view class='address-selector'>
+      <swiper current='{{currentTab}}' bindchange='tabsChange'>
+        <swiper-item>
+          <scroll-view class='provience-warpper address-warppers' scroll-y>
+            <view wx:for='{{provinces}}' wx:key="index" class='provience-item address-item' bindtap="provienceTap" data-name="{{item}}">{{item}}</view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view class='city-warpper address-warppers' scroll-y>
+            <view wx:for='{{cities}}' wx:key="index" class='provience-item address-item' bindtap="cityTap" data-name="{{item}}">{{item}}</view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view class='area-warpper address-warppers' scroll-y>
+            <view wx:for='{{areas}}' wx:key="index" class='provience-item address-item' bindtap="areaTap" data-name="{{item}}">{{item}}</view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
 </view>
