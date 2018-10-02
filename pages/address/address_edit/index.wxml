@@ -7,7 +7,7 @@
     <view class="phone inputView">
       <input name="input" placeholder="手机号码" />
     </view>
-    <view class='address inputView' bindtap='showAddress'>{{address}}</view>
+    <view class='address inputView {{addressStyle?"addressShow":""}}' bindtap='showAddress'>{{address}}</view>
     <view class="address-detail inputView">
       <input name="input" placeholder="详细地址,如楼道、楼盘号等" />
     </view>

@@ -8,10 +8,11 @@ Page({
     chooseProvience: "省份",
     chooseCity: "城市",
     chooseArea: "区县",
-    address:"城市、区县、街道",
+    address: "城市、区县、街道",
     showCity: false,
     showArea: false,
     chooseConfirm: false,
+    addressStyle: false,
     animation: '',
     currentTab: 0,
     provinces: [],
@@ -23,7 +24,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var provinces = []
     address.map(s => {
       provinces.push(s.name)
@@ -33,28 +34,28 @@ Page({
     })
   },
 
-  showAddress: function () {
+  showAddress: function() {
     let systemInfo = wx.getSystemInfoSync()
     this.animation.translate(0, (-680 / 750) * systemInfo.windowWidth).step()
     this.setData({
       animation: this.animation.export()
     })
   },
-  handleConfirm: function () {
+  handleConfirm: function() {
     if (this.data.chooseConfirm) {
       let systemInfo = wx.getSystemInfoSync()
       this.animation.translate(0, (680 / 750) * systemInfo.windowWidth).step()
-      let address = this.data.chooseProvience + '-' + this.data.chooseCity + '-' + this.data.chooseArea
+      let address = this.data.chooseProvience + ' ' + this.data.chooseCity + ' ' + this.data.chooseArea
       this.setData({
+        addressStyle: true,
         address: address,
-        animation: this.animation.export(),
-        chooseConfirm: false
+        animation: this.animation.export()
       })
 
 
     }
   },
-  provienceTap: function (e) {
+  provienceTap: function(e) {
     let chooseProvience = e.currentTarget.dataset.name;
     address.map(s => {
       if (s.name == chooseProvience) {
@@ -67,7 +68,7 @@ Page({
       }
     })
   },
-  cityTap: function (e) {
+  cityTap: function(e) {
     let chooseCity = e.currentTarget.dataset.name;
     address.map(s => {
       if (s.name == this.data.chooseProvience) {
@@ -80,7 +81,7 @@ Page({
       }
     })
   },
-  areaTap: function (e) {
+  areaTap: function(e) {
     let chooseArea = e.currentTarget.dataset.name;
     address.map(s => {
       if (s.name == this.data.chooseProvience) {
@@ -91,13 +92,13 @@ Page({
       }
     })
   },
-  addressChange: function (e) {
+  addressChange: function(e) {
     let currentTab = e.currentTarget.dataset.index
     this.setData({
       currentTab: currentTab
     })
   },
-  tabsChange: function (e) {
+  tabsChange: function(e) {
     let currentTab = e.detail.current
     this.setData({
       currentTab: currentTab
@@ -106,13 +107,13 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     // 创建动画
     this.animation = wx.createAnimation({
       duration: 100,
       transformOrigin: '50% 50%',
       timingFunction: 'linear',
-      success: function (res) {
+      success: function(res) {
         console.log(res)
       }
     })
@@ -121,30 +122,30 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () { },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () { },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () { },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () { }
+  onShareAppMessage: function() {}
 })

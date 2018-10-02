@@ -52,7 +52,9 @@
   height:100rpx;
   position: relative;
 }
-
+.addressShow{
+  color: #333;
+}
 .tab-selected-item:after{
   content: "";
   width: 90rpx;
