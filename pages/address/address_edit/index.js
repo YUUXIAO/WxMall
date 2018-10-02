@@ -8,6 +8,7 @@ Page({
     chooseProvience: "省份",
     chooseCity: "城市",
     chooseArea: "区县",
+    address:"城市、区县、街道",
     showCity: false,
     showArea: false,
     chooseConfirm: false,
@@ -43,10 +44,14 @@ Page({
     if (this.data.chooseConfirm) {
       let systemInfo = wx.getSystemInfoSync()
       this.animation.translate(0, (680 / 750) * systemInfo.windowWidth).step()
+      let address = this.data.chooseProvience + '-' + this.data.chooseCity + '-' + this.data.chooseArea
       this.setData({
+        address: address,
         animation: this.animation.export(),
         chooseConfirm: false
       })
+
+
     }
   },
   provienceTap: function (e) {
