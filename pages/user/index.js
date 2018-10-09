@@ -7,7 +7,8 @@ Page({
     userInfo: {
       image: '/images/bg1.jpg',
       name: 'YU'
-    }
+    },
+    canIUse: false
   },
 
   /**

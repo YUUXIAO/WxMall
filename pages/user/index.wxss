@@ -26,6 +26,14 @@ view {
   height: 150rpx;
   overflow: hidden;
   border-radius: 50%;
+  border: 1px solid red;
+}
+.user-image button {
+  width: 100%;
+  height: 100%;
+}
+.notLogin {
+  background: green;
 }
 .user-name {
   height: 110rpx;

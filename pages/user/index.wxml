@@ -3,7 +3,10 @@
   <!-- 用户信息 -->
   <view class="user-info">
     <view class="user-image">
-      <open-data type="userAvatarUrl"></open-data>
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+      </button>
+      <button wx:else class="notLogin"></button>
     </view>
     <view class="user-name">
       <text>未登陆</text>
@@ -50,8 +53,4 @@
     </view>
   </view>
   <view class="switchCount">切换账号</view>
-  <!-- 获取用户信息 -->
-  <!-- <open-data type="userAvatarUrl"></open-data>
-  <open-data type="userNickName" lang='zh_CN'></open-data>
-  <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button> -->
 </view>
