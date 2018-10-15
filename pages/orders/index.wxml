@@ -1,0 +1,16 @@
+<!-- pages/orders/index.wxml -->
+<view class="main">
+  <!-- 收货地址信息 -->
+  <view class="address">
+    <view class='address_receive'>
+      <text>王三三</text>
+      <view class='address_tag'>默认</view>
+    </view>
+    <view class='address_info'>
+      <view class='address_phone'>18620365982</view>
+      <text class='address_detail'>广东省深圳市南山区XX街道XX中路XX小区XX栋</text>
+    </view>
+    <view class='address_enter'>></view>
+  </view>
+  <!--  -->
+</view>
