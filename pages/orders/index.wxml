@@ -12,5 +12,44 @@
     </view>
     <view class='address_enter'>></view>
   </view>
-  <!--  -->
+  <!-- 商品内容 -->
+  <view class="goods_detail">
+    <view class="goods_image">
+      <image src="../../images/bg1.jpg" mode="aspectFill"></image>
+    </view>
+    <view class="goods_info">
+      <view class="goods_title">素暖轻磨毛四件套,厚实粗犷肌理感，越睡越舒适</view>
+      <view class="goods_price">￥ 399</view>
+    </view>
+    <view class="goods_count">X1</view>
+  </view>
+  <!-- 商品配送信息 -->
+  <view class="goods_deliver">
+    <view class="goods_total">
+      <view class="deliver_title">商品合计</view>
+      <view class="deliver_text">￥ 1077.00</view>
+    </view>
+    <view class="goods_freight">
+      <view class="deliver_title">配送方式</view>
+      <view class="deliver_text">快递 免邮</view>
+    </view>
+    <view class="goods_remark">
+      <view class="deliver_title">买家留言</view>
+      <view class="deliver_text">
+        <input name="input" placeholder="填写与卖家协商内容" />
+      </view>
+    </view>
+    <view class="goods_summary">
+      <view class="deliver_title"></view>
+      <view class="deliver_text">
+        <text class="goods_num">共1件商品  小计：</text>
+        <text class="goods_fee">￥599.00</text>
+      </view>
+    </view>
+  </view>
+  <!-- 底部菜单栏 -->
+  <view class="order_menubar">
+    <view class="order_price">合计金额：￥99.00</view>
+    <view class="submit_order">提交订单</view>
+  </view>
 </view>
