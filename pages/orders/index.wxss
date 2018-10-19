@@ -2,7 +2,6 @@
 
 .main {
   width: 100%;
-  border: 1px solid red;
 }
 
 /* 收货地址信息-Start */
@@ -12,7 +11,6 @@
   height: 130rpx;
   background: #efefef;
   color: #333;
-  border: 1px solid green;
   box-sizing: border-box;
   padding: 20rpx;
   display: flex;
@@ -25,12 +23,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid green;
 }
 
 .address_tag {
   width: 60rpx;
-  border: 1px solid red;
   text-align: center;
   margin: 0 auto;
   border-radius: 8rpx;
@@ -39,22 +35,23 @@
 }
 
 .address_info {
-  border: 1px solid red;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 20rpx;
+  padding: 0 20rpx 0 30rpx;
   box-sizing: border-box;
 }
 
 .address_detail {
-  width: 100%;
+  width: 510rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .address_enter {
   width: 60rpx;
-  border: 1px solid blue;
   display: flex;
   justify-content: space-around;
   align-items: center;
