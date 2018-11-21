@@ -21,6 +21,33 @@
   margin-right: 10rpx;
 }
 /* 搜索框-End  */
+/* 分类商品-Start */
+.category {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: #efefef;
+  padding-bottom: 20rpx;
+}
+.category_item {
+  width: 20%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  text-align: center;
+  padding-top: 20rpx;
+}
+.category_item image {
+  width: 100%;
+  height: 90rpx;
+  border-radius: 10rpx;
+  /* border: 1px solid red; */
+}
+.category_item text {
+  font-size: 26rpx;
+  text-align: center;
+  color: #333;
+}
+/* 分类商品-End */
 /* 限时折扣-Start  */
 .discount {
   width: 100%;

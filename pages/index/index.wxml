@@ -18,6 +18,52 @@
       </view>
     </navigator>
   </view>
+  <!-- 分类商品 -->
+  <view class='category-title page-title'>
+    <text>分类商品</text>
+  </view>
+  <view class="category">
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+    <view class="category_item">
+      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <text>限时特惠</text>
+    </view>
+  </view>
   <!-- 限时特惠 -->
   <view class='discount-title page-title'>
     <text>限时特惠</text>
