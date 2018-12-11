@@ -1,6 +1,25 @@
 <!-- index.wxml
 商城首页 -->
 <view class="main">
+  <scroll-view scroll-x="true" class="tabMenu">
+    <view class="tabMenu-item">今热特卖</view>
+    <view class="tabMenu-item">保健品</view>
+    <view class="tabMenu-item">海外专区</view>
+    <view class="tabMenu-item">新鲜水果</view>
+    <view class="tabMenu-item">品质生活</view>
+    <view class="tabMenu-item">运动</view>
+    <view class="tabMenu-item">健身器械</view>
+    <view class="tabMenu-item">今热特卖</view>
+    <view class="tabMenu-item">今热特卖</view>
+    <!-- <view class="discount-good" wx:for="{{discountList}}" wx:key="{{index}}">
+      <image class="discount-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="discount-price">
+        <view class="discount-tag">限时</view>
+        <text class="discount-prePrice">￥{{item.price}}</text>
+      </view>
+      <view class="discount-oldPrice">￥{{item.price}}</view>
+    </view> -->
+  </scroll-view>
   <!-- 首页轮播图 -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
     <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
@@ -24,43 +43,27 @@
   </view>
   <view class="category">
     <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <view class="category_imageBox">
+        <image class="category-image" src="../../images/index/hot_icon.png" mode="aspectFill"></image>
+      </view>
       <text>限时特惠</text>
     </view>
     <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <view class="category_imageBox">
+        <image class="category-image" src="../../images/index/new_icon.png" mode="aspectFill"></image>
+      </view>
       <text>限时特惠</text>
     </view>
     <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <view class="category_imageBox">
+        <image class="category-image" src="../../images/index/sale_icon.png" mode="aspectFill"></image>
+      </view>
       <text>限时特惠</text>
     </view>
     <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
-      <text>限时特惠</text>
-    </view>
-    <view class="category_item">
-      <image class="category-image" src="../../images/index/cloths.png" mode="aspectFill"></image>
+      <view class="category_imageBox">
+        <image class="category-image" src="../../images/index/introduce_icon.png" mode="aspectFill"></image>
+      </view>
       <text>限时特惠</text>
     </view>
   </view>
