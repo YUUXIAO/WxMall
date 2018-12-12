@@ -2,6 +2,39 @@
 //获取应用实例
 Page({
   data: {
+    tabnav: {},
+    tabItems: [
+      {
+        title: '热卖'
+      },
+      {
+        title: '文学'
+      },
+      {
+        title: '保健'
+      },
+      {
+        title: '服饰'
+      },
+      {
+        title: '海外'
+      },
+      {
+        title: '水果'
+      },
+      {
+        title: '生活'
+      },
+      {
+        title: '运动'
+      },
+      {
+        title: '健身'
+      },
+      {
+        title: '文学'
+      }
+    ],
     bannerImgs: [],
     discountList: [],
     lastestLists: [],

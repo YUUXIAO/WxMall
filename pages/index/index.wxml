@@ -1,24 +1,15 @@
 <!-- index.wxml
 商城首页 -->
 <view class="main">
-  <scroll-view scroll-x="true" class="tabMenu">
-    <view class="tabMenu-item">今热特卖</view>
-    <view class="tabMenu-item">保健品</view>
-    <view class="tabMenu-item">海外专区</view>
-    <view class="tabMenu-item">新鲜水果</view>
-    <view class="tabMenu-item">品质生活</view>
-    <view class="tabMenu-item">运动</view>
-    <view class="tabMenu-item">健身器械</view>
-    <view class="tabMenu-item">今热特卖</view>
-    <view class="tabMenu-item">今热特卖</view>
-    <!-- <view class="discount-good" wx:for="{{discountList}}" wx:key="{{index}}">
-      <image class="discount-image" src="{{item.image}}" mode="aspectFill"></image>
-      <view class="discount-price">
-        <view class="discount-tag">限时</view>
-        <text class="discount-prePrice">￥{{item.price}}</text>
+  <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
+    <view class="tab">
+      <view class="tab_nav">
+        <view wx:for='{{tabnav.tabItems}}' wx:key='{{index}}' data-tabIndex='{{index}}'>
+          {{index}}
+        </view>
+        <view class="tab_line"></view>
       </view>
-      <view class="discount-oldPrice">￥{{item.price}}</view>
-    </view> -->
+    </view>
   </scroll-view>
   <!-- 首页轮播图 -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
@@ -46,25 +37,25 @@
       <view class="category_imageBox">
         <image class="category-image" src="../../images/index/hot_icon.png" mode="aspectFill"></image>
       </view>
-      <text>限时特惠</text>
+      <text>热卖尖货</text>
     </view>
     <view class="category_item">
       <view class="category_imageBox">
         <image class="category-image" src="../../images/index/new_icon.png" mode="aspectFill"></image>
       </view>
-      <text>限时特惠</text>
+      <text>每周上新</text>
     </view>
     <view class="category_item">
       <view class="category_imageBox">
         <image class="category-image" src="../../images/index/sale_icon.png" mode="aspectFill"></image>
       </view>
-      <text>限时特惠</text>
+      <text>特惠套组</text>
     </view>
     <view class="category_item">
       <view class="category_imageBox">
         <image class="category-image" src="../../images/index/introduce_icon.png" mode="aspectFill"></image>
       </view>
-      <text>限时特惠</text>
+      <text>大神推荐</text>
     </view>
   </view>
   <!-- 限时特惠 -->
@@ -108,7 +99,7 @@
       <text>最近新品</text>
     </view>
     <view class='lastest-lists'>
-      <view class='lastest-list' wx:for='{{lastestLists}}' wx:for-item='item' bindtap='goodsDetail'>
+      <view class='lastest-list' wx:for='{{lastestLists}}' wx:key='{{index}}' wx:for-item='item' bindtap='goodsDetail'>
         <view class='lastest-image'>
           <image src='{{item.image}}' mode='aspectFit'></image>
         </view>
