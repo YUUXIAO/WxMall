@@ -2,39 +2,42 @@
 //获取应用实例
 Page({
   data: {
-    tabnav: {},
-    tabItems: [
-      {
-        title: '热卖'
-      },
-      {
-        title: '文学'
-      },
-      {
-        title: '保健'
-      },
-      {
-        title: '服饰'
-      },
-      {
-        title: '海外'
-      },
-      {
-        title: '水果'
-      },
-      {
-        title: '生活'
-      },
-      {
-        title: '运动'
-      },
-      {
-        title: '健身'
-      },
-      {
-        title: '文学'
-      }
-    ],
+    tabnav: {
+      tabnum: 4,
+      tabIndex: 0,
+      tabItems: [
+        {
+          title: '热卖'
+        },
+        {
+          title: '文学'
+        },
+        {
+          title: '保健'
+        },
+        {
+          title: '服饰'
+        },
+        {
+          title: '海外'
+        },
+        {
+          title: '水果'
+        },
+        {
+          title: '生活'
+        },
+        {
+          title: '运动'
+        },
+        {
+          title: '健身'
+        },
+        {
+          title: '文学'
+        }
+      ]
+    },
     bannerImgs: [],
     discountList: [],
     lastestLists: [],
@@ -58,6 +61,13 @@ Page({
           lastestLists: res.data.lastestLists
         })
       }
+    })
+  },
+  // 切换顶部导航样式
+  setTab(e) {
+    const tabData = e.currentTarget.dataset
+    this.setData({
+      'tabnav.tabIndex': tabData.tabindex
     })
   },
   // 点击商品跳转商品详情

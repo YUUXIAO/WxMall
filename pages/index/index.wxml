@@ -4,10 +4,10 @@
   <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
     <view class="tab">
       <view class="tab_nav">
-        <view wx:for='{{tabnav.tabItems}}' wx:key='{{index}}' data-tabIndex='{{index}}'>
-          {{index}}
+        <view class="tab_nav-item {{tabnav.tabIndex == index ? 'curActive':''}}" wx:for='{{tabnav.tabItems}}' wx:key='{{index}}' data-tabIndex='{{index}}' bindtap='setTab'>
+          {{item.title}}
         </view>
-        <view class="tab_line"></view>
+        <view class="tab_line" style="transform:translateX({{100*tabnav.tabIndex}}%);"></view>
       </view>
     </view>
   </scroll-view>

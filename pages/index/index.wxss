@@ -1,8 +1,8 @@
 /**index.wxss**/
 
 .tab {
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
 }
 
 .tab_nav {
@@ -14,13 +14,28 @@
     position: relative;
 }
 
-.tabMenu-item {
+.tab_nav-item {
+    min-width: 18%;
+    max-width: 18%;
+    text-align: center;
     display: inline-block;
-    margin-left: 20rpx;
     font-size: 32rpx;
     color: #888;
-    border: 1px solid red;
-    padding: 0 15rpx;
+}
+
+.curActive {
+    font-weight: bold;
+    color: #333;
+}
+
+.tab_line {
+    width: 18%;
+    position: absolute;
+    left: 0;
+    bottom: -1rpx;
+    height: 4rpx;
+    background: #333;
+    transition: all 0.3s;
 }
 
 .carouselImg {
