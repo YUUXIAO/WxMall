@@ -11,6 +11,21 @@
       </view>
     </view>
   </scroll-view>
+  <!-- 商品特卖待放 -->
+  <!-- <view class="goodsSales">
+    <view class="goodsSale">
+      <view class="goodsSale-image">
+        <image src="../../images/beef.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="goodsSale-info">
+        <view class="goodsSale-title">
+          <view class="goodsSale-tag">限时</view>
+          <text>瑞典Diro 进口西冷牛排</text>
+        </view>
+        <view class="goodsSale-price">￥420.00</view>
+      </view>
+    </view>
+  </view> -->
   <!-- 首页轮播图 -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
     <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
