@@ -116,9 +116,10 @@
     <view class='lastest-lists'>
       <view class='lastest-list' wx:for='{{lastestLists}}' wx:key='{{index}}' wx:for-item='item' bindtap='goodsDetail'>
         <view class='lastest-image'>
-          <image src='{{item.image}}' mode='aspectFit'></image>
+          <image src='{{item.image}}' mode='aspectFill'></image>
         </view>
         <view class='lastest-title'>
+          <view class="goodsSale-tag">限时</view>
           <text>{{item.title}}</text>
         </view>
         <view class='lastest-price'>
