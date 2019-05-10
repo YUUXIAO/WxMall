@@ -196,16 +196,13 @@
 .lastest-lists {
   box-sizing: border-box;
   padding: 0 20rpx;
-  /* border: 1px solid red; */
 }
 
 .lastest-list {
   width: 350rpx;
   display: inline-block;
-  padding-top: 20rpx;
   margin-bottom: 20rpx;
   box-sizing: border-box;
-  border: 1px solid red;
 }
 
 .lastest-list:nth-child(2n + 1) {
@@ -218,7 +215,6 @@
   border-radius: 20rpx;
   overflow: hidden;
   margin: 0 auto;
-  border: 1px solid blue;
 }
 
 .lastest-image image {
@@ -229,13 +225,12 @@
 .lastest-title,
 .lastest-price {
   margin: 10rpx 0;
-  border: 1px solid red;
 }
 
 .lastest-title {
   font-size: 28rpx;
-  /* line-height: 30rpx;
-    height: 60rpx; */
+  line-height: 30rpx;
+  height: 65rpx;
   color: #333;
 }
 
