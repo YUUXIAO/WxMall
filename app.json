@@ -8,7 +8,8 @@
     "pages/address/address_edit/index",
     "pages/address/index",
     "pages/detail/index",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/authorize/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,5 @@
-/**app.wxss**/
+@import 'dist/css/weui.wxss';
+
 .page-title{
   font-size: 36rpx;
   text-align: center;

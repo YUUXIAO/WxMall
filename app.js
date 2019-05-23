@@ -1,7 +1,6 @@
-const WXAPI = require('wxapi/main')
+const WXAPI = require('wxapi/index')
 
 App({
-  navigateToLogin: false,
   onLaunch: function () {
     const that = this
     // 用户版本更新
@@ -57,9 +56,7 @@ App({
           title: '网络已断开',
           icon: 'loading',
           duration: 2000,
-          complete: function () {
-            // that.goStartIndexPage()
-          }
+          complete: function () { }
         })
       } else {
         that.globalData.isConnected = true
@@ -67,12 +64,9 @@ App({
       }
     });
   },
+  // 执行清空 返回登陆
   goLoginPage() {
-    if (this.navigateToLogin) {
-      return
-    }
     wx.removeStorageSync('token')
-    this.navigateToLogin = true
     setTimeout(() => {
       wx.navigateTo({
         // 回到登陆页面
@@ -82,21 +76,28 @@ App({
   onShow: function () {
     const _this = this
     const TOKEN = wx.getStorageSync('token')
-    // 没有获取到TOKEN，返回登陆页面
-    if (!TOKEN) {
-      _this.goLoginPage()
-      return
-    }
-    // 验证TOKEN
-    WXAPI.checkToken(TOKEN).then(res => {
-      if (res.code != 0) {
-        // TOKEN配置错误
-        wx.removeStorageSync('token')
+    if (TOKEN) {
+      // 验证TOKEN
+      WXAPI.checkToken(TOKEN).then(res => {
+        if (res.code != 0) {
+          // TOKEN配置错误,返回登陆页面
+          wx.removeStorageSync('token')
+          _this.goLoginPage()
+        } else {
+          //未过期 开始执行业务逻辑
+          resolve();
+        }
+      })
+    } else {
+      // 没有获取到TOKEN,返回登陆页面
+      if (!TOKEN) {
         _this.goLoginPage()
+        return
       }
-    })
+    }
   },
   globalData: {
-    isConnected: true
+    // 网络连接状态
+    isConnected: true,
   }
 })

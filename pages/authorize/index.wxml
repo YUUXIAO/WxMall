@@ -1,0 +1,11 @@
+<!-- pages/authorize.wxml -->
+<view class="container">
+    <form bindsubmit="bindSave">
+        <image class="logo" src="/images/bg2.jpg" mode="widthFix" />
+        <view class="title">微信授权页面</view>
+        <view class="profile">授权并同意使用微信账号登录当前小程序</view>
+        <button type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </form>
+</view>
