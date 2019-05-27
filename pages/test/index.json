@@ -1,5 +1,5 @@
 {
     "usingComponents": {
-        "dialog": "../../components/Dialog/dialog"
+        "component-search-bar": "../../components/searchBar/searchBar"
     }
 }
