@@ -1,9 +1,9 @@
-const CONFIG = require('../config.js')
-const API_BASE_URL = 'https://yuxiao.com'   // 举例【填您自己的域名信息】
+const CONFIG = require('./config.js')
+const token = ''
 
 const request = (url, needSubDomain, method, data) => {
     wx.showNavigationBarLoading();
-    let _url = API_BASE_URL + (needSubDomain ? '/' + CONFIG.subDomain : '') + url
+    let _url = CONFIG.baseUrl + (needSubDomain ? '/' + CONFIG.subDomain : '') + url
     return new Promise((resolve, reject) => {
         wx.request({
             url: _url,
