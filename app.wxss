@@ -1,4 +1,5 @@
 @import 'dist/css/weui.wxss';
+@import "dist/css/icon.wxss";
 
 .page-title{
   font-size: 36rpx;

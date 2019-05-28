@@ -12,7 +12,9 @@
         <text>历史纪录</text>
       </view>
       <view class='history-tags tags'>
-        <view class='history-tag tag' wx:for="{{historyList}}" wx:for-item="item">{{item.title}}</view>
+        <view class='history-tag tag' wx:for="{{historyList}}" wx:for-item="item">
+          {{item.title}}
+        </view>
       </view>
     </view>
     <!-- 热搜推荐 -->
@@ -24,8 +26,5 @@
         <view class='hot-tag tag' wx:for="{{hotList}}" wx:for-item="item">{{item.title}}</view>
       </view>
     </view>
-
   </view>
-
-
 </view>

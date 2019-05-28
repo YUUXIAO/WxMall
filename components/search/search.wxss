@@ -1,6 +1,13 @@
+@import '../../dist/css/weui.wxss';
+@import '../../dist/css/icon.wxss';
 .searchbar-result{
     margin-top: 0;
     font-size: 14px;
+}
+.placeholder{
+    font-size: 30rpx;
+    color: #999;
+    padding-left: 10rpx;
 }
 .searchbar-result:before{
     display: none;

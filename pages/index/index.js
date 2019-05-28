@@ -1,4 +1,5 @@
 //index.js
+const routes = require('../../router/index.js');
 //获取应用实例
 Page({
   data: {
@@ -46,7 +47,14 @@ Page({
     autoplay: false,
     loadingShow: false,
     interval: 3000,
-    duration: 800
+    duration: 800,
+    // 搜索栏
+    searchParams: {
+      placeholder: '搜索更多好物'
+    },
+    itemStyle: {
+      textAlign: 'left';
+    }
   },
   onLoad: function (options) {
     let that = this

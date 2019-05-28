@@ -1,6 +1,8 @@
 <!-- index.wxml
 商城首页 -->
 <view class="main">
+  <!-- 搜索栏 -->
+  <component-search-bar params="{{searchParams}}"></component-search-bar>
   <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
     <view class="tab">
       <view class="tab_nav">
