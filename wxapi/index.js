@@ -68,6 +68,13 @@ module.exports = {
         // return request('/api/register', true, 'post', data)
         return true
     },
+
+    // 搜索获取提示列表
+    getSearchList: (data) => {
+        return request('/search/searchAutoComplete.json', false, 'get', data)
+    },
+
+
     queryMobileLocation: (data) => {
         return request('/common/mobile-segment/location', false, 'get', data)
     },

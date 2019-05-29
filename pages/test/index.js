@@ -26,7 +26,7 @@ Page({
   },
   onReady: function () {
     //获得dialog组件
-    this.dialog = this.selectComponent("#dialog");
+    // this.dialog = this.selectComponent("#dialog");
   },
   showDialog() {
     this.dialog.showDialog();

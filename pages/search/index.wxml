@@ -1,29 +1,28 @@
-<view class='main'>
-  <!-- 搜索区域 -->
-  <view class='searchCenter'>
-    <input type='text' class='search-bar' placeholder="搜索"></input>
-    <icon type='search' class='search-icon' size="16"></icon>
-    <text class='cancel-btn'>取消</text>
-  </view>
-  <view class='init-page'>
-    <!-- 搜索记录 -->
-    <view class='history '>
-      <view class='history-title search-title'>
-        <text>历史纪录</text>
+<!-- 搜索页面 -->
+<view class="page">
+  <view class="dis-flex flex-x-between search-input-box">
+    <view class="search-input dis-flex">
+      <view class="left">
+        <text class="iconfont icon-search" />
       </view>
-      <view class='history-tags tags'>
-        <view class='history-tag tag' wx:for="{{historyList}}" wx:for-item="item">
-          {{item.title}}
-        </view>
+      <view class="right">
+        <input type="text" focus="true" placeholderStyle="color:#aba9a9" bindinput="getSearchInput"></input>
       </view>
     </view>
-    <!-- 热搜推荐 -->
-    <view class='hot'>
-      <view class='hot-title search-title'>
-        <text>热搜推荐</text>
-      </view>
-      <view class='hot-tags tags'>
-        <view class='hot-tag tag' wx:for="{{hotList}}" wx:for-item="item">{{item.title}}</view>
+    <view class="search-btn">
+      <button type="warn" bindtap="search">搜索</button>
+    </view>
+  </view>
+  <view class="search-cont-box" wx:if="{{historyList.length>0}}">
+    <view class="dis-flex flex-x-between title-box">
+      最近搜索
+      <text class="delete" bindtap="searchDel">清空搜索</text>
+    </view>
+    <view class="search-history-list">
+      <view class="search-history-li" wx:for="{{historyList}}" wx:key="{{index}}">
+        <view class=" history-item dis-flex flex-x-center" bintap="goSearch" data-text="{{item}}">
+          {{item}}
+        </view>
       </view>
     </view>
   </view>

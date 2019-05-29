@@ -50,11 +50,12 @@ Page({
     duration: 800,
     // 搜索栏
     searchParams: {
-      placeholder: '搜索更多好物'
+      placeholder: '搜索更多好物',
+      itemStyle: {
+        textAlign: 'left',
+        height: '80rpx'
+      }
     },
-    itemStyle: {
-      textAlign: 'left';
-    }
   },
   onLoad: function (options) {
     let that = this

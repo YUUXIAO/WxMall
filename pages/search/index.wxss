@@ -1,60 +1,58 @@
 /* search.wxss*/
-
-.main {
-  padding: 0 20rpx;
+.search-input-box{
+  height: 60rpx;
 }
-
-/*  搜索区域-Start */
-
-.searchCenter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding: 20rpx 0;
+.search-input{
+  width: 80%;
+  border-radius: 5rpx 0 0 5rpx;
+  background: #efefef;
+  padding-left: 12rpx;
+  overflow: hidden;
 }
-
-.search-bar {
-  flex: 1;
-  font-size: 32rpx;
-  padding: 6rpx 10rpx 6rpx 70rpx;
-  border: 1px solid #eee;
-  border-radius: 10rpx;
+.search-input .left{
+  width: 33rpx;
+  line-height: 56rpx;
 }
-
-.search-icon {
-  position: absolute;
-  width: 50rpx;
-  padding-left: 20rpx;
+.search-input .right{
+ flex: 1;
 }
-
-.cancel-btn {
-  font-size: 32rpx;
-  padding-left: 20rpx;
-}
-
-/*  搜索区域-End */
-
-/*  搜索记录-Start */
-
-.history {
-}
-
-/*  搜索记录-End */
-
-/* common */
-
-.search-title {
-  font-size: 36rpx;
-  font-weight: bolder;
-  padding: 20rpx 0;
-}
-
-.tag {
-  border: 1px solid #888;
-  display: inline-block;
-  border-radius: 20rpx;
+.search-input input{
   font-size: 28rpx;
-  padding: 6rpx 12rpx;
-  margin: 0 20rpx 20rpx 0;
+}
+.search-btn{
+  width: 20%;
+}
+.search-btn button{
+  border-radius: 0 5px 5px 0;
+  font-size: 28rpx;
+}
+.search-btn button,.search-input input{
+  box-sizing: border-box;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.search-cont-box{
+  margin-top: 30rpx;
+}
+.title-box{
+  font-size: 26rpx;
+  color: #999;
+}
+.search-history-list{
+  padding: 30rpx 0;
+}
+.search-history-li{
+  width: 33.3%;
+  padding: 0 5rpx;
+  box-sizing: border-box;
+  float: left;
+}
+.history-item{
+  font-size: 26rpx;
+  padding:8rpx 0;
+  border: 1px solid #eee;
+  border-radius:30rpx;
+  width:100%;  
+  box-sizing: border-box
 }
