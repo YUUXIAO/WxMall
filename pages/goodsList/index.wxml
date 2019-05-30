@@ -4,7 +4,7 @@
     <view class="dis-flex flex-x-between list-search-box">
         <view class="dis-flex flex-x-between flex-y-center list-search">
             <text class="iconfont icon-search" />
-            <input type="text" focus="true" placeholderStyle="color:#aba9a9" bindinput="searchInput" value="{{searchControl.keyword}}"></input>
+            <text class="searchInput" bindtap="searchInput">{{searchControl.keyword}}</text>
         </view>
         <view class="list-sort">
             <text class="iconfont icon-categories" />

@@ -65,7 +65,7 @@ Page({
   /**
    * 搜索提交
    */
-  search: function (data = this.data.searchValue) {
+  search: function (e, data = this.data.searchValue) {
     // 记录最近搜索
     if (data.trim()) {
       let historySearch = wx.getStorageSync("historySearch") || []
@@ -89,8 +89,7 @@ Page({
      */
   goSearch: function (e) {
     let data = e.target.dataset.text
-    this.search(data)
-    // this.goList(data)
+    this.search(e, data)
   },
   /**
     * 商品列表页面

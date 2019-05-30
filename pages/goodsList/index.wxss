@@ -19,7 +19,7 @@
     text-align: center;
     font-size: 30rpx;
 }
-.list-search input{
+.list-search .searchInput{
     flex:1;
     height:100%;
     height: 70rpx;
@@ -51,6 +51,9 @@
 
 .goods-list-box{
     padding-bottom: 50rpx;
+}
+.category-list{
+    width:100%;
 }
 .category-list .list{
     width:50%;
