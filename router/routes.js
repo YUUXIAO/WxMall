@@ -8,6 +8,7 @@ module.exports = {
     search: {
         path: '/pages/search/index'
     },
+    // 商品搜索列表
     goodsList: {
         path: '/pages/goodsList/index'
     },

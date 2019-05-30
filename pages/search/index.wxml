@@ -5,22 +5,27 @@
       <view class="left">
         <text class="iconfont icon-search" />
       </view>
-      <view class="right">
-        <input type="text" focus="true" placeholderStyle="color:#aba9a9" bindinput="getSearchInput"></input>
+      <view class="middle">
+        <input type="text" focus="true" placeholderStyle="color:#aba9a9" bindinput="getSearchInput" value="{{searchValue}}"></input>
       </view>
     </view>
     <view class="search-btn">
       <button type="warn" bindtap="search">搜索</button>
     </view>
   </view>
-  <view class="search-cont-box" wx:if="{{historyList.length>0}}">
+  <view class="rearch-result-box" wx:if="{{showResult}}">
+    <view class="rearch-result-item" data-text="{{item}}" wx:for="{{searchResult}}" wx:key="index" bindtap="goSearch">
+      {{item}}
+    </view>
+  </view>
+  <view class="search-cont-box" wx:if="{{historyList.length>0&&showHistory}}">
     <view class="dis-flex flex-x-between title-box">
       最近搜索
       <text class="delete" bindtap="searchDel">清空搜索</text>
     </view>
     <view class="search-history-list">
       <view class="search-history-li" wx:for="{{historyList}}" wx:key="{{index}}">
-        <view class=" history-item dis-flex flex-x-center" bintap="goSearch" data-text="{{item}}">
+        <view class=" history-item dis-flex flex-x-center" data-text="{{item}}" bindtap="goSearch">
           {{item}}
         </view>
       </view>

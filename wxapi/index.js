@@ -73,6 +73,10 @@ module.exports = {
     getSearchList: (data) => {
         return request('/search/searchAutoComplete.json', false, 'get', data)
     },
+    // 搜索获取商品列表
+    getGoodList: (data) => {
+        return request('/search/search.json', false, 'get', data)
+    },
 
 
     queryMobileLocation: (data) => {

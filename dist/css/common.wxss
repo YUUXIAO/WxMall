@@ -17,3 +17,15 @@
 .flex-y-center {
   align-items: center;
 }
+.flex{
+  flex:1
+}
+
+.twolist-hidden {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

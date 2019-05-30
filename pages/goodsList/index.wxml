@@ -1,2 +1,50 @@
-<!--pages/goodsList/index.wxml-->
-<text>pages/goodsList/index.wxml</text>
+<!-- pages/goodsList/index.wxml -->
+<view class="container">
+    <!-- 搜索框 -->
+    <view class="dis-flex flex-x-between list-search-box">
+        <view class="dis-flex flex-x-between flex-y-center list-search">
+            <text class="iconfont icon-search" />
+            <input type="text" focus="true" placeholderStyle="color:#aba9a9" bindinput="searchInput" value="{{searchControl.keyword}}"></input>
+        </view>
+        <view class="list-sort">
+            <text class="iconfont icon-categories" />
+        </view>
+    </view>
+    <!-- 筛选标签 -->
+    <view class="dis-flex flex-x-between flex-y-center list-tab-box">
+        <view class="flex list-tab-default {{searchControl.sortType == 0 ? 'activeTab':''}}">
+            综合
+        </view>
+        <view class="flex list-tab-price  {{searchControl.sortType == 1 ? 'activeTab':''}}">
+            价格
+        </view>
+    </view>
+    <!-- 商品列表 -->
+    <scroll-view scroll-y style="height: {{scrollHeight}}px; width: 100%; box-sizing:border-box" wx:if="{{goodsList.length>0}}">
+        <view class="dis-flex goods-list-box">
+            <view class="category-list  {{ showView ? 'arrange' : '' }}">
+                <view class="list" bind-tap="goDetail(item.id)" wx:for="{{goodsList}}" wx:key="item.id" data-id="item.id">
+                    <view class="list-img-box left">
+                        <image class="list-img" mode="scaleToFill" src="{{item.listPicUrl}}"></image>
+                    </view>
+                    <view class="right">
+                        <text class="list-title twolist-hidden">{{item.name}}</text>
+                        <block wx:if="{{ showView }}">
+                            <!-- 商品描述 -->
+                            <view class="goods-desc">{{item.simpleDesc}}</view>
+                            <!-- 商品标签 -->
+                            <view class="list-tag" wx:for="{{item.itemTagList}}" wx:key="index" wx:for-item="tag">
+                                {{tag.name}}
+                            </view>
+                            <!-- 商品销量 -->
+                            <view class="list-sales">销量：{{item.sellVolume}}</view>
+                        </block>
+                        <!-- 商品价格 -->
+                        <view class="list-price">￥19.9</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="goods-no-more" hidden="true"></view>
+    </scroll-view>
+</view>

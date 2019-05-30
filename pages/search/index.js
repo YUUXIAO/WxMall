@@ -5,6 +5,8 @@ const WXAPI = require('../../wxapi/index')
 Page({
   data: {
     searchValue: '',
+    showResult: false,
+    showHistory: true,
     historyList: [],
     searchResult: []
   },
@@ -38,31 +40,42 @@ Page({
   getSearchInput: function (e) {
     this.data.searchValue = e.detail.value;
     let that = this
+    // 获取搜索匹配列表
     WXAPI.getSearchList({
       timestamp: Date.parse(new Date()),
       keywordPrefix: this.data.searchValue
     }).then(function (res) {
       if (res.code == '200') {
-        that.setData({
-          searchResult: res.data
-        })
+        if (res.data && res.data.length > 0) {
+          that.setData({
+            searchResult: res.data,
+            showResult: true,
+            showHistory: false
+          })
+        } else {
+          that.setData({
+            searchResult: [],
+            showResult: false,
+            showHistory: true
+          })
+        }
       }
-      console.log(this.data.searchResult)
     })
-
   },
   /**
    * 搜索提交
    */
-  search: function () {
+  search: function (data = this.data.searchValue) {
     // 记录最近搜索
-    let historySearch = wx.getStorageSync("historySearch") || []
-    let index = historySearch.indexOf(this.data.searchValue)
-    index > -1 && historySearch.splice(index, 1)
-    historySearch.unshift(this.data.searchValue)
-    wx.setStorageSync('historySearch', historySearch)
-    // 跳转到商品列表页面
-    this.goList()
+    if (data.trim()) {
+      let historySearch = wx.getStorageSync("historySearch") || []
+      let index = historySearch.indexOf(data)
+      index > -1 && historySearch.splice(index, 1)
+      historySearch.unshift(data)
+      wx.setStorageSync('historySearch', historySearch)
+      // 跳转到商品列表页面
+      this.goList(data)
+    }
   },
   /**
     * 清空搜索历史
@@ -72,18 +85,22 @@ Page({
     this.getHistorySearch();
   },
   /**
-     * 跳转到最近搜索
+     * 跳转到最近搜索/列表搜索
      */
-  goSearch: function () {
-    this.goList()
+  goSearch: function (e) {
+    let data = e.target.dataset.text
+    this.search(data)
+    // this.goList(data)
   },
   /**
     * 商品列表页面
     */
-  goList: function () {
-    let param = {
-      search: this.data.searchValue
+  goList: function (data = this.data.searchValue) {
+    if (data.trim()) {
+      let param = {
+        searchValue: data
+      }
+      routes.navigateTo("goodsList", param)
     }
-    routes.navigateTo("goodsList", param)
   }
 })

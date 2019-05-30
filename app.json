@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/search/index",
-    "pages/test/index",
+    "pages/goodsList/index",
     "pages/index/index",
+    "pages/test/index",
     "pages/orders/index",
     "pages/shoppingCart/index",
     "pages/category/index",
@@ -10,8 +11,7 @@
     "pages/address/address_edit/index",
     "pages/address/index",
     "pages/detail/index",
-    "pages/authorize/index",
-    "pages/goodsList/index"
+    "pages/authorize/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,1 +1,122 @@
 /* pages/goodsList/index.wxss */
+.list-search-box{
+    width: 100%;
+    height: 70rpx;
+    padding: 0 20rpx;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+}
+.list-search{
+    flex: 1;height: 70rpx;
+    border-radius: 30rpx;
+    background: #efefef;
+    padding-left: 12rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+}
+.list-search .icon-search{
+    width: 50rpx;
+    text-align: center;
+    font-size: 30rpx;
+}
+.list-search input{
+    flex:1;
+    height:100%;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+.list-sort{
+    width: 50rpx;
+    height: 70rpx;
+    text-align: center;
+}
+.list-sort .icon-categories{
+    font-size: 40rpx;
+}
+
+
+.list-tab-box{
+    margin-top: 40rpx;
+    font-size: 28rpx;
+    height: 70rpx;
+    text-align: center;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.activeTab{
+    color: firebrick;
+}
+
+
+
+.goods-list-box{
+    padding-bottom: 50rpx;
+}
+.category-list .list{
+    width:50%;
+    box-sizing: border-box;
+    padding: 20rpx 15rpx;
+    float: left;
+}
+.category-list .list:nth-child(2n+1){
+    border-right: 1px solid #efefef
+}
+
+.category-list.arrange .list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between
+}
+.category-list.arrange  .list-img-box {
+    height: 300rpx;
+}
+.category-list.arrange .left{
+    width: 35%
+}
+.category-list.arrange .right{
+    width: 65%;
+    padding-left: 20rpx;
+}
+.category-list.arrange .list-tag{
+    display: inline-block;
+    padding: 3rpx 10rpx;
+    background: firebrick;
+    color: #fff;
+    font-size: 26rpx;
+    margin-right: 10rpx;
+}
+.category-list.arrange .list-title{
+    padding-top: 20rpx;
+}
+.category-list.arrange .goods-desc{
+    font-size: 26rpx;
+    color: #777;
+}
+.category-list.arrange .list-sales{
+    font-size: 26rpx;
+    color: #999;
+}
+.list{
+    border-bottom: 1px solid #efefef
+}
+.list-img-box{
+    height: 350rpx; 
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.list-img-box .list-img{
+    width:100%;
+   height:100%;
+}
+.list-title{
+    font-size: 30rpx;
+    color: #555;
+    line-height: 1.2;
+    height: 80rpx;
+    padding-top: 15rpx;
+}
+
+.list-price{
+    font-size: 36rpx;
+    font-weight: bolder
+}
