@@ -1,6 +1,7 @@
 // pages/goodsList/index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
+const pageIndex = 'goodsList::'
 
 Page({
 
@@ -15,8 +16,8 @@ Page({
       page: 1,
       sortType: 0,
       categoryId: 0,
-      descSorted: false,
-      matchType: 1,
+      descSorted: true,
+      matchType: 0,
       floorPrice: -1,
       upperPrice: -1,
       stillSearch: false,
@@ -26,8 +27,11 @@ Page({
     },
     // 商品列表
     goodsList: [],
-    // 列表显示方式
-    showView: true
+    // 商品列表分页信息
+    pagination: {},
+    // 列表排列方式
+    showView: true,
+    showLoadEnd: false
   },
 
   /**
@@ -42,6 +46,8 @@ Page({
     this.setListHeight();
     // 获取商品列表
     this.getGoodsList();
+    // 设置列表显示方式
+    this.setShowView();
   },
   /**
      * 设置商品列表高度
@@ -57,20 +63,88 @@ Page({
     });
   },
   /**
+   * 设置默认列表显示方式
+   */
+  setShowView() {
+    let _this = this;
+    _this.setData({
+      showView: wx.getStorageSync(`${pageIndex}showview`) || false
+    });
+  },
+  /**
+    * 切换列表排列方式
+    */
+  changeShowState() {
+    let _this = this, showView = !this.data.showView
+    wx.setStorageSync(`${pageIndex}showview`, showView)
+    _this.setData({
+      showView
+    })
+  },
+  /**
+  * 切换筛选条件
+  */
+  switchTab(e) {
+    let _this = this, type = e.currentTarget.dataset.type,
+      sortType = type == 'price' ? 1 : 0,
+      descSorted = true
+    if (type == 'price') {
+      descSorted = !this.data.searchControl.descSorted
+    }
+    _this.setData({
+      'searchControl.page': 1,
+      'searchControl.sortType': sortType,
+      'searchControl.descSorted': descSorted,
+      goodsList: [],
+      pagination: {},
+
+    }, () => {
+      _this.getGoodsList()
+    })
+  },
+  /**
     * 获取商品列表
     */
   getGoodsList: function () {
-    WXAPI.getGoodList(this.data.searchControl).then(res => {
-      let data = res.data.directly.searcherResult
-      this.setData({
-        goodsList: data.result
+    if (!this.data.pagination.lastPage) {
+      WXAPI.getGoodList(this.data.searchControl).then(res => {
+        let data = res.data.directly.searcherResult
+        this.setData({
+          goodsList: this.data.goodsList.concat(data.result),
+          pagination: data.pagination
+        })
+        if (this.data.pagination.lastPage) {
+          this.setData({
+            showLoadEnd: true
+          })
+        }
       })
-    })
+    }
   },
   searchInput: function () {
-    routes.navigateTo("search")
+    let param = {
+      searchValue: this.data.searchControl.keyword
+    }
+    routes.navigateTo("search", param)
   },
-
+  /**
+    * 下拉到底加载数据
+    */
+  bindDownLoad() {
+    // 已经是最后一页
+    if (this.data.searchControl.page >= this.data.pagination.totalPage) {
+      this.setData({
+        noMore: true
+      });
+      return false;
+    } else {
+      this.setData({
+        'searchControl.page': ++this.data.searchControl.page
+      });
+    }
+    // 加载下一页
+    this.getGoodsList()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

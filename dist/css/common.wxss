@@ -17,6 +17,16 @@
 .flex-y-center {
   align-items: center;
 }
+.flex-dir-column {
+  flex-direction: column;
+}
+.flex-y-center {
+  align-items: center;
+}
+
+.flex-y-end {
+  align-items: flex-end;
+}
 .flex{
   flex:1
 }

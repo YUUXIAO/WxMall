@@ -6,21 +6,26 @@
             <text class="iconfont icon-search" />
             <text class="searchInput" bindtap="searchInput">{{searchControl.keyword}}</text>
         </view>
-        <view class="list-sort">
-            <text class="iconfont icon-categories" />
+        <view class="list-sort" bindtap="changeShowState">
+            <text class="iconfont icon-category " wx:if="{{showView}}" />
+            <text class="iconfont icon-categories" wx:else />
         </view>
     </view>
     <!-- 筛选标签 -->
-    <view class="dis-flex flex-x-between flex-y-center list-tab-box">
-        <view class="flex list-tab-default {{searchControl.sortType == 0 ? 'activeTab':''}}">
-            综合
+    <view class="dis-flex flex-x-between flex-y-center list-tab-box" wx:if="{{goodsList.length>0}}">
+        <view class="flex list-tab-default {{searchControl.sortType == 0 ? 'activeTab':''}}" data-type="default" bindtap="switchTab">
+            <text class="tab-default">综合</text>
         </view>
-        <view class="flex list-tab-price  {{searchControl.sortType == 1 ? 'activeTab':''}}">
-            价格
+        <view class="flex list-tab-price  {{searchControl.sortType == 1 ? 'activeTab':''}}" data-type="price" bindtap="switchTab">
+            <text class="tab-price">价格</text>
+            <view class="dis-flex flex-dir-column price-arrow-box">
+                <text class="iconfont icon-arrowon {{searchControl.descSorted?'':'red'}}" />
+                <text class="iconfont icon-arrowdown {{searchControl.descSorted?'red':''}}" />
+            </view>
         </view>
     </view>
     <!-- 商品列表 -->
-    <scroll-view scroll-y style="height: {{scrollHeight}}px; width: 100%; box-sizing:border-box" wx:if="{{goodsList.length>0}}">
+    <scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 100%; box-sizing:border-box" wx:if="{{goodsList.length>0}}">
         <view class="dis-flex goods-list-box">
             <view class="category-list  {{ showView ? 'arrange' : '' }}">
                 <view class="list" bind-tap="goDetail(item.id)" wx:for="{{goodsList}}" wx:key="item.id" data-id="item.id">
@@ -40,11 +45,18 @@
                             <view class="list-sales">销量：{{item.sellVolume}}</view>
                         </block>
                         <!-- 商品价格 -->
-                        <view class="list-price">￥19.9</view>
+                        <view class="list-price">￥{{item.retailPrice}}</view>
                     </view>
                 </view>
             </view>
         </view>
-        <view class="goods-no-more" hidden="true"></view>
+        <view class="goods-load-end" wx:if="{{showLoadEnd}}">商品已加载完成</view>
     </scroll-view>
+    <!-- 无数据 -->
+    <view class="no-more-box" hidden="{{goodsList.length>0}}">
+        <view class="no-more-img">
+            <image mode="aspectFit" src="../../images/no_content.png"></image>
+        </view>
+        <text>亲, 没有相关内容哦~</text>
+    </view>
 </view>
