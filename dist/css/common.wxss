@@ -5,6 +5,9 @@
 .dis-flex{
     display: flex;
 }
+.flex-x-start{
+  justify-content: flex-start;
+}
 .flex-x-center {
   justify-content: center;
 }
@@ -38,4 +41,12 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+.list-hidden {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }

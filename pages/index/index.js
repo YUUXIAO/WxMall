@@ -1,5 +1,6 @@
 //index.js
 const routes = require('../../router/index.js');
+const WXAPI = require('../../wxapi/index')
 //获取应用实例
 Page({
   data: {
@@ -41,7 +42,7 @@ Page({
     },
     bannerImgs: [],
     discountList: [],
-    lastestLists: [],
+    goodsList: [],
     wellChosen: [],
     indicatorDots: false,
     autoplay: false,
@@ -59,6 +60,8 @@ Page({
   },
   onLoad: function (options) {
     let that = this
+    // 获取商品列表
+    this.getGoodsList()
     // 获取banner图片
     wx.request({
       url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/home/banner',
@@ -71,6 +74,36 @@ Page({
         })
       }
     })
+  },
+  /**
+   * 获取商品列表
+   */
+  getGoodsList() {
+    let _this = this
+    let param = {
+      categoryId: 0,
+      subCategoryId: 0
+    }
+    wx.request({
+      url: 'http://you.163.com/xhr/item/saleRankItems.json',
+      data: param,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          _this.setData({
+            goodsList: res.data.data
+          })
+        }
+      }
+    })
+    // WXAPI.getGoodsList({
+    //   categoryId: 0,
+    //   subCategoryId: 0
+    // }).then(res => {
+    //   console.log(res)
+    // })
   },
   // 切换顶部导航样式
   setTab(e) {

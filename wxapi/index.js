@@ -64,17 +64,21 @@ module.exports = {
         // return request('/api/checkToken', true, 'post', data)
         return true
     },
+    // 注册 
     register: (data) => {
         // return request('/api/register', true, 'post', data)
         return true
     },
-
+    // 首页获取商品列表
+    getGoodsList: (data) => {
+        return request('/item/saleRankItems.json', true, 'post', data)
+    },
     // 搜索获取提示列表
     getSearchList: (data) => {
         return request('/search/searchAutoComplete.json', false, 'get', data)
     },
     // 搜索获取商品列表
-    getGoodList: (data) => {
+    getSearchGoodsList: (data) => {
         return request('/search/search.json', false, 'get', data)
     },
 

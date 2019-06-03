@@ -107,7 +107,7 @@ Page({
     */
   getGoodsList: function () {
     if (!this.data.pagination.lastPage) {
-      WXAPI.getGoodList(this.data.searchControl).then(res => {
+      WXAPI.getSearchGoodsList(this.data.searchControl).then(res => {
         let data = res.data.directly.searcherResult
         this.setData({
           goodsList: this.data.goodsList.concat(data.result),

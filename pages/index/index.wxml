@@ -36,19 +36,7 @@
       </swiper-item>
     </block>
   </swiper>
-  <!-- 搜索框 -->
-  <view class='search'>
-    <navigator url='/pages/search/index'>
-      <view class='searchBar'>
-        <icon class='searchIcon' type="search" size="14"></icon>
-        搜索
-      </view>
-    </navigator>
-  </view>
   <!-- 分类商品 -->
-  <view class='category-title page-title'>
-    <text>分类商品</text>
-  </view>
   <view class="category">
     <view class="category_item">
       <view class="category_imageBox">
@@ -76,7 +64,7 @@
     </view>
   </view>
   <!-- 限时特惠 -->
-  <view class='discount-title page-title'>
+  <!-- <view class='discount-title page-title'>
     <text>限时特惠</text>
   </view>
   <scroll-view scroll-x="true" class="discount">
@@ -88,9 +76,9 @@
       </view>
       <view class="discount-oldPrice">￥{{item.price}}</view>
     </view>
-  </scroll-view>
+  </scroll-view> -->
   <!-- 精选主题 -->
-  <view class='selectedCenter'>
+  <!-- <view class='selectedCenter'>
     <view class='selected-title page-title'>
       <text>精选主题</text>
     </view>
@@ -109,27 +97,34 @@
         </view>
       </view>
     </view>
-  </view>
-  <!-- 最近新品 -->
-  <view class='latestCenter'>
-    <view class='selected-title page-title'>
-      <text>最近新品</text>
-    </view>
-    <view class='lastest-lists'>
-      <view class='lastest-list' wx:for='{{lastestLists}}' wx:key='{{index}}' wx:for-item='item' bindtap='goodsDetail'>
-        <view class='lastest-image'>
-          <image src='{{item.image}}' mode='aspectFill'></image>
+  </view> -->
+  <!-- 商品列表 -->
+  <scroll-view scroll-y>
+    <view class='goods-list-box'>
+      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index">
+        <view class="goods-image">
+          <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
         </view>
-        <view class='lastest-title'>
-          <view class="goodsSale-tag">限时</view>
-          <text>{{item.title}}</text>
+        <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
+        <text class="goods-title twolist-hidden">{{item.name}}</text>
+        <view class="goods-price-box">
+          <text class="goods-price">￥{{item.retailPrice}}</text>
+          <text class="goods-line-price">￥{{item.counterPrice}}</text>
         </view>
-        <view class='lastest-price'>
-          <text>$ {{item.price}}</text>
+        <view class="goods-tag" wx:for="{{item.itemTagList}}" wx:for-item="tag" wx:key="tag.tagId">
+          {{tag.name}}
+        </view>
+        <view class="dis-flex flex-y-center flex-x-start goods-comments">
+          <view class="comments-image">
+            <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl}}"></image>
+          </view>
+          <text class="flex dis-flex flex-y-center flex-x-around flex-dir-column goods-comment">
+            <text class="twolist-hidden">{{item.hotSaleListBottomInfo.content}}</text>
+          </text>
         </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
   <!-- 加载loading -->
   <view class="loading" wx:if="loadingShow">
     <image class="loadingGif" src="../../images/index/loading.gif" mode="aspectFit"></image>
