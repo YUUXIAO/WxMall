@@ -116,7 +116,7 @@
         </view>
         <view class="dis-flex flex-y-center flex-x-start goods-comments">
           <view class="comments-image">
-            <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl}}"></image>
+            <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl?item.hotSaleListBottomInfo.iconUrl:'../../images/user.jpg'}}"></image>
           </view>
           <text class="flex dis-flex flex-y-center flex-x-around flex-dir-column goods-comment">
             <text class="twolist-hidden">{{item.hotSaleListBottomInfo.content}}</text>

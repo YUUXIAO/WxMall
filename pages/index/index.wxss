@@ -172,13 +172,17 @@ swiper{
 .goods-list-box{
   width: 100%;
   box-sizing: border-box;
+  column-count: 2;
+  column-gap:15rpx;
+  padding: 0 20rpx;
 }
 .goods-content{
-  width: 50%;
-  padding: 6rpx 12rpx;
   box-sizing: border-box;
   overflow: hidden;
-  display: inline-block;
+  break-inside: avoid;
+  border: 1px solid #efefef;
+  border-radius: 5rpx;
+  margin-bottom: 15rpx;
 }
 .goods-image{
   width: 100%;
@@ -192,14 +196,16 @@ swiper{
   background: #f1f4df;
   color: #dfe38e;
   font-size: 22rpx;
-  padding: 6rpx 4rpx;
+  padding: 10rpx 5rpx;
 }
 .goods-title{
-  font-size: 32rpx;
+  font-size: 30rpx;
   line-height: 40rpx;
-  padding: 5rpx 0;
-  height: 80rpx;
-  color: #333;
+  padding: 15rpx 15rpx 5rpx 15rpx;
+  color: #555;
+}
+.goods-price-box{
+  padding: 0 15rpx;
 }
 .goods-price{
    font-size: 28rpx;
@@ -211,19 +217,20 @@ swiper{
    font-size: 30rpx;
    color: #aaa;
    text-decoration: line-through;
+   padding-bottom: 10rpx;
 }
 .goods-tag{
-   padding: 3rpx 10rpx;
+   padding: 3rpx 8rpx;
    color: #fff;
-   background: firebrick;
-   font-size: 24rpx;
+   background: #ffa1ac;
+   font-size: 20rpx;
    display: inline-block;
-   margin-right: 6rpx;
+   margin-right: 4rpx;
+   margin-left: 15rpx;
 }
 .goods-comments{
-  padding: 10rpx 0;
+  padding: 10rpx 15rpx;
   border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
 }
 .comments-image{
   width: 40rpx;
@@ -238,7 +245,7 @@ swiper{
 }
 .goods-comment{
   font-size: 22rpx;
-  line-height: 30rpx;
+  line-height: 35rpx;
   color: #999;
   height: 60rpx;
   padding-left: 10rpx;
