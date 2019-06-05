@@ -57,6 +57,7 @@ Page({
         height: '80rpx'
       }
     },
+    floorstatus: true
   },
   onLoad: function (options) {
     let that = this
@@ -84,26 +85,49 @@ Page({
       categoryId: 0,
       subCategoryId: 0
     }
-    wx.request({
-      url: 'http://you.163.com/xhr/item/saleRankItems.json',
-      data: param,
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        if (res.data.code == 200) {
-          _this.setData({
-            goodsList: res.data.data
-          })
-        }
+    WXAPI.getGoodsList(param).then(res => {
+      if (res.code == 200) {
+        _this.setData({
+          goodsList: res.data
+        })
       }
     })
-    // WXAPI.getGoodsList({
-    //   categoryId: 0,
-    //   subCategoryId: 0
-    // }).then(res => {
-    //   console.log(res)
-    // })
+  },
+
+  detail(e) {
+    let index = e.currentTarget.dataset.index
+    let goodDetail = this.data.goodsList[index]
+    wx.setStorageSync('goodDetail', goodDetail)
+    routes.navigateTo('goodsDetail')
+  },
+  /**
+   * 获取滚动条当前位置
+   */
+  onPageScroll(e) {
+    if (e.scrollTop > 200) {
+      this.setData({
+        floorstatus: true
+      })
+    } else {
+      this.setData({
+        floorstatus: false
+      })
+    }
+  },
+  /**
+  * 回到顶部
+  */
+  goTop(e) {
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
   },
   // 切换顶部导航样式
   setTab(e) {

@@ -1,17 +1,21 @@
 const CONFIG = require('./config.js')
 const token = ''
 
-const request = (url, needSubDomain, method, data) => {
+const request = (url, needSubDomain, method, data, header) => {
     wx.showNavigationBarLoading();
     let _url = CONFIG.baseUrl + (needSubDomain ? '/' + CONFIG.subDomain : '') + url
+    let defaultHeader = {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    defaultHeader = header ? header : defaultHeader
+    console.log(_url)
+    console.log(method)
     return new Promise((resolve, reject) => {
         wx.request({
             url: _url,
             method: method,
             data: data,
-            header: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
+            header: defaultHeader,
             success(request) {
                 resolve(request.data)
             },
@@ -71,7 +75,10 @@ module.exports = {
     },
     // 首页获取商品列表
     getGoodsList: (data) => {
-        return request('/item/saleRankItems.json', true, 'post', data)
+        let header = {
+            'content-type': 'application/json'
+        }
+        return request('/item/saleRankItems.json', false, 'post', data, header)
     },
     // 搜索获取提示列表
     getSearchList: (data) => {

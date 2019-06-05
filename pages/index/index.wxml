@@ -101,7 +101,7 @@
   <!-- 商品列表 -->
   <scroll-view scroll-y>
     <view class='goods-list-box'>
-      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index">
+      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}">
         <view class="goods-image">
           <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
         </view>
@@ -125,9 +125,9 @@
       </view>
     </view>
   </scroll-view>
-  <!-- 加载loading -->
-  <view class="loading" wx:if="loadingShow">
-    <image class="loadingGif" src="../../images/index/loading.gif" mode="aspectFit"></image>
-    正在加载中
+  <!-- 回到顶部 -->
+  <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="goTop">
+    <text class="iconfont icon-arrowon" />
+    <text class="text-top">顶部</text>
   </view>
 </view>

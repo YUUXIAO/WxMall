@@ -251,6 +251,33 @@ swiper{
   padding-left: 10rpx;
 }
 
+
+
+
+.scroll-top-box{
+  position: fixed;
+  right: 20rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+  background: rgba(9,9,9,0.6);
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+}
+.scroll-top-box .icon-arrowon{
+  display: block;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 0;
+}
+.scroll-top-box .text-top{
+  font-size: 26rpx;
+  color: #fff;
+  display: block;
+  margin-top: -3rpx;
+}
 /* 最近新品-Start  */
 
 /* .lastest-lists {
@@ -302,7 +329,7 @@ swiper{
 /* 最近新品-End  */
 
 /* 加载loading-Start  */
-
+/* 
 .loading {
   width: 100%;
   color: #888;
@@ -317,7 +344,7 @@ swiper{
   width: 50rpx;
   height: 50rpx;
   margin-right: 10rpx;
-}
+} */
 
 /* 加载loading-End  */
 
