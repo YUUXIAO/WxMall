@@ -13,7 +13,20 @@ Page({
       duration: 200
     },
     currentTab: 0,
-    recommendList: []
+    commentList: [],
+    recommendList: [],
+    commentData: {
+      __timestamp: Date.parse(new Date()),
+      itemId: '',
+      tag: '全部',
+      size: 10,
+      page: 1,
+      orderBy: 0,
+      oldItemTag: '全部',
+      oldItemOrderBy: 0,
+      tagChanged: 0
+    },
+    goodRates: {}
   },
   /**
    * 生命周期函数--监听页面加载
@@ -31,6 +44,7 @@ Page({
     //   })
     // }
     let goodDetail = wx.getStorageSync('goodDetail')
+    console.log(goodDetail)
     goodDetail.deliver = '免邮'
     let bannerImage = [goodDetail.listPicUrl, goodDetail.primaryPicUrl, goodDetail.scenePicUrl]
     this.setData({
@@ -38,7 +52,9 @@ Page({
       id: goodDetail.id,
       'swiper.bannerImage': bannerImage
     })
+    this.getGoodRates()
   },
+
   /**
    * 切换商品选项
    */
@@ -47,19 +63,44 @@ Page({
     this.setData({
       currentTab: index
     })
+    index == 1 && this.getComment()
     index == 2 && this.getRecommend()
   },
   /**
    * 获取用户评价列表
    */
-  getUserComment: function () {
-
+  getComment: function () {
+    this.setData({
+      'commentData.itemId': this.data.id
+    })
+    // WXAPI.getCommentsList(this.data.commentData).then(res => {
+    //   if (res.code == 200) {
+    //     this.setData({
+    //       commentList: res.data.commentList
+    //     })
+    //   }
+    // })
+    routes.navigateTo('commentsList', this.data.commentData)
+  },
+  /**
+   * 获取用户评价好评率
+   */
+  getGoodRates: function () {
+    let param = {
+      itemId: this.data.id
+    }
+    WXAPI.getGoodRates(param).then(res => {
+      if (res.code == 200) {
+        this.setData({
+          goodRates: res.data
+        })
+      }
+    })
   },
   /**
    * 获取更多推荐
    */
   getRecommend: function () {
-    console.log('getRecommendgetRecommendgetRecommendgetRecommend')
     let param = {
       __timestamp: Date.parse(new Date()),
       itemId: this.data.id
@@ -71,7 +112,6 @@ Page({
           recommendList: res.data.items
         })
       }
-      console.log(this.data.recommendList)
     })
   },
   onReady: function () { },

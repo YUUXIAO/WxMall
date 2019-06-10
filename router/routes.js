@@ -16,6 +16,10 @@ module.exports = {
     goodsDetail: {
         path: '/pages/detail/index'
     },
+    // 商品详情
+    commentsList: {
+        path: '/pages/commentsList/index'
+    },
     // 个人中心
     personal: {
         type: 'tab',

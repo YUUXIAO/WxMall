@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/detail/index",
+    "pages/index/index",
     "pages/goodsList/index",
     "pages/search/index",
     "pages/test/index",
@@ -11,7 +11,8 @@
     "pages/user/index",
     "pages/address/address_edit/index",
     "pages/address/index",
-    "pages/authorize/index"
+    "pages/authorize/index",
+    "pages/commentsList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

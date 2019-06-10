@@ -92,6 +92,14 @@ module.exports = {
     getRecommendList: (data) => {
         return request('/item/rcmd.json', false, 'get', data)
     },
+    // 搜索商品评论列表
+    getCommentsList: (data) => {
+        return request('/comment/listByItemByTag.json', false, 'get', data)
+    },
+    // 搜索商品好评率
+    getGoodRates: (data) => {
+        return request('/comment/itemGoodRates.json', false, 'get', data)
+    },
 
     queryMobileLocation: (data) => {
         return request('/common/mobile-segment/location', false, 'get', data)

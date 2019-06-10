@@ -40,6 +40,50 @@
       </view>
     </view>
   </view>
+  <!-- 用户评价 -->
+  <view class="user-comments-box">
+    <view class="dis-flex flex-x-between flex-y-center user-comments-title">
+      <view class="user-comments-count">用户评价( {{goodRates.defGoodCmtCnt}} )</view>
+      <view class="user-comments-rate">
+        {{goodRates.goodCmtRate}} 好评
+        <text class="iconfont icon-arrowright" style="font-size:24rpx;" />
+      </view>
+    </view>
+    <view class="user-comments-cont" bindtap="getComment">
+       <view class="dis-flex flex-x-start flex-y-center comment-header">
+        <view class="user-comment-avatar">
+          <image src='{{goodDetail.hotSaleListBottomInfo.iconUrl}}' mode="aspectFill"></image>
+        </view>
+        <text class="comment-username">{{goodDetail.hotSaleListBottomInfo.name?goodDetail.hotSaleListBottomInfo.name:'匿名'}}</text>
+      </view>
+      <view class="comment-content">
+        <text>{{goodDetail.hotSaleListBottomInfo.content}}</text>
+      </view>
+    </view>
+    <!-- <view class="user-comments-cont">
+      <view class="dis-flex flex-x-start flex-y-center comment-header">
+        <view class="user-comment-avatar">
+          <image src='../../images/bg1.jpg' mode="aspectFill"></image>
+        </view>
+        <text class="comment-username">12312312312</text>
+        <view class="comment-start-box"></view>
+      </view>
+      <view class="comment-body">
+         <view class="dis-flex flex-y-center comment-info">
+          <text class="comment-time">2019-05-07 10:12</text>
+          <text class="comment-skuInfo">白色;L(175/96A)</text>
+        </view>
+        <view class="comment-content">
+          <text>铭牌上无netease标牌；拉杆上无“网易严选”四字；使用说明有错字，录求？还是寻求？↵所以，这是代工厂的锅？还是你网易的锅？↵↵能用，做工糙，细节糙，目前还没问题，以后出问题再补充。老实说，网易严选真徒有虚名……</text>
+        </view>
+         <view class="comment-picture-list">
+          <image src='../../images/bg1.jpg' mode="aspectFill"></image>
+          <image src='../../images/bg1.jpg' mode="aspectFill"></image>
+          <image src='../../images/bg1.jpg' mode="aspectFill"></image>
+        </view>
+      </view>
+    </view> -->
+  </view>
   <!-- 详情操作 -->
   <view class='detail-tabs'>
     <view class='detail-nav'>
@@ -72,6 +116,7 @@
       </view>
     </swiper-item>
   </swiper>
+  
   <!-- 底部操作栏 -->
   <view class='goods-operation'>
     <view class='shoppingCart'>

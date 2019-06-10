@@ -1,0 +1,61 @@
+/* pages/commentsList/index.wxss */
+.user-comments-cont{
+  width:100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  color: #555;
+  border-bottom: 1px solid #efefef;
+}
+.user-comments-title{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+}
+ .comment-header{
+  padding-top: 20rpx;
+}
+.user-comment-avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-comment-avatar image{
+  width: 100%;
+  height: 100%;
+}
+.comment-username{
+  font-size: 26rpx;
+  padding: 0 5rpx;
+}
+.icon-star{
+  margin-left: 10rpx;
+  color: #FFBC42;
+}
+
+.comment-body{
+  padding: 15rpx 0;
+}
+.comment-info{
+  color: #aaa;
+  font-size: 24rpx;
+  height: 50rpx;
+}
+
+.comment-content{
+  font-size: 26rpx;
+}
+
+.comment-picture-list{
+  overflow: hidden;
+}
+.comment-picture-list image{
+  width: 170rpx;
+  height: 170rpx;
+  float: left;
+  border-radius: 10rpx;
+}
+.comment-picture-list image:nth-child(3n+2){
+  margin: 0 10rpx;
+} 

@@ -1,0 +1,26 @@
+<!--pages/commentsList/index.wxml-->
+<view class="page">
+    <view class="user-comments-cont" wx:for="{{commentList}}" wx:key="index">
+      <view class="dis-flex flex-x-start flex-y-center comment-header">
+        <view class="user-comment-avatar">
+          <image src='{{item.frontUserAvatar}}' mode="aspectFill"></image>
+        </view>
+        <text class="comment-username">{{item.frontUserName}}</text>
+        <view class="comment-start-box">
+            <text class="iconfont icon-star" wx:for="{{item.star}}" wx:key="index"/>
+        </view>
+      </view>
+      <view class="comment-body">
+         <view class="dis-flex flex-y-center comment-info">
+          <text class="comment-time">{{item.createTime}}</text>
+          <text class="comment-skuInfo">{{item.skuInfo[0]}}</text>
+        </view>
+        <view class="comment-content">
+          <text>{{item.content}}</text>
+        </view>
+         <view class="comment-picture-list">
+          <image src='{{pic}}' mode="aspectFill" wx:for="{{item.picList}}" wx:key="index" wx:for-item='pic'></image>
+        </view>
+      </view>
+    </view>
+</view>
