@@ -2,28 +2,42 @@
 <view class='main'>
   <!-- 详情轮播图 -->
   <view class='detail-images'>
-    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-      <block wx:for="{{bannerImage}}" wx:key="{{index}}">
+    <swiper indicator-dots="true" autoplay="true" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="true">
+      <block wx:for="{{swiper.bannerImage}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="{{item}}" class="carouselImg" />
+          <image src="{{item}}" class="carouselImg" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>
   </view>
   <!-- 详情信息 -->
-  <view class='detail-info'>
-    <view class='detail-price'>
-      <text class='price'>￥ {{price}}</text>
-      <view class='oldPrice'>
-        价格
-        <text>￥ {{oldPrice}}</text>
+  <view class='detail-info-box'>
+    <view class="detail-price-box">
+      <view class="detail-price">
+        <text class="detail-retailPrice">￥{{goodDetail.retailPrice}}</text>
+        <text class="detail-delivery"> {{goodDetail.deliver}} </text>
+        <text class="detail-counterPrice">￥{{goodDetail.counterPrice}}</text>
+      </view>
+      <view class="detail-sell">
+        <text class="detail-sellVolume">已销{{goodDetail.sellVolume}}</text>
       </view>
     </view>
-    <view class='detail-title'>{{title}}</view>
-    <view class='detail-base'>
-      <text class='detail-deliver'>邮费：{{deliver}}</text>
-      <text class='detail-amount'>月销{{amount}}笔</text>
-      <text class='detail-address'>地址：{{address}}</text>
+    <view class="dis-flex flex-x-between detail-title-box">
+      <view class="dis-flex flex-dir-column flex-x-between flex detail-title-info">
+        <text class="detail-title">{{goodDetail.name}}</text>
+        <text class="detail-simpleDesc"> {{goodDetail.simpleDesc}} </text>
+      </view>
+      <view class="dis-flex flex-x-center flex-y-center detail-share-box">
+        <view class="dis-flex flex-dir-column flex-x-between">
+          <text class="iconfont icon-share" />
+          <text class="detail-share-text">分享</text>
+        </view>
+      </view>
+    </view>
+    <view class="dis-flex detail-tag-box">
+      <view class="detail-tag" wx:for="{{goodDetail.itemTagList}}" wx:key="index">
+        <text class="iconfont icon-share" /> {{item.name}}
+      </view>
     </view>
   </view>
   <!-- 详情操作 -->
@@ -33,17 +47,30 @@
         商品详情
       </view>
       <view class='detail-tab {{ currentTab == 1 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='1'>
-        产品参数
+        用户评价
       </view>
       <view class='detail-tab {{ currentTab == 2 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='2'>
-        售后保障
+        更多推荐
       </view>
     </view>
   </view>
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
     <swiper-item>商品详情</swiper-item>
-    <swiper-item>产品参数</swiper-item>
-    <swiper-item>售后保障</swiper-item>
+    <swiper-item>用户评价</swiper-item>
+    <swiper-item>
+      <view class="recommend-list-box">
+        <view class="recommend-list" wx:for="{{recommendList}}" wx:key="index">
+          <view class="recommend-image-box">
+            <image src="{{item.listPicUrl}}" model='aspectFill'></image>
+          </view>
+          <text class="recommend-title list-hidden">{{item.name}}</text>
+          <text class="recommend-price">￥{{item.retailPrice}}</text>
+          <view class="dis-flex  recommend-tags-box">
+            <text class="recommend-tag" wx:if="{{item.promTag}}">{{item.promTag}}</text>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
   </swiper>
   <!-- 底部操作栏 -->
   <view class='goods-operation'>

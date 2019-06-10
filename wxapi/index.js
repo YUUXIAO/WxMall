@@ -88,7 +88,10 @@ module.exports = {
     getSearchGoodsList: (data) => {
         return request('/search/search.json', false, 'get', data)
     },
-
+    // 搜索商品推荐列表
+    getRecommendList: (data) => {
+        return request('/item/rcmd.json', false, 'get', data)
+    },
 
     queryMobileLocation: (data) => {
         return request('/common/mobile-segment/location', false, 'get', data)

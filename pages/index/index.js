@@ -93,12 +93,17 @@ Page({
       }
     })
   },
-
+  /**
+    * 进入商品详情页面
+    */
   detail(e) {
     let index = e.currentTarget.dataset.index
     let goodDetail = this.data.goodsList[index]
+    let param = {
+      id: e.currentTarget.dataset.id
+    }
     wx.setStorageSync('goodDetail', goodDetail)
-    routes.navigateTo('goodsDetail')
+    routes.navigateTo('goodsDetail', param)
   },
   /**
    * 获取滚动条当前位置

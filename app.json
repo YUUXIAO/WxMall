@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/detail/index",
     "pages/goodsList/index",
     "pages/search/index",
     "pages/test/index",
@@ -10,7 +11,6 @@
     "pages/user/index",
     "pages/address/address_edit/index",
     "pages/address/index",
-    "pages/detail/index",
     "pages/authorize/index"
   ],
   "window": {

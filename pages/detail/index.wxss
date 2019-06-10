@@ -23,36 +23,76 @@ swiper {
 
 /* 详情基本信息 */
 
-.detail-info {
-  padding: 30rpx 10rpx;
-}
-.detail-price .price {
-  color: red;
-  font-weight: bolder;
+.detail-info-box {
+  width: 100%;
 }
 
-.detail-price .oldPrice {
-  color: #999;
-  font-size: 24rpx;
-  padding-left: 20rpx;
-  display: inline-block;
+.detail-price-box {
+  background: #a62027;
+  padding: 20rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  color: #fff;
 }
 
-.oldPrice text {
+.detail-price {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.detail-counterPrice {
+  font-size: 30rpx;
+  font-weight: normal;
   text-decoration: line-through;
 }
 
-.detail-title {
-  font-size: 32rpx;
-  font-weight: bold;
-  padding: 15rpx 0;
+.detail-sell {
+  font-size: 24rpx;
 }
 
-.detail-base {
-  display: flex;
-  justify-content: space-between;
+.detail-title-box {
+  padding: 20rpx;
+  border-bottom: 1px solid #efefef;
+}
+
+.detail-title-info {
+  border-right: 1px dashed #efefef;
+}
+
+.detail-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.detail-simpleDesc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.detail-share-box {
+  width: 160rpx;
+  text-align: center;
+}
+
+.icon-share {
+  color: #b5272e;
+  display: inline-block;
+}
+
+.detail-share-text {
+  font-size: 26rpx;
+  color: #b5272e;
+}
+
+.detail-tag-box {
+  padding: 10rpx 20rpx;
+  flex-wrap: wrap;
+}
+
+.detail-tag {
+  width: 32%;
   font-size: 24rpx;
-  color: #888;
+  margin-right: 5rpx;
+  color: #b5272e;
 }
 
 /* 详情操作 */
@@ -85,14 +125,68 @@ swiper {
 /* 详情内容 */
 
 .swiper-tabs-show {
-  height: 300rpx;
+  height: 1750rpx;
   padding: 20rpx;
   box-sizing: border-box;
 }
 
 .swiper-tabs-show swiper-item {
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+}
+
+.recommend-list-box {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.recommend-list {
+  width: 32%;
+  float: left;
+  margin-bottom: 10rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 5rpx 10rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.recommend-list:nth-child(3n-1){
+  margin: 0 6rpx;
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+
+.recommend-image-box {
+  width: 100%;
+  height: 250rpx;
+}
+
+.recommend-image-box image {
+  width: 100%;
+  height: 100%;
+}
+
+.recommend-title {
+  font-size: 30rpx;
+}
+
+.recommend-price {
+  font-size: 26rpx;
+  color: #a62027;
+}
+
+.recommend-tags-box {
+  width: 100%;
+  height: 50rpx;
+  align-items: center;
+}
+
+.recommend-tag {
+  color: #b5272e;
+  border: 1px solid #b5272e;
+  padding: 0 5rpx;
+  font-size: 22rpx;
 }
 
 /* 底部操作栏-Start */

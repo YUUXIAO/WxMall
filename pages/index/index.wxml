@@ -101,7 +101,7 @@
   <!-- 商品列表 -->
   <scroll-view scroll-y>
     <view class='goods-list-box'>
-      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}">
+      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
         <view class="goods-image">
           <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
         </view>
