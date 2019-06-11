@@ -68,16 +68,12 @@
         商品详情
       </view>
       <view class='detail-tab {{ currentTab == 1 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='1'>
-        用户评价
-      </view>
-      <view class='detail-tab {{ currentTab == 2 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='2'>
         更多推荐
       </view>
     </view>
   </view>
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
     <swiper-item>商品详情</swiper-item>
-    <swiper-item>用户评价</swiper-item>
     <swiper-item>
       <view class="recommend-list-box">
         <view class="recommend-list" wx:for="{{recommendList}}" wx:key="index">
@@ -93,28 +89,27 @@
       </view>
     </swiper-item>
   </swiper>
-  
   <!-- 底部操作栏 -->
-  <view class='goods-operation'>
+  <view class='dis-flex flex-x-between goods-operation'>
     <view class='shoppingCart'>
-      <image src='../../images/detail/cart.png'></image>
+      <text class="iconfont icon-home" />
     </view>
     <view class='shoppingStore'>
-      <image src='../../images/detail/star.png'></image>
+      <text class="iconfont icon-shoppingcart" />
     </view>
-    <view class='buyImmediatly'>立即购买</view>
-    <view class='addtoCart' bindtap="showChooseNum">加入购物车</view>
+    <view class='buyImmediatly' bindtap="onConfirmSubmit" data-type="buyNow">立即购买</view>
+    <view class='addtoCart' bindtap="onConfirmSubmit" data-type="addCart">加入购物车</view>
   </view>
   <!-- 商品选择数量 -->
-  <view class='chooseNum' animation="{{animation}}">
+  <view class='chooseNum' wx:if="{{showBottomPopup}}" animation="{{popupAnimation}}" >
     <view class='choose-top'>
       <view>
         <view class='choose-image'>
-          <image src='{{bannerImage[0]}}' mode='aspectFill'></image>
+          <image src='{{swiper.bannerImage[0]}}' mode='aspectFill'></image>
         </view>
         <view class='choose-base'>
-          <view class='choose-title'>{{title}}</view>
-          <view class='choose-price'>￥ {{price}}</view>
+          <view class='choose-title'>{{goodDetail.name}}</view>
+          <view class='choose-price'>￥ {{goodDetail.retailPrice}}</view>
         </view>
       </view>
       <view class='choose-close' bindtap='closeChooseNum'>X</view>

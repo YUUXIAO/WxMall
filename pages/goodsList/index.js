@@ -121,6 +121,17 @@ Page({
       })
     }
   },
+  goDetail: function (e) {
+    console.log(111111111)
+    let index = e.currentTarget.dataset.index
+    let goodDetail = this.data.goodsList[index]
+    let param = {
+      id: e.currentTarget.dataset.id
+    }
+    console.log(index)
+    wx.setStorageSync('goodDetail', goodDetail)
+    routes.navigateTo('goodsDetail', param)
+  },
   searchInput: function () {
     let param = {
       searchValue: this.data.searchControl.keyword

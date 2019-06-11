@@ -26,7 +26,9 @@ Page({
       oldItemOrderBy: 0,
       tagChanged: 0
     },
-    goodRates: {}
+    goodRates: {},
+    showBottomPopup: false,
+    popupAnimation: {}
   },
   /**
    * 生命周期函数--监听页面加载
@@ -44,16 +46,54 @@ Page({
     //   })
     // }
     let goodDetail = wx.getStorageSync('goodDetail')
+    console.log(goodDetail)
     goodDetail.deliver = '免邮'
-    let bannerImage = [goodDetail.listPicUrl, goodDetail.primaryPicUrl, goodDetail.scenePicUrl]
+    let bannerImage = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
     this.setData({
       goodDetail,
       id: goodDetail.id,
       'swiper.bannerImage': bannerImage
     })
     this.getGoodRates()
-  },
 
+  },
+  createAnimation() {
+    let animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(700).step()
+    this.setData({
+      popupAnimation: animation.export(),
+      showBottomPopup: true
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        popupAnimation: animation.export()
+      })
+    }.bind(this), 200)
+  },
+  hideAnimation() {
+    let animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(700).step()
+    this.setData({
+      popupAnimation: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        popupAnimation: animation.export()
+      })
+    }.bind(this), 200)
+  },
   /**
    * 切换商品选项
    */
@@ -62,8 +102,7 @@ Page({
     this.setData({
       currentTab: index
     })
-    // index == 1 && this.getComment()
-    index == 2 && this.getRecommend()
+    index == 1 && this.getRecommend()
   },
   /**
    * 获取用户评价列表
@@ -99,12 +138,21 @@ Page({
     }
     WXAPI.getRecommendList(param).then(res => {
       if (res.code == 200) {
-        // this.recommendList = res.data.items
         this.setData({
           recommendList: res.data.items
         })
       }
     })
+  },
+  /**
+    * 加入购物车and立即购买
+    */
+  onConfirmSubmit: function (e) {
+    // let type = e.currentTarget.dataset.type
+    this.setData({
+      showBottomPopup: !this.data.showBottomPopup
+    })
+    this.data.showBottomPopup ? this.createAnimation() : this.hideAnimation()
   },
   onReady: function () { },
   inputTyping: function (e) { }

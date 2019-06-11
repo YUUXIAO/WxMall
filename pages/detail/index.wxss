@@ -158,57 +158,10 @@ swiper {
   font-size: 26rpx;
 }
 
-/* .comment-header{
-  padding-top: 20rpx;
-}
-.user-comment-avatar{
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.user-comment-avatar image{
-  width: 100%;
-  height: 100%;
-}
-.comment-username{
-  font-size: 26rpx;
-  padding: 0 5rpx;
-}
-.icon-star{
-  margin-left: 10rpx;
-  color: #FFBC42;
-}
-
-.comment-body{
-  padding: 15rpx 0;
-}
-.comment-info{
-  color: #aaa;
-  font-size: 24rpx;
-  height: 50rpx;
-}
-
-.comment-content{
-  font-size: 26rpx;
-}
-
-.comment-picture-list{
-  overflow: hidden;
-}
-.comment-picture-list image{
-  width: 170rpx;
-  height: 170rpx;
-  float: left;
-  border-radius: 10rpx;
-}
-.comment-picture-list image:nth-child(3n+2){
-  margin: 0 10rpx;
-} */
 /* 详情内容 */
 
 .swiper-tabs-show {
-  height: 1750rpx;
+  height: 1550rpx;
   padding: 20rpx;
   box-sizing: border-box;
 }
@@ -242,7 +195,7 @@ swiper {
 
 .recommend-image-box {
   width: 100%;
-  height: 250rpx;
+  height: 200rpx;
 }
 
 .recommend-image-box image {
@@ -275,40 +228,32 @@ swiper {
 /* 底部操作栏-Start */
 
 .goods-operation {
-  display: flex;
   width: 100%;
-  height: 100rpx;
-  justify-content: space-between;
-  align-items: center;
+  height:90rpx;
   position: fixed;
   bottom: 0;
   background: #fff;
+  border-top: 1px solid #efefef;
+}
+.goods-operation .iconfont{
+  font-size: 46rpx;
 }
 
 .goods-operation view {
   height: 100%;
-  font-size: 36rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 90rpx;
   border-right: 1px solid #efefef;
 }
-
 .shoppingCart, .shoppingStore {
   flex: 1;
 }
-
 .buyImmediatly, .addtoCart {
   flex: 2;
 }
-
-.shoppingCart image, .shoppingStore image {
-  width: 64rpx;
-  height: 64rpx;
-}
-
 .addtoCart {
-  background: red;
+  background: #b5272e;
   color: #fff;
   border-right: 0;
 }
@@ -323,7 +268,8 @@ swiper {
   box-sizing: border-box;
   background: #fff;
   position: fixed;
-  bottom: -500rpx;
+  bottom: 200rpx;
+  /* bottom: -500rpx; */
   z-index: 2;
 }
 

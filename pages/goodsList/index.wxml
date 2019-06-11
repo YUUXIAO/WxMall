@@ -28,7 +28,7 @@
     <scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 100%; box-sizing:border-box" wx:if="{{goodsList.length>0}}">
         <view class="dis-flex goods-list-box">
             <view class="category-list  {{ showView ? 'arrange' : '' }}">
-                <view class="list" bind-tap="goDetail" wx:for="{{goodsList}}" wx:key="item.id" data-id="item.id">
+                <view class="list" bindtap="goDetail" wx:for="{{goodsList}}" wx:key="item.id" data-id="item.id" data-index="{{index}}">
                     <view class="list-img-box left">
                         <image class="list-img" mode="scaleToFill" src="{{item.listPicUrl}}"></image>
                     </view>
