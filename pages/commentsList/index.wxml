@@ -1,9 +1,25 @@
 <!--pages/commentsList/index.wxml-->
 <view class="page">
+  <view class="dis-flex flex-x-between user-comments-header">
+    <view class="comments-good-rate">
+      <text class="comments-rate-title">好评率</text>
+      <text class="comments-rate">99.8%</text>
+      <view class="dis-flex flex-y-center comments-star-box">
+        <text class="iconfont icon-star" />
+        <text class="iconfont icon-star" />
+        <text class="iconfont icon-star" />
+        <text class="iconfont icon-star" />
+        <text class="iconfont icon-star" />
+      </view>
+    </view>
+    <view class="flex comments-tags-box">
+      <text class="comments-tag {{ filterParam.tag == item.name ? 'currentTag':'' }}" wx:for="{{tagsList}}" wx:key="index" bindtap="fliterComments" data-name="{{item.name}}">{{item.name}}</text>
+    </view>
+  </view>
     <view class="user-comments-cont" wx:for="{{commentList}}" wx:key="index">
       <view class="dis-flex flex-x-start flex-y-center comment-header">
         <view class="user-comment-avatar">
-          <image src='{{item.frontUserAvatar}}' mode="aspectFill"></image>
+          <image src='{{item.frontUserAvatar?item.frontUserAvatar:"../../images/user.jpg"}}' mode="aspectFill"></image>
         </view>
         <text class="comment-username">{{item.frontUserName}}</text>
         <view class="comment-start-box">
@@ -12,7 +28,7 @@
       </view>
       <view class="comment-body">
          <view class="dis-flex flex-y-center comment-info">
-          <text class="comment-time">{{item.createTime}}</text>
+          <text class="comment-time">{{item.createTime}} </text>
           <text class="comment-skuInfo">{{item.skuInfo[0]}}</text>
         </view>
         <view class="comment-content">

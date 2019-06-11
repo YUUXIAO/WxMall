@@ -1,4 +1,58 @@
 /* pages/commentsList/index.wxss */
+.user-comments-header{
+  padding-bottom: 15rpx;
+}
+.comments-good-rate{
+  width: 180rpx;
+  text-align: center;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  border-right: 1px dashed #efefef;
+}
+.comments-rate-title{
+  font-size: 28rpx;
+  text-align: center;
+}
+.comments-rate{
+  font-size: 48rpx;
+  color: #b5272e;
+  font-weight: bold;
+}
+.comments-star-box{
+  padding: 0;
+  height: 30rpx;
+}
+.user-comments-header .icon-star{
+  font-size: 28rpx;
+  margin-left: 0;
+  margin-right: 5rpx;
+}
+.comments-tags-box{
+  padding-left: 15rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.comments-tag{
+  display: inline-block;
+  background: #f5f3ef;
+  border-radius: 20rpx;
+  height: 35rpx;
+  color: #999;
+  padding: 3rpx 20rpx;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+.currentTag{
+  background: #b4a078;
+  color: #fff;
+}
+
+
+
+
 .user-comments-cont{
   width:100%;
   padding: 20rpx;

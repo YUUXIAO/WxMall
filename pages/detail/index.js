@@ -44,7 +44,6 @@ Page({
     //   })
     // }
     let goodDetail = wx.getStorageSync('goodDetail')
-    console.log(goodDetail)
     goodDetail.deliver = '免邮'
     let bannerImage = [goodDetail.listPicUrl, goodDetail.primaryPicUrl, goodDetail.scenePicUrl]
     this.setData({
@@ -63,7 +62,7 @@ Page({
     this.setData({
       currentTab: index
     })
-    index == 1 && this.getComment()
+    // index == 1 && this.getComment()
     index == 2 && this.getRecommend()
   },
   /**
@@ -73,13 +72,6 @@ Page({
     this.setData({
       'commentData.itemId': this.data.id
     })
-    // WXAPI.getCommentsList(this.data.commentData).then(res => {
-    //   if (res.code == 200) {
-    //     this.setData({
-    //       commentList: res.data.commentList
-    //     })
-    //   }
-    // })
     routes.navigateTo('commentsList', this.data.commentData)
   },
   /**

@@ -1,7 +1,7 @@
 // pages/commentsList/index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
-
+const util = require('../../utils/util')
 
 Page({
 
@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commentList: []
+    commentList: [],
+    tagsList: [],
+    filterParam: {}
   },
 
   /**
@@ -18,17 +20,62 @@ Page({
   onLoad: function (options) {
     if (options) {
       let json = routes.extract(options)
-      WXAPI.getCommentsList(json).then(res => {
-        if (res.code == 200) {
-          this.setData({
-            commentList: res.data.commentList
-          })
-          console.log(this.data.commentList)
-        }
+      this.setData({
+        filterParam: json
       })
+      this.getCommentsList(json)
+      this.getTagsList(json)
     }
   },
+  /**
+  * 获取评论标签组
+  */
+  getTagsList: function (json) {
+    let param = {
+      __timestamp: Date.parse(new Date()),
+      itemId: json.itemId
+    }
+    WXAPI.getTagsList(param).then(res => {
+      if (res.code == 200) {
+        this.setData({
+          tagsList: res.data
+        })
+      }
+    })
+  },
+  /**
+    * 获取评论列表
+    */
+  getCommentsList: function (json) {
+    WXAPI.getCommentsList(json).then(res => {
+      let commentList = res.data.commentList.map(s => {
+        s.createTime = util.formatTime(s.createTime, 'Y-M-D h:m')
+        return s
+      })
+      if (res.code == 200) {
+        this.setData({
+          commentList: commentList
+        })
+      }
+    })
 
+  },
+  /**
+   * 点击标签筛选评论列表
+   */
+  fliterComments: function (e) {
+    let tagName = e.currentTarget.dataset.name;
+    this.setData({
+      'filterParam.tag': tagName
+    })
+    WXAPI.fliterTagsList(this.data.filterParam).then(res => {
+      if (res.code == 200) {
+        this.setData({
+          commentList: res.data.commentList
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
