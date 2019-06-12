@@ -1,44 +1,53 @@
 Page({
   data: {
-    inputShowed: false,
-    inputVal: ""
+    hideModal: true, //模态框的状态  true-隐藏  false-显示
+    animationData: {},//
   },
-  showInput: function () {
+
+  // 显示遮罩层
+  showModal: function () {
+    var that = this;
+    that.setData({
+      hideModal: false
+    })
+    var animation = wx.createAnimation({
+      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    setTimeout(function () {
+      that.fadeIn();//调用显示动画
+    }, 200)
+  },
+
+  // 隐藏遮罩层
+  hideModal: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hideModal: true
+      })
+    }, 720)//先执行下滑动画，再隐藏模块
+
+  },
+
+  //动画集
+  fadeIn: function () {
+    this.animation.translateY(0).step()
     this.setData({
-      inputShowed: true
-    });
+      animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
+    })
   },
-  hideInput: function () {
+  fadeDown: function () {
+    this.animation.translateY(300).step()
     this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
+      animationData: this.animation.export(),
+    })
   },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
-  onReady: function () {
-    //获得dialog组件
-    // this.dialog = this.selectComponent("#dialog");
-  },
-  showDialog() {
-    this.dialog.showDialog();
-  },
-  //取消事件
-  _cancelEvent() {
-    console.log('你点击了取消');
-    this.dialog.hideDialog();
-  },
-  //确认事件
-  _confirmEvent() {
-    console.log('你点击了确定');
-    this.dialog.hideDialog();
-  }
-});
+})

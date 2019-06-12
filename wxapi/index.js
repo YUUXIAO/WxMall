@@ -106,6 +106,10 @@ module.exports = {
     fliterTagsList: (data) => {
         return request('/comment/listByItemByTag.json', false, 'get', data)
     },
+    // 获取商品类别      
+    getCategoryLists: (data) => {
+        return request('/globalinfo//queryTop.json', false, 'get', data)
+    },
 
 
     queryMobileLocation: (data) => {

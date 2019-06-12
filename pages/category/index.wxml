@@ -2,13 +2,35 @@
 <view class="main">
   <!-- 左侧导航栏 -->
   <scroll-view class='category-nav' scroll-y>
-    <view class='category-item {{curIndex == index?"currItem":""}}' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{categoryNavigation}}' wx:key='index' wx:for-item='item' bindtap="switchTab">
-      {{item.name}}
+    <view class='category-nav-item {{curIndex == index?"currItem":""}}' wx:for='{{categoryNavigation}}' wx:key='index' data-index="{{index}}" bindtap="switchTab">
+    {{item.name}}
     </view>
-    <!-- <view class='slideBar'></view> -->
   </scroll-view>
   <!-- 右侧内容栏 -->
-  <scroll-view class='category-content' scroll-y='{{isScroll}}' scroll-into-view="{{toView}}" scroll-with-animation="true">
+  <view class='category-content'>
+    <scroll-view scroll-y='true' scroll-with-animation="true">
+       <view class="category-item-content" wx:for='{{getCategoryLists}}' wx:key="index">
+           <view class="category-item-box">
+             <text class="category-item-title">123123</text>
+             <view class="category-item-body">
+               <view class="category-item">
+                  <view class="category-item-image">
+                    <image mode="aspectFit" src="../../images/no_content.png"></image>
+                  </view>
+                  <text class="category-item-text">123123</text>
+               </view>
+               <view class="category-item">
+                  <view class="category-item-image">
+                    <image mode="aspectFit" src="../../images/no_content.png"></image>
+                  </view>
+                  <text class="category-item-text">123123</text>
+               </view>
+             </view>
+           </view>
+       </view>
+    </scroll-view>
+  </view>
+  <!-- <scroll-view class='category-content' scroll-y='{{isScroll}}' scroll-into-view="{{toView}}" scroll-with-animation="true">
     <block wx:for='{{products}}' wx:for-item='item'>
       <scroll-view class='category-products' id="{{item.id}}" scroll-y bindscrolltolower='onReachBottom' bindscrolltoupper="onscrolltoupper">
         <view class='category-banner'>
@@ -25,5 +47,5 @@
         </view>
       </scroll-view>
     </block>
-  </scroll-view>
+  </scroll-view> -->
 </view>

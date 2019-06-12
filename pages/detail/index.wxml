@@ -91,7 +91,7 @@
   </swiper>
   <!-- 底部操作栏 -->
   <view class='dis-flex flex-x-between goods-operation'>
-    <view class='shoppingCart'>
+    <view class='shoppingCart' bindtap="goHome">
       <text class="iconfont icon-home" />
     </view>
     <view class='shoppingStore'>
@@ -112,20 +112,20 @@
           <view class='choose-price'>￥ {{goodDetail.retailPrice}}</view>
         </view>
       </view>
-      <view class='choose-close' bindtap='closeChooseNum'>X</view>
+      <!-- <view class='choose-close' bindtap='closeChooseNum'>X</view> -->
     </view>
     <view class='choose-bottom'>
       <view>
         <text>购买数量</text>
       </view>
-      <view class='countGroup'>
-        <view class='reduceBtn' bindtap='reduceCount'>-</view>
-        <view class='count'>{{ count }}</view>
-        <view class='increaseBtn' bindtap='increaseCount'>+</view>
+      <view class='dis-flex flex-y-center countGroup'>
+        <view class='flex reduceBtn {{goodCount>1?"":"default-btn"}}' bindtap='reduceCount'>-</view>
+        <view class='flex count'>{{ goodCount }}</view>
+        <view class='flex increaseBtn' bindtap='increaseCount'>+</view>
       </view>
     </view>
-    <view class='addCartBtn' bindtap='addtoCart'>加入购物车</view>
+    <view class='addCartBtn' bindtap='confirmOrder'>确定</view>
   </view>
   <!-- mask遮罩层 -->
-  <view class='{{ maskShow ? "mask" : "" }}'></view>
+  <view class="mask" wx:if="{{showBottomPopup}}" bindtap="hidePopup"></view>
 </view>

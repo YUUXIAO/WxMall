@@ -20,6 +20,10 @@ module.exports = {
     commentsList: {
         path: '/pages/commentsList/index'
     },
+    // 购买确认页面
+    checkOrder: {
+        path: '/pages/checkOrder/index'
+    },
     // 个人中心
     personal: {
         type: 'tab',

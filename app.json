@@ -1,18 +1,19 @@
 {
   "pages": [
+    "pages/category/index",
     "pages/detail/index",
     "pages/index/index",
     "pages/goodsList/index",
     "pages/search/index",
-    "pages/test/index",
     "pages/orders/index",
     "pages/shoppingCart/index",
-    "pages/category/index",
     "pages/user/index",
     "pages/address/address_edit/index",
     "pages/address/index",
     "pages/authorize/index",
-    "pages/commentsList/index"
+    "pages/commentsList/index",
+    "pages/test/index",
+    "pages/checkOrder/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

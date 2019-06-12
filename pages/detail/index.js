@@ -28,7 +28,9 @@ Page({
     },
     goodRates: {},
     showBottomPopup: false,
-    popupAnimation: {}
+    popupAnimation: {},
+    goodCount: 1,
+    submitType: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -55,44 +57,9 @@ Page({
       'swiper.bannerImage': bannerImage
     })
     this.getGoodRates()
-
   },
-  createAnimation() {
-    let animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(700).step()
-    this.setData({
-      popupAnimation: animation.export(),
-      showBottomPopup: true
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        popupAnimation: animation.export()
-      })
-    }.bind(this), 200)
-  },
-  hideAnimation() {
-    let animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(700).step()
-    this.setData({
-      popupAnimation: animation.export(),
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        popupAnimation: animation.export()
-      })
-    }.bind(this), 200)
+  goHome: function () {
+    routes.navigateTo('home')
   },
   /**
    * 切换商品选项
@@ -145,14 +112,92 @@ Page({
     })
   },
   /**
-    * 加入购物车and立即购买
+  * 显示底部弹窗
+  */
+  showPopup() {
+    let _this = this
+    _this.setData({
+      showBottomPopup: true
+    })
+    let animation = wx.createAnimation({
+      duration: 60,
+      timingFunction: 'ease'
+    })
+    this.animation = animation
+    setTimeout(function () {
+      _this.fadeIn()
+    }, 100)
+  },
+  /**
+  * 隐藏底部弹窗
+  */
+  hidePopup() {
+    let _this = this;
+    let animation = wx.createAnimation({
+      duration: 80,
+      timingFunction: 'ease',
+    })
+    this.animation = animation
+    _this.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      _this.setData({
+        showBottomPopup: false
+      })
+    }, 100)
+  },
+  //动画集
+  fadeIn: function () {
+    this.animation.translateY(0).step()
+    this.setData({
+      popupAnimation: this.animation.export()
+    })
+  },
+  fadeDown: function () {
+    this.animation.translateY(500).step()
+    this.setData({
+      popupAnimation: this.animation.export(),
+    })
+  },
+  /**
+    * 点击加入购物车and立即购买
     */
   onConfirmSubmit: function (e) {
-    // let type = e.currentTarget.dataset.type
+    let type = e.currentTarget.dataset.type
     this.setData({
-      showBottomPopup: !this.data.showBottomPopup
+      submitType: type
     })
-    this.data.showBottomPopup ? this.createAnimation() : this.hideAnimation()
+    this.showPopup()
+  },
+  /**
+  * 减少商品数量
+  */
+  reduceCount: function () {
+    let _this = this
+    if (_this.data.goodCount > 1) {
+      _this.setData({
+        goodCount: --this.data.goodCount
+      })
+    }
+  },
+  /**
+  * 增加商品数量
+  */
+  increaseCount: function () {
+    this.setData({
+      goodCount: ++this.data.goodCount
+    })
+  },
+  /**
+  * 确定规格
+  */
+  confirmOrder: function () {
+    let submitType = this.data.submitType
+    if (submitType === 'buyNow') {
+      // 立即购买
+      routes.navigateTo('checkOrder')
+    } else if (submitType === 'addCart') {
+      // 加入购物车
+    }
   },
   onReady: function () { },
   inputTyping: function (e) { }
