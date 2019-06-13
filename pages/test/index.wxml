@@ -1,6 +1,45 @@
-<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-    <view class="modals-cancel" bindtap="hideModal"></view>
-    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}"></view>
+<view class='positonNav'>
+  <view class='horizontal '>
+    <view class='item'>
+      <view class='horizontal' style='background:#efefef;padding:4px 8px;'>
+        <view style='width:40rpx;height:40rpx;margin:auto;padding-right:8px;'>
+          <image src='../../imgs/search.png' style='width:100%;height:100%;'></image>
+        </view>
+        <view class='item'>
+          <input placeholder='原宿风学生上衣' placeholder-style='color:#999;font-size:14px;'></input>
+        </view>
+      </view>
+    </view>
+    <view style='width:40rpx;height:40rpx;margin:auto;padding-left:10px;'>
+      <image src='../../imgs/message.png' style='width:100%;height:100%;'></image>
+    </view>
+  </view>
 </view>
-
-<button bindtap="showModal">点我</button>
+<view style='width:100%;height:2px;background:#eee;'></view>
+<view class='horizontal'>
+  <view style='height: {{img_height}}px;width:20%;'>
+    <view class='vertical'>
+      <view wx:for='{{titlrBar}}' style='height: {{img_height/15}}px;line-height:{{img_height/15}}px;{{item === option ? "background: #fff;border-left:1px solid #f95a70;" : "background: #efefef;"}};text-align:center;' bindtap='clickTitle' data-title='{{item}}'>
+        <text style='font-size: 14px;color:#000;{{item === option ? "color: #f95a70;font-weight: bold;" : "color: #333;"}}'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <scroll-view scroll-y style='height: {{img_height}}px;'>
+      <view class='horizontal wrap'>
+        <view wx:for='{{menu}}' class='menuView'>
+          <view class='vertical'>
+            <view class='item'>
+              <view class='mune_img_view'>
+                <image src='{{item.img}}'/>
+              </view>
+            </view>
+            <view class='menu_text_view'>
+              <text>{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -39,13 +39,18 @@ Page({
    */
   onLoad: function (options) {
     const json = routes.extract(options)
-    this.setData({
-      'searchControl.keyword': json.searchValue
-    });
+    if (json.category) {
+      // 获取分类商品列表
+      this.getCategoryGoodsList(json);
+    } else {
+      // 获取搜索商品列表
+      this.getSearchGoodsList();
+      this.setData({
+        'searchControl.keyword': json.searchValue
+      });
+    }
     // 设置商品列表高度
     this.setListHeight();
-    // 获取商品列表
-    this.getGoodsList();
     // 设置列表显示方式
     this.setShowView();
   },
@@ -105,7 +110,7 @@ Page({
   /**
     * 获取商品列表
     */
-  getGoodsList: function () {
+  getSearchGoodsList: function () {
     if (!this.data.pagination.lastPage) {
       WXAPI.getSearchGoodsList(this.data.searchControl).then(res => {
         let data = res.data.directly.searcherResult
@@ -121,8 +126,34 @@ Page({
       })
     }
   },
+  /**
+   * 获取分类商品列表
+   */
+  getCategoryGoodsList: function (json) {
+    // if (!this.data.pagination.lastPage) {
+    let param = {
+      __timestamp: Date.parse(new Date()),
+      sortType: 0,
+      descSorted: false,
+      deliveryAreaId: 0,
+      categoryId: json.categoryId,
+      subCategoryId: json.subCategoryId
+    }
+    WXAPI.getCategoryDetailLists(param).then(res => {
+      let data = res.data.itemList
+      this.setData({
+        goodsList: data
+        // pagination: data.pagination
+      })
+      // if (this.data.pagination.lastPage) {
+      //   this.setData({
+      //     showLoadEnd: true
+      //   })
+      // }
+    })
+    // }
+  },
   goDetail: function (e) {
-    console.log(111111111)
     let index = e.currentTarget.dataset.index
     let goodDetail = this.data.goodsList[index]
     let param = {

@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/category/index",
     "pages/detail/index",
-    "pages/index/index",
     "pages/goodsList/index",
     "pages/search/index",
     "pages/orders/index",
@@ -12,8 +12,8 @@
     "pages/address/index",
     "pages/authorize/index",
     "pages/commentsList/index",
-    "pages/test/index",
-    "pages/checkOrder/index"
+    "pages/checkOrder/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

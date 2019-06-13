@@ -1,53 +1,69 @@
+//index.js
+//获取应用实例
+const app = getApp()
+
 Page({
   data: {
-    hideModal: true, //模态框的状态  true-隐藏  false-显示
-    animationData: {},//
+    titlrBar: [
+      '正在流行',
+      '女装',
+      '套装',
+      '裙裤',
+      '上衣',
+      '家居',
+      '女鞋',
+      '男士',
+      '母婴',
+      '内衣',
+      '美妆',
+      '运动',
+      '包包',
+      '配饰',
+      '食品'
+    ],
+    img_height: 1,
+    option: '正在流行',
+    menu: [
+      { name: '大衣', img: '../../imgs/dress/dayi.png' },
+      { name: '牛仔裤', img: '../../imgs/dress/niuzhai.png' },
+      { name: '连衣裙', img: '../../imgs/dress/lianyiqun.png' },
+      { name: '秋裤', img: '../../imgs/dress/qiuku.png' },
+      { name: '衬衫', img: '../../imgs/dress/chenshan.png' },
+      { name: '帽子', img: '../../imgs/dress/maozi.png' },
+      { name: '毛衣', img: '../../imgs/dress/maoyi.png' },
+      { name: '大衣', img: '../../imgs/dress/dayi.png' },
+      { name: '牛仔裤', img: '../../imgs/dress/niuzhai.png' },
+      { name: '连衣裙', img: '../../imgs/dress/lianyiqun.png' },
+      { name: '秋裤', img: '../../imgs/dress/qiuku.png' },
+      { name: '衬衫', img: '../../imgs/dress/chenshan.png' },
+      { name: '帽子', img: '../../imgs/dress/maozi.png' },
+      { name: '毛衣', img: '../../imgs/dress/maoyi.png' },
+      { name: '大衣', img: '../../imgs/dress/dayi.png' },
+      { name: '牛仔裤', img: '../../imgs/dress/niuzhai.png' },
+      { name: '连衣裙', img: '../../imgs/dress/lianyiqun.png' },
+      { name: '秋裤', img: '../../imgs/dress/qiuku.png' },
+      { name: '衬衫', img: '../../imgs/dress/chenshan.png' },
+      { name: '帽子', img: '../../imgs/dress/maozi.png' },
+      { name: '毛衣', img: '../../imgs/dress/maoyi.png' },
+      { name: '毛衣', img: '../../imgs/dress/maoyi.png' },
+      { name: '毛衣', img: '../../imgs/dress/maoyi.png' },
+    ]
+  },
+  onLoad: function (options) {
+    let that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          img_height: res.windowHeight - 56,
+        })
+      }
+    })
   },
 
-  // 显示遮罩层
-  showModal: function () {
-    var that = this;
+  clickTitle: function (e) {
+    let that = this
     that.setData({
-      hideModal: false
+      option: e.currentTarget.dataset.title,
     })
-    var animation = wx.createAnimation({
-      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    setTimeout(function () {
-      that.fadeIn();//调用显示动画
-    }, 200)
-  },
-
-  // 隐藏遮罩层
-  hideModal: function () {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    that.fadeDown();//调用隐藏动画   
-    setTimeout(function () {
-      that.setData({
-        hideModal: true
-      })
-    }, 720)//先执行下滑动画，再隐藏模块
-
-  },
-
-  //动画集
-  fadeIn: function () {
-    this.animation.translateY(0).step()
-    this.setData({
-      animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
-    })
-  },
-  fadeDown: function () {
-    this.animation.translateY(300).step()
-    this.setData({
-      animationData: this.animation.export(),
-    })
-  },
+  }
 })

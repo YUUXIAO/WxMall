@@ -81,7 +81,6 @@
     box-sizing: border-box;
     padding: 20rpx 15rpx;
     float: left;
-    border: 1px solid red;
 }
 .category-list .list:nth-child(2n+1){
     border-right: 1px solid #efefef

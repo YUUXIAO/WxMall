@@ -1,6 +1,46 @@
-/*模态框*/
-.modals{position:fixed; z-index: 999; top:0; left: 0; right:0; bottom: 0;}
-.modals-cancel{position:absolute; z-index:1000; top:0; left: 0; right:0; bottom: 0; background-color: rgba(0,0,0,.5);}
-.bottom-dialog-body{position:absolute; z-index:10001; bottom:0; left:0; right:0; padding:30rpx; height:300rpx; background-color: #fff;}
-/*动画前初始位置*/
-.bottom-pos{-webkit-transform:translateY(100%);transform:translateY(100%);}
+.positonNav {
+  top: 0px;
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: #fff;
+  z-index: 9999;
+  padding: 10px ;
+}
+.mune_img_view{
+  width: 60px; 
+  height: 60px; 
+  margin: auto;
+}
+.mune_img_view > image{
+  width: 100%; 
+  height: 100%;
+}
+.menu_text_view{
+  text-align: center; 
+}
+.menu_text_view > text{
+  font-size: 14px; 
+  color: #666;
+}
+.menuView{
+  width: 33.3%; 
+  padding: 5px 0;
+}
+.horizontal{
+  display: flex;
+  flex-direction: row;
+}
+.vertical{
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  flex: 1; 
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

@@ -110,6 +110,10 @@ module.exports = {
     getCategoryLists: (data) => {
         return request('/globalinfo//queryTop.json', false, 'get', data)
     },
+    // 获取商品类别点击详情    
+    getCategoryDetailLists: (data) => {
+        return request('/item/listByCategory.json', false, 'get', data)
+    },
 
 
     queryMobileLocation: (data) => {
