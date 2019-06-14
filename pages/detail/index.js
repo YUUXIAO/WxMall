@@ -29,9 +29,10 @@ Page({
     goodRates: {},
     showBottomPopup: false,
     popupAnimation: {},
-    goodCount: 1,
+    // goodCount: 1,
     submitType: ''
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -48,8 +49,8 @@ Page({
     //   })
     // }
     let goodDetail = wx.getStorageSync('goodDetail')
-    console.log(goodDetail)
     goodDetail.deliver = '免邮'
+    goodDetail.goodCount = 1
     let bannerImage = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
     this.setData({
       goodDetail,
@@ -123,7 +124,7 @@ Page({
       duration: 60,
       timingFunction: 'ease'
     })
-    this.animation = animation
+    _this.animation = animation
     setTimeout(function () {
       _this.fadeIn()
     }, 100)
@@ -137,7 +138,7 @@ Page({
       duration: 80,
       timingFunction: 'ease',
     })
-    this.animation = animation
+    _this.animation = animation
     _this.fadeDown();//调用隐藏动画   
     setTimeout(function () {
       _this.setData({
@@ -173,9 +174,9 @@ Page({
   */
   reduceCount: function () {
     let _this = this
-    if (_this.data.goodCount > 1) {
+    if (_this.data.goodDetail.goodCount > 1) {
       _this.setData({
-        goodCount: --this.data.goodCount
+        'goodDetail.goodCount': --this.data.goodDetail.goodCount
       })
     }
   },
@@ -184,7 +185,7 @@ Page({
   */
   increaseCount: function () {
     this.setData({
-      goodCount: ++this.data.goodCount
+      'goodDetail.goodCount': ++this.data.goodDetail.goodCount
     })
   },
   /**
@@ -192,11 +193,31 @@ Page({
   */
   confirmOrder: function () {
     let submitType = this.data.submitType
+    let _this = this
     if (submitType === 'buyNow') {
       // 立即购买
       routes.navigateTo('checkOrder')
     } else if (submitType === 'addCart') {
       // 加入购物车
+      let shoppingCart = wx.getStorageSync('shoppingCart') || []
+      let a = shoppingCart.findIndex(ele => {
+        return ele.id == _this.data.goodDetail.id
+      })
+      if (a > -1) {
+        shoppingCart[a].goodCount += _this.data.goodDetail.goodCount
+      } else {
+        shoppingCart.push(_this.data.goodDetail)
+      }
+      wx.setStorageSync('shoppingCart', shoppingCart)
+      wx.showToast({
+        title: '加入购物车成功',
+        icon: 'success',
+        duration: 1000,
+        complete: function () {
+          _this.hidePopup()
+        }
+      })
+
     }
   },
   onReady: function () { },

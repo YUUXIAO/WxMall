@@ -1,6 +1,5 @@
 <!-- pages/shoppingCart/index.wxml -->
-<view class='main'>
-  <!-- 购物车列表内容 -->
+<!-- <view class='main'>
   <view wx:if='{{hasList}}'>
     <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item' data-index="{{index}}">
       <view class='cart-content' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
@@ -21,7 +20,6 @@
           </view>
         </view>
       </view>
-      <!-- 左滑删除按钮 -->
       <view class="slideBar">
         <view class="deleteGoods" bindtap="delItem" data-index="index">
           <image src="/images/cart/delete.png"></image>
@@ -35,7 +33,6 @@
       <view class="addGoods">去添加</view>
     </view>
   </view>
-  <!-- 购物车底部 -->
   <view class='cart-footer'>
     <view class='footer-select'>
       <icon wx:if='{{selectAll}}' type='success' class='cart-no-select cart-select-icon' bindtap='selectAllGoods'></icon>
@@ -45,6 +42,49 @@
     <view class='footer-order'>
       <text>￥ {{totalPrice}}</text>
       <view class='order-goods'>下单</view>
+    </view>
+  </view>
+</view> -->
+
+<view class="page">
+  <view class="shopping-cart-box">
+    <view class="shopping-cart-lists">
+      <view class="dis-flex flex-x-between shopping-cart-tite">
+        <text>我最可爱的商城</text>
+        <text class="shopping-cart-tite">编辑</text>
+      </view>
+      <view class="shopping-cart-content">
+        <view class="dis-flex flex-x-between shopping-cart-item" wx:for="{{cartLists}}" wx:key="index">
+          <view class="shopping-cart-image">
+            <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
+          </view>
+          <view class="flex shopping-cart-info">
+            <view class="shopping-cart-title ist-hidden">{{item.name}}</view>
+            <view class="dis-flex flex-x-between flex-y-center">
+              <view class="shopping-cart-price">￥ {{item.retailPrice}}</view>
+              <view class='dis-flex flex-y-center countGroup'>
+                <view class='flex reduceBtn'>-</view>
+                <view class='flex count'>{{item.goodCount}}</view>
+                <view class='flex increaseBtn'>+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="dis-flex flex-x-between shopping-cart-menu">
+    <view class="selected-num-box">
+      <text class="iconfont icon-select" />
+      <text class="selected-all">全选</text>
+      <!-- <text class="selected-num">已选中(5)</text> -->
+    </view>
+    <view class="dis-flex flex-x-between ">
+      <view class="shopping-total-price">合计: ￥1980</view>
+      <view class="shopping-menu-btn">
+        <!-- <view class="btn-delete-all">删除</view> -->
+        <view class="btn-take-order">下单</view>
+      </view>
     </view>
   </view>
 </view>

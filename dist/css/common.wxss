@@ -1,7 +1,10 @@
 .page{
   padding: 20rpx;
   box-sizing: border-box;
+  color: #333;
 }
+
+
 .dis-flex{
     display: flex;
 }
@@ -29,6 +32,7 @@
 .flex{
   flex:1
 }
+
 
 .twolist-hidden {
   display: -webkit-box;

@@ -41,7 +41,7 @@ Page({
       ]
     },
     bannerImgs: [],
-    discountList: [],
+    // discountList: [],
     goodsList: [],
     wellChosen: [],
     indicatorDots: false,
@@ -68,10 +68,10 @@ Page({
       url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/home/banner',
       success: function (res) {
         that.setData({
-          bannerImgs: res.data.bannerImgs,
-          discountList: res.data.lastestLists,
-          wellChosen: res.data.wellChosen,
-          lastestLists: res.data.lastestLists
+          bannerImgs: res.data.bannerImgs
+          // discountList: res.data.lastestLists,
+          // wellChosen: res.data.wellChosen,
+          // lastestLists: res.data.lastestLists
         })
       }
     })
@@ -92,6 +92,7 @@ Page({
         })
       }
     })
+
   },
   /**
     * 进入商品详情页面

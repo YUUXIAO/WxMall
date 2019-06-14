@@ -73,7 +73,11 @@
     </view>
   </view>
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
-    <swiper-item>商品详情</swiper-item>
+    <swiper-item>
+      <view class="good-detail-box" wx:for="{{swiper.bannerImage}}" wx:key="index">
+        <image src="{{item}}" model='aspectFill'></image>
+      </view>
+    </swiper-item>
     <swiper-item>
       <view class="recommend-list-box">
         <view class="recommend-list" wx:for="{{recommendList}}" wx:key="index">
@@ -97,8 +101,8 @@
     <view class='shoppingStore'>
       <text class="iconfont icon-shoppingcart" />
     </view>
-    <view class='buyImmediatly' bindtap="onConfirmSubmit" data-type="buyNow">立即购买</view>
     <view class='addtoCart' bindtap="onConfirmSubmit" data-type="addCart">加入购物车</view>
+    <view class='buyImmediatly' bindtap="onConfirmSubmit" data-type="buyNow">立即购买</view>
   </view>
   <!-- 商品选择数量 -->
   <view class='chooseNum' wx:if="{{showBottomPopup}}" animation="{{popupAnimation}}" >
@@ -112,15 +116,14 @@
           <view class='choose-price'>￥ {{goodDetail.retailPrice}}</view>
         </view>
       </view>
-      <!-- <view class='choose-close' bindtap='closeChooseNum'>X</view> -->
     </view>
     <view class='choose-bottom'>
       <view>
         <text>购买数量</text>
       </view>
       <view class='dis-flex flex-y-center countGroup'>
-        <view class='flex reduceBtn {{goodCount>1?"":"default-btn"}}' bindtap='reduceCount'>-</view>
-        <view class='flex count'>{{ goodCount }}</view>
+        <view class='flex reduceBtn {{goodDetail.goodCount>1?"":"default-btn"}}' bindtap='reduceCount'>-</view>
+        <view class='flex count'>{{goodDetail.goodCount}}</view>
         <view class='flex increaseBtn' bindtap='increaseCount'>+</view>
       </view>
     </view>

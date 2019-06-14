@@ -29,4 +29,8 @@ module.exports = {
         type: 'tab',
         path: 'pages/index/index'
     },
+    // 登陆
+    login: {
+        path: 'pages/login/index'
+    },
 }

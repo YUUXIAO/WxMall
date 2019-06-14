@@ -1,5 +1,5 @@
 const WXAPI = require('wxapi/index')
-
+const routes = require('./router/index.js');
 
 App({
   onLaunch: function () {
@@ -69,9 +69,7 @@ App({
   goLoginPage() {
     wx.removeStorageSync('token')
     setTimeout(() => {
-      wx.navigateTo({
-        // 回到登陆页面
-      })
+      // routes.navigateTo('login')
     })
   },
   onShow: function () {

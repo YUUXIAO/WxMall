@@ -4,52 +4,66 @@ Page({
      * 页面的初始数据
      */
     data: {
-        cartList: [],
-        hasList: false,
-        selectAll: false,
-        totalPrice: 0,
-        delBtnWidth: 150
+        shoppingCartList: []
+        // cartList: [],
+        // hasList: false,
+        // selectAll: false,
+        // totalPrice: 0,
+        // delBtnWidth: 150
     },
-    onLoad: function(options) {
-        var that = this
+    onLoad: function (options) {
+
+
+        // var that = this
         // 获取购物车列表数据
-        wx.request({
-            url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/getCartList',
-            success: function(res) {
-                that.setData({
-                    cartList: res.data.cartList
-                })
-                // 获取新加入购物车数据
-                wx.getStorage({
-                    //获取数据的key
-                    key: 'shoppingCart',
-                    success: function(res) {
-                        that.setData({
-                            cartList: that.data.cartList.concat(res.data)
-                        })
-                        // 判断购物车是否有数据
-                        if (that.data.cartList.length) {
-                            that.setData({
-                                hasList: true,
-                                selectAll: true
-                            })
-                        } else {
-                            that.setData({
-                                hasList: false,
-                                selectAll: false
-                            })
-                        }
-                        that.getTotalPrice()
-                    },
-                    fail: function(res) {
-                        console.log(res)
-                    }
-                })
-            }
+        // wx.request({
+        //     url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/getCartList',
+        //     success: function (res) {
+        //         that.setData({
+        //             cartList: res.data.cartList
+        //         })
+        //         // 获取新加入购物车数据
+        //         wx.getStorage({
+        //             //获取数据的key
+        //             key: 'shoppingCart',
+        //             success: function (res) {
+        //                 that.setData({
+        //                     cartList: that.data.cartList.concat(res.data)
+        //                 })
+        //                 // 判断购物车是否有数据
+        //                 if (that.data.cartList.length) {
+        //                     that.setData({
+        //                         hasList: true,
+        //                         selectAll: true
+        //                     })
+        //                 } else {
+        //                     that.setData({
+        //                         hasList: false,
+        //                         selectAll: false
+        //                     })
+        //                 }
+        //                 that.getTotalPrice()
+        //             },
+        //             fail: function (res) {
+        //                 console.log(res)
+        //             }
+        //         })
+        //     }
+        // })
+    },
+    /**
+      * 获取购物车初始数据
+      */
+    getCartLists: function () {
+        console.log(1111)
+        let cartLists = wx.getStorageSync('shoppingCart')
+        this.setData({
+            cartLists
         })
+        console.log(cartLists)
     },
     // 绑定减数量事件
-    reduceCount: function(e) {
+    reduceCount: function (e) {
         var that = this
         var cartList = this.data.cartList
         var index = e.currentTarget.dataset.index
@@ -69,7 +83,7 @@ Page({
         this.getTotalPrice()
     },
     // 绑定加数量事件
-    increaseCount: function(e) {
+    increaseCount: function (e) {
         var cartList = this.data.cartList
         var index = e.currentTarget.dataset.index
         cartList[index].count++
@@ -79,7 +93,7 @@ Page({
         this.getTotalPrice()
     },
     // 选中商品
-    selectGoods: function(e) {
+    selectGoods: function (e) {
         let index = e.currentTarget.dataset.index
         let carts = this.data.cartList
         let selected = carts[index].selected
@@ -90,7 +104,7 @@ Page({
         this.getTotalPrice()
     },
     // 全选
-    selectAllGoods: function() {
+    selectAllGoods: function () {
         var self = this
         let selectAll = !this.data.selectAll
         let cartList = this.data.cartList
@@ -104,7 +118,7 @@ Page({
         this.getTotalPrice()
     },
     // 计算金额
-    getTotalPrice: function() {
+    getTotalPrice: function () {
         let cartList = this.data.cartList
         let total = 0
         console.log(cartList)
@@ -120,7 +134,7 @@ Page({
         console.log(this.data.totalPrice)
     },
     // 开始滑动事件
-    touchS: function(e) {
+    touchS: function (e) {
         if (e.touches.length == 1) {
             this.setData({
                 startX: e.touches[0].clientX
@@ -128,7 +142,7 @@ Page({
         }
     },
     // 滑动中事件
-    touchM: function(e) {
+    touchM: function (e) {
         var that = this
         if (e.touches.length == 1) {
             //手指移动时水平方向位置
@@ -147,9 +161,6 @@ Page({
             //获取手指触摸的是哪一项
             var index = e.currentTarget.dataset.index
             var cartList = this.data.cartList
-            console.log(index)
-            console.log(cartList)
-            console.log(txtStyle)
             cartList[index].txtStyle = txtStyle
 
             //更新列表的状态
@@ -160,44 +171,46 @@ Page({
     },
 
     // 滑动中事件
-    touchE: function(e) { },
+    touchE: function (e) { },
 
     // 删除商品
-    delItem: function() {
+    delItem: function () {
         console.log('del')
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() { },
+    onReady: function () { },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() { },
+    onShow: function () {
+        this.getCartLists()
+    },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() { },
+    onHide: function () { },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() { },
+    onUnload: function () { },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() { },
+    onPullDownRefresh: function () { },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() { },
+    onReachBottom: function () { },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() { }
+    onShareAppMessage: function () { }
 })

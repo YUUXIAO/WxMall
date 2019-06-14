@@ -1,25 +1,25 @@
 <!-- pages/category/index.wxml -->
 <view class="page">
   <!-- 左侧导航栏 -->
-  <scroll-view class='category-nav' style="height:{{windowHeight}}px" scroll-y='true' >
+  <scroll-view class='category-nav' style="height:{{windowHeight}}px" scroll-y='true'>
     <view class='category-nav-item {{curIndex == index?"currItem":""}}' wx:for='{{categoryNavigation}}' wx:key='index' data-index="{{index}}" data-id="{{item.id}}" bindtap="switchTab">
-    {{item.name}}
+      {{item.name}}
     </view>
   </scroll-view>
   <!-- 右侧内容栏 -->
-    <scroll-view class='category-content' scroll-y='true' scroll-with-animation="true" scroll-into-view="{{toView}}" style="height: {{windowHeight}}px" bindscroll="scroll">
-       <view class="category-item-content" id="ID{{item.id}}" wx:for='{{getCategoryLists}}' wx:key="index">
-           <view class="category-item-box" wx:for='{{item.subCateGroupList}}' wx:key="index" wx:for-item="atem">
-             <text class="category-item-title">{{atem.name}}</text>
-             <view class="category-item-body" >
-               <view class="category-item" wx:for='{{atem.categoryList}}' wx:key="index" wx:for-item="btem" data-category="{{btem}}" data-id="123123" bindtap="searchCategory">
-                  <view class="category-item-image">
-                    <image mode="aspectFit" src="{{btem.bannerUrl}}"></image>
-                  </view>
-                  <text class="category-item-text list-hidden">{{btem.name}}</text>
-               </view>
-             </view>
-           </view>
-       </view>
-    </scroll-view>
+  <scroll-view class='category-content' scroll-y='true' scroll-with-animation="true" scroll-into-view="{{toView}}" style="height: {{windowHeight}}px" bindscroll="scroll">
+    <view class="category-item-content" id="ID{{item.id}}" wx:for='{{getCategoryLists}}' wx:key="index">
+      <view class="category-item-box" wx:for='{{item.subCateGroupList}}' wx:key="index" wx:for-item="atem">
+        <text class="category-item-title">{{atem.name}}</text>
+        <view class="category-item-body">
+          <view class="category-item" wx:for='{{atem.categoryList}}' wx:key="index" wx:for-item="btem" data-category="{{btem}}" data-id="123123" bindtap="searchCategory">
+            <view class="category-item-image">
+              <image mode="aspectFit" src="{{btem.bannerUrl}}"></image>
+            </view>
+            <text class="category-item-text list-hidden">{{btem.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

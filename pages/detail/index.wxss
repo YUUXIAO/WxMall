@@ -159,6 +159,14 @@ swiper {
 }
 
 /* 详情内容 */
+.good-detail-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+.good-detail-box image{
+  width: 100%;
+}
 
 .swiper-tabs-show {
   height: 1550rpx;
@@ -252,7 +260,7 @@ swiper {
 .buyImmediatly, .addtoCart {
   flex: 2;
 }
-.addtoCart {
+.buyImmediatly {
   background: #b5272e;
   color: #fff;
   border-right: 0;
