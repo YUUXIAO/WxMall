@@ -1,88 +1,47 @@
-<!-- pages/shoppingCart/index.wxml -->
-<!-- <view class='main'>
-  <view wx:if='{{hasList}}'>
-    <view class='cart-list' wx:for="{{cartList}}" wx:key='index' wx:for-item='item' data-index="{{index}}">
-      <view class='cart-content' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
-        <icon wx:if='{{item.selected}}' type='success' class='cart-no-select cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
-        <icon wx:else type='circle' class='cart-select-icon' data-index="{{index}}" bindtap="selectGoods"></icon>
-        <view class='cart-image'>
-          <image src='{{item.image}}' model='aspectFill'></image>
-        </view>
-        <view class='cart-base'>
-          <view class='cart-title'>{{item.title}}</view>
-          <view class='cart-count'>
-            <text class='cart-price'>￥ {{item.price}}</text>
-            <view class='count-group'>
-              <view class='descCount' bindtap='reduceCount' data-index='{{index}}'>-</view>
-              <view class='countNumber'>{{item.count}}</view>
-              <view class='incrCount' bindtap='increaseCount' data-index='{{index}}'>+</view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="slideBar">
-        <view class="deleteGoods" bindtap="delItem" data-index="index">
-          <image src="/images/cart/delete.png"></image>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view wx:else class="emptyCart">
-    <view class="emptyTips">
-      <text>购物车暂时是空空的~</text>
-      <view class="addGoods">去添加</view>
-    </view>
-  </view>
-  <view class='cart-footer'>
-    <view class='footer-select'>
-      <icon wx:if='{{selectAll}}' type='success' class='cart-no-select cart-select-icon' bindtap='selectAllGoods'></icon>
-      <icon wx:else type='circle' class='cart-no-select cart-select-icon' bindtap='selectAllGoods'></icon>
-      <text bindtap='selectAllGoods'>全选</text>
-    </view>
-    <view class='footer-order'>
-      <text>￥ {{totalPrice}}</text>
-      <view class='order-goods'>下单</view>
-    </view>
-  </view>
-</view> -->
-
 <view class="page">
   <view class="shopping-cart-box">
     <view class="shopping-cart-lists">
       <view class="dis-flex flex-x-between shopping-cart-tite">
         <text>我最可爱的商城</text>
-        <text class="shopping-cart-tite">编辑</text>
+        <text class="shopping-cart-tite" bindtap="editCart" wx:if="{{!showEdit}}" data-type="edit">编辑</text>
+        <text wx:else bindtap="editCart" data-type="complete">完成</text>
       </view>
       <view class="shopping-cart-content">
-        <view class="dis-flex flex-x-between shopping-cart-item" wx:for="{{cartLists}}" wx:key="index">
-          <view class="shopping-cart-image">
-            <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
-          </view>
-          <view class="flex shopping-cart-info">
-            <view class="shopping-cart-title ist-hidden">{{item.name}}</view>
-            <view class="dis-flex flex-x-between flex-y-center">
-              <view class="shopping-cart-price">￥ {{item.retailPrice}}</view>
-              <view class='dis-flex flex-y-center countGroup'>
-                <view class='flex reduceBtn'>-</view>
-                <view class='flex count'>{{item.goodCount}}</view>
-                <view class='flex increaseBtn'>+</view>
+        <view class="dis-flex flex-x-between shopping-cart-item" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.style}}" wx:for="{{cartLists}}" wx:key="index">
+          <view class="dis-flex flex-x-between cart-item-info" >
+            <view class="cart-select-icon dis-flex flex-y-center" bindtap="chooseCartItem" data-index="{{index}}">
+              <text class="iconfont icon-select {{item.selected?'icon-choose':''}}" />
+            </view>
+            <view class="shopping-cart-image">
+              <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
+            </view>
+            <view class="flex shopping-cart-info">
+              <view class="shopping-cart-title ist-hidden">{{item.name}}</view>
+              <view class="dis-flex flex-x-between flex-y-center">
+                <view class="shopping-cart-price">￥ {{item.retailPrice}}</view>
+                <view class='dis-flex flex-y-center countGroup'>
+                  <view class='flex reduceBtn' bindtap="reduceCount" data-index="{{index}}">-</view>
+                  <view class='flex count'>{{item.goodCount}}</view>
+                  <view class='flex increaseBtn' bindtap="increaseCount" data-index="{{index}}">+</view>
+                </view>
               </view>
             </view>
           </view>
+          <view class="cart-item-del dis-flex flex-x-center flex-y-center">删 除</view>
         </view>
       </view>
     </view>
   </view>
   <view class="dis-flex flex-x-between shopping-cart-menu">
-    <view class="selected-num-box">
-      <text class="iconfont icon-select" />
-      <text class="selected-all">全选</text>
-      <!-- <text class="selected-num">已选中(5)</text> -->
+    <view class="selected-num-box" bindtap="setSelectAll">
+      <text class="iconfont icon-select {{selectAll?'icon-choose':''}}" />
+      <text class="selected-num" wx:if="{{!showEdit}}">已选中({{selectedCount}})</text>
+      <text class="selected-all" wx:else>全选</text>
     </view>
     <view class="dis-flex flex-x-between ">
-      <view class="shopping-total-price">合计: ￥1980</view>
+      <view class="shopping-total-price" wx:if="{{!showEdit}}">合计: ￥{{priceCount}}</view>
       <view class="shopping-menu-btn">
-        <!-- <view class="btn-delete-all">删除</view> -->
+        <view class="btn-delete-all" wx:if="{{showEdit}}">删除</view>
         <view class="btn-take-order">下单</view>
       </view>
     </view>

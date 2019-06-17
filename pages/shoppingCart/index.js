@@ -4,16 +4,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        shoppingCartList: []
-        // cartList: [],
-        // hasList: false,
-        // selectAll: false,
-        // totalPrice: 0,
-        // delBtnWidth: 150
+        shoppingCartList: [],
+        showEdit: false,
+        selectAll: true,
+        priceCount: 0,      // 合计金额
+        selectedCount: 0,    // 选中数量
+        startX: 0,
+        delBtnWidth: 120
     },
     onLoad: function (options) {
-
-
         // var that = this
         // 获取购物车列表数据
         // wx.request({
@@ -54,24 +53,149 @@ Page({
     /**
       * 获取购物车初始数据
       */
+    getEleWidth: function (w) {
+        //以宽度750px设计稿做宽度的自适应
+        let realWidth = 0, res = wx.getSystemInfoSync().windowWidth, scale = (750 / 2) / (w / 2);
+        realWidth = Math.floor(res / scale);
+        return realWidth;
+    },
+    initEleWidth: function () {
+        let delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
+        this.setData({
+            delBtnWidth
+        });
+    },
+    /**
+      * 获取购物车初始数据
+      */
     getCartLists: function () {
-        console.log(1111)
         let cartLists = wx.getStorageSync('shoppingCart')
+        cartLists = cartLists.map(s => {
+            s.selected = true
+            return s
+        })
         this.setData({
             cartLists
         })
-        console.log(cartLists)
     },
-    // 绑定减数量事件
+    /**
+      * 选中购物车
+      */
+    chooseCartItem: function (e) {
+        let index = e.currentTarget.dataset.index, cartLists = this.data.cartLists
+        cartLists[index].selected = !cartLists[index].selected
+        let selectAll = cartLists.every(s => {
+            return s.selected
+        })
+        this.setData({
+            cartLists,
+            selectAll
+        })
+        this.getCount()
+    },
+    /**
+     * 编辑
+     */
+    editCart: function (e) {
+        let cartLists = this.data.cartLists, type = e.currentTarget.dataset.type, selected = type == "edit" ? false : true
+        cartLists = cartLists.map(s => {
+            s.selected = selected
+            return s
+        })
+        this.setData({
+            cartLists,
+            selectAll: selected,
+            showEdit: !this.data.showEdit
+        })
+        type == 'complete' && this.getCount()
+    },
+    /**
+      * 全选
+      */
+    setSelectAll: function (e) {
+        let cartLists = this.data.cartLists, selectAll = !this.data.selectAll
+        cartLists.map(s => {
+            s.selected = selectAll
+        })
+        this.setData({
+            cartLists,
+            selectAll
+        })
+    },
+    /**
+      * 获取选中数量、合计金额
+      */
+    getCount() {
+        let cartLists = this.data.cartLists, selectedCount = 0, priceCount = 0
+        cartLists = cartLists.filter(s => {
+            return s.selected
+        })
+        selectedCount = cartLists.length
+        priceCount = cartLists.map(s => {
+            return parseFloat((s.retailPrice * s.goodCount).toFixed(2))
+        }).reduce((acc, cur) => {
+            return parseFloat(acc + cur)
+        }, 0)
+        this.setData({
+            priceCount,
+            selectedCount
+        })
+    },
+    touchS: function (e) {
+        if (e.touches.length == 1) {
+            this.setData({
+                startX: e.touches[0].clientX
+            })
+        }
+
+    },
+    touchM: function (e) {
+        let index = e.currentTarget.dataset.index
+        console.log(this.data.delBtnWidth)
+        if (e.touches.length == 1) {
+            let moveX = e.touches[0].clientX, disX = this.data.startX - moveX, delBtnWidth = this.data.delBtnWidth, left = ''
+            if (disX <= 0) {
+                left = "margin-left:0px";
+            } else {
+                left = "margin-left:-" + disX + "px";
+                if (disX >= delBtnWidth) {
+                    left = "margin-left:-" + delBtnWidth + "px";
+                }
+            }
+            let cartLists = this.data.cartLists
+            if (index !== '' && index != null) {
+                cartLists[parseInt(index)].style = left
+                this.setData({
+                    cartLists
+                })
+            }
+        }
+    },
+    touchE: function (e) {
+        let index = e.currentTarget.dataset.index
+        if (e.changedTouches.length == 1) {
+            let endX = e.changedTouches[0].clientX, disX = this.data.startX - endX, delBtnWidth = this.data.delBtnWidth
+            //如果距离小于删除按钮的1/2，不显示删除按钮
+            let style = disX > delBtnWidth / 2 ? "margin-left:-" + delBtnWidth + "px" : "margin-left:0px", cartLists = this.data.cartLists
+            if (index !== "" && index != null) {
+                cartLists[parseInt(index)].style = style;
+                this.setData({
+                    cartLists
+                })
+            }
+        }
+    },
+    /**
+     * 绑定减数量事件
+     */
     reduceCount: function (e) {
-        var that = this
-        var cartList = this.data.cartList
-        var index = e.currentTarget.dataset.index
-        var count = cartList[index].count
-        if (count > 1) {
-            cartList[index].count--
-            that.setData({
-                cartList: cartList
+        console.log(this.data.cartLists)
+        let _this = this, cartLists = this.data.cartLists, index = e.currentTarget.dataset.index, goodCount = cartLists[index].goodCount
+        console.log(goodCount)
+        if (goodCount > 1) {
+            cartLists[index].goodCount--
+            _this.setData({
+                cartLists
             })
         } else {
             wx.showToast({
@@ -80,17 +204,18 @@ Page({
                 duration: 1000
             })
         }
-        this.getTotalPrice()
+        _this.getCount()
     },
-    // 绑定加数量事件
+    /**
+    * 绑定加数量事件
+    */
     increaseCount: function (e) {
-        var cartList = this.data.cartList
-        var index = e.currentTarget.dataset.index
-        cartList[index].count++
+        let cartLists = this.data.cartLists, index = e.currentTarget.dataset.index
+        cartLists[index].goodCount++
         this.setData({
-            cartList: cartList
+            cartLists
         })
-        this.getTotalPrice()
+        this.getCount()
     },
     // 选中商品
     selectGoods: function (e) {
@@ -121,57 +246,54 @@ Page({
     getTotalPrice: function () {
         let cartList = this.data.cartList
         let total = 0
-        console.log(cartList)
         cartList.map(m => {
             if (m.selected) {
                 console.log(total)
-                total += m.price * m.count
             }
         })
         this.setData({
             totalPrice: total.toFixed(2)
         })
-        console.log(this.data.totalPrice)
     },
     // 开始滑动事件
-    touchS: function (e) {
-        if (e.touches.length == 1) {
-            this.setData({
-                startX: e.touches[0].clientX
-            })
-        }
-    },
+    // touchS: function (e) {
+    //     if (e.touches.length == 1) {
+    //         this.setData({
+    //             startX: e.touches[0].clientX
+    //         })
+    //     }
+    // },
     // 滑动中事件
-    touchM: function (e) {
-        var that = this
-        if (e.touches.length == 1) {
-            //手指移动时水平方向位置
-            var moveX = e.touches[0].clientX
-            //手指起始点位置与移动期间的差值
-            var disX = this.data.startX - moveX
-            var delBtnWidth = this.data.delBtnWidth
-            var txtStyle = ''
+    // touchM: function (e) {
+    //     var that = this
+    //     if (e.touches.length == 1) {
+    //         //手指移动时水平方向位置
+    //         var moveX = e.touches[0].clientX
+    //         //手指起始点位置与移动期间的差值
+    //         var disX = this.data.startX - moveX
+    //         var delBtnWidth = this.data.delBtnWidth
+    //         var txtStyle = ''
 
-            if (disX == 0 || disX < 0 || disX < delBtnWidth / 2) {
-                //如果移动距离小于等于0，文本层位置不变
-                txtStyle = 'left:0rpx'
-            } else {
-                txtStyle = 'left:-' + delBtnWidth + 'rpx'
-            }
-            //获取手指触摸的是哪一项
-            var index = e.currentTarget.dataset.index
-            var cartList = this.data.cartList
-            cartList[index].txtStyle = txtStyle
+    //         if (disX == 0 || disX < 0 || disX < delBtnWidth / 2) {
+    //             //如果移动距离小于等于0，文本层位置不变
+    //             txtStyle = 'left:0rpx'
+    //         } else {
+    //             txtStyle = 'left:-' + delBtnWidth + 'rpx'
+    //         }
+    //         //获取手指触摸的是哪一项
+    //         var index = e.currentTarget.dataset.index
+    //         var cartList = this.data.cartList
+    //         cartList[index].txtStyle = txtStyle
 
-            //更新列表的状态
-            this.setData({
-                cartList: cartList
-            })
-        }
-    },
+    //         //更新列表的状态
+    //         this.setData({
+    //             cartList: cartList
+    //         })
+    //     }
+    // },
 
     // 滑动中事件
-    touchE: function (e) { },
+    // touchE: function (e) { },
 
     // 删除商品
     delItem: function () {
@@ -187,12 +309,16 @@ Page({
      */
     onShow: function () {
         this.getCartLists()
+        this.getCount()
+        this.initEleWidth()
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () { },
+    onHide: function () {
+        wx.setStorageSync('shoppingCart', this.data.cartLists)
+    },
 
     /**
      * 生命周期函数--监听页面卸载

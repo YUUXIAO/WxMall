@@ -3,6 +3,15 @@
   background: #efefef;
   padding-bottom: 120rpx;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+.icon-select{
+  font-size: 40rpx;
+  padding-right: 15rpx;
+  color: #aaa;
+}
+.icon-choose{
+  color: #b5272e;
 }
 .shopping-cart-tite{
   height: 60rpx;
@@ -10,11 +19,17 @@
   background: #aaa;
   color: #555;
   font-size: 26rpx;
+  padding: 0 20rpx;
 }
 .shopping-cart-item{
    margin-top: 20rpx;
    background: #fff;
-   padding: 20rpx 15rpx;
+   padding: 20rpx 0;
+   width:870rpx;
+   box-sizing: border-box;
+}
+.cart-select-icon{
+  width: 60rpx;
 }
 .shopping-cart-image{
   width: 200rpx;
@@ -60,6 +75,19 @@
 .countGroup .default-btn{
   border: 1px solid #ddd;
 }
+.cart-item-info{
+  width:750rpx;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+}
+.cart-item-del{
+  background: #b5272e;
+  width: 120rpx;
+  float: left;
+  color: #fff;
+  font-size: 28rpx;
+}
+
 
 
 /* 底部栏 */
@@ -76,11 +104,7 @@
 .selected-num-box{
   font-size: 28rpx;
 }
-.icon-select{
-  color: #b5272e;
-  font-size: 40rpx;
-  padding-right: 15rpx;
-}
+
 .shopping-cart-menu view{
   height: 100%;
 }
@@ -89,11 +113,14 @@
   font-size: 26rpx;
   padding-right: 20rpx;
 }
-.btn-take-order{
+.btn-take-order,.btn-delete-all{
   width: 200rpx;
   background: #b5272e;
   color: #fff;
   text-align: center;
   letter-spacing: 10rpx;
   font-size: 40rpx;
+}
+.btn-delete-all{
+  background: #aaa;
 }
