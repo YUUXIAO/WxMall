@@ -371,6 +371,7 @@ swiper {
 
 .countGroup .default-btn{
   border: 1px solid #ddd;
+  background: #efefef;
 }
 /* mask遮罩层-Start */
 

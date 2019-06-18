@@ -1,2 +1,78 @@
 <!--pages/checkOrder/index.wxml-->
-<text>pages/checkOrder/index.wxml</text>
+<view class="page">
+   <view class="address-info-box">
+       <view class="dis-flex flex-x-between flex-y-center address-info-cont">
+           <view class="user-name">
+               <text>张三</text>
+               <view class="user-name-tag">默认</view>
+           </view>
+           <view class="flex address-info">
+               <view class="phone">186****5982</view>
+               <view class="address list-hidden">广东省深圳市南山区沙河街道沙河中路东一坊9栋</view>
+           </view>
+           <view class="turn-arrow">
+               <text class="iconfont icon-arrowright" />
+           </view>
+       </view>
+       <view class="no-address-cont"></view>
+   </view>
+   <view class="goods-info-box">
+        <view class="dis-flex flex-x-between goods-info-list">
+           <text class="goods-list-title">合计</text>
+           <text class="goods-total-price">￥189</text>
+        </view>
+        <view class="dis-flex flex-x-between goods-info-list">
+           <text class="goods-list-title">邮费</text>
+           <text class="goods-delivery">￥0.00</text>
+        </view>
+        <view class="dis-flex flex-x-between goods-info-list">
+           <text class="goods-list-title">备注</text>
+           <view class="flex goods-remark">
+               <input name="input" placeholder="填写与卖家协商内容" />
+           </view>
+       </view>
+   </view>
+   <view class="goods-lists-box">
+       <view class="goods-lists-title">商品列表</view>
+       <view class="goods-lists-cont">
+           <view class="dis-flex flex-x-center goods-list">
+                <view class="goods-list-image">
+                   <image mode="scaleToFill" src="../../images/bg1.jpg"></image>
+                </view>
+                <view class="dis-flex flex-dir-column flex-x-between flex goods-list-info">
+                    <view class="goods-list-title list-hidden">123123123123</view>
+                    <view>
+                        <text class="goods-list-price">￥199 </text>
+                        <text class="goods-list-delprice">￥299</text>
+                    </view>
+                </view>
+                <view class="dis-flex flex-x-center flex-y-center good-list-count">
+                    <text>X 2</text>
+                </view>
+           </view>
+           <view class="dis-flex flex-x-center goods-list">
+                <view class="goods-list-image">
+                   <image mode="scaleToFill" src="../../images/bg1.jpg"></image>
+                </view>
+                <view class="dis-flex flex-dir-column flex-x-between flex goods-list-info">
+                    <view class="goods-list-title list-hidden">123123123123</view>
+                    <view>
+                        <text class="goods-list-price">￥199 </text>
+                        <text class="goods-list-delprice">￥299</text>
+                    </view>
+                </view>
+                <view class="dis-flex flex-x-center flex-y-center good-list-count">
+                    <text>X 2</text>
+                </view>
+           </view>
+       </view>
+   </view>
+
+   <view class="dis-flex flex-x-between footer-menu-box">
+        <view class="dis-flex flex-dir-column flex-x-start flex pay-price">
+           <text>实付金额：￥1908</text>
+           <text class="good-delivery">邮费：￥0.00</text>
+        </view>
+        <view class="dis-flex flex-x-center flex-y-center pay-order-btn" bindtap="payOrder">付款</view>
+   </view>
+</view>

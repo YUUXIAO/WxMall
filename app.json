@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/checkOrder/index",
     "pages/shoppingCart/index",
     "pages/index/index",
     "pages/category/index",
@@ -12,7 +13,6 @@
     "pages/address/index",
     "pages/authorize/index",
     "pages/commentsList/index",
-    "pages/checkOrder/index",
     "pages/test/index",
     "pages/login/index"
   ],

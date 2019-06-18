@@ -7,7 +7,7 @@
         <text wx:else bindtap="editCart" data-type="complete">完成</text>
       </view>
       <view class="shopping-cart-content">
-        <view class="dis-flex flex-x-between shopping-cart-item" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.style}}" wx:for="{{cartLists}}" wx:key="index">
+        <view class="dis-flex flex-x-between shopping-cart-item" wx:if="{{cartLists.length>0}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.style}}" wx:for="{{cartLists}}" wx:key="index">
           <view class="dis-flex flex-x-between cart-item-info" >
             <view class="cart-select-icon dis-flex flex-y-center" bindtap="chooseCartItem" data-index="{{index}}">
               <text class="iconfont icon-select {{item.selected?'icon-choose':''}}" />
@@ -20,14 +20,20 @@
               <view class="dis-flex flex-x-between flex-y-center">
                 <view class="shopping-cart-price">￥ {{item.retailPrice}}</view>
                 <view class='dis-flex flex-y-center countGroup'>
-                  <view class='flex reduceBtn' bindtap="reduceCount" data-index="{{index}}">-</view>
+                  <view class='flex reduceBtn {{item.goodCount>1?"":"default-btn"}}' bindtap="reduceCount" data-index="{{index}}">-</view>
                   <view class='flex count'>{{item.goodCount}}</view>
                   <view class='flex increaseBtn' bindtap="increaseCount" data-index="{{index}}">+</view>
                 </view>
               </view>
             </view>
           </view>
-          <view class="cart-item-del dis-flex flex-x-center flex-y-center">删 除</view>
+          <view class="cart-item-del dis-flex flex-x-center flex-y-center" bindtap="delCartItem" data-index="{{index}}">删 除</view>
+        </view>
+        <view wx:if="{{cartLists.length<=0}}" class="dis-flex flex-dir-column flex-y-center nothing-box">
+          <view class="nothing-box-image">
+              <image mode="aspectFit" src="../../images/no_content.png"></image>
+            </view>
+          <view class="returnShopping">去购物</view>
         </view>
       </view>
     </view>
@@ -41,8 +47,8 @@
     <view class="dis-flex flex-x-between ">
       <view class="shopping-total-price" wx:if="{{!showEdit}}">合计: ￥{{priceCount}}</view>
       <view class="shopping-menu-btn">
-        <view class="btn-delete-all" wx:if="{{showEdit}}">删除</view>
-        <view class="btn-take-order">下单</view>
+        <view class="btn-delete-all {{selectedCount>0 ?'btn-delete-red':'btn-delete-grey'}}" wx:if="{{showEdit}}" bindtap="deleteTotal">删除</view>
+        <view class="btn-take-order" bindtap="takeOrders">下单</view>
       </view>
     </view>
   </view>
