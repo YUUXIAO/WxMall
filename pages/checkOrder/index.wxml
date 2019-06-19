@@ -1,20 +1,25 @@
 <!--pages/checkOrder/index.wxml-->
 <view class="page">
-   <view class="address-info-box">
-       <view class="dis-flex flex-x-between flex-y-center address-info-cont">
-           <view class="user-name">
-               <text>张三</text>
+   <view class="address-info-box {{addressInfo?'':'address-info-add'}}">
+       <view class="dis-flex flex-x-between flex-y-center address-info-cont" wx:if="{{addressInfo}}">
+           <view class=" user-name">
+               <text>{{addressInfo.name}}</text>
                <view class="user-name-tag">默认</view>
            </view>
            <view class="flex address-info">
-               <view class="phone">186****5982</view>
-               <view class="address list-hidden">广东省深圳市南山区沙河街道沙河中路东一坊9栋</view>
+               <view class="phone">{{addressInfo.phone}}</view>
+               <view class="address list-hidden">{{addressInfo.region[0]}}{{addressInfo.region[1]}}{{addressInfo.region[2]}}{{addressInfo.address}}</view>
            </view>
            <view class="turn-arrow">
                <text class="iconfont icon-arrowright" />
            </view>
        </view>
-       <view class="no-address-cont"></view>
+       <view class="dis-flex flex-y-center no-address-cont" bindtap="addAddress" wx:else>
+           <view class="dis-flex flex-x-center flex-y-center address-add-btn">
+               <text class="iconfont icon-add" />  
+           </view>
+           <text class="address-add-text">新增收货地址</text>
+       </view>
    </view>
    <view class="goods-info-box">
         <view class="dis-flex flex-x-between goods-info-list">

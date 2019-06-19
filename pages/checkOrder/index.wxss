@@ -5,15 +5,45 @@
     min-height: 100vh;
 }
 .address-info-box{
-    border: 1px solid red;
     height: 120rpx;
     font-size: 26rpx;
-    background: #fafdcb;
+    background: url('https://cdn.it120.cc/images/weappshop/addr-line.png') no-repeat bottom center;
+    background-size: 100% ;
+    background-color: #fafdcb;
     padding: 20rpx;
     box-sizing: border-box;
+    border-top: 1px solid #efefef;
 }
+.address-info-add{
+    background: #fff;
+}
+
+
+
+.no-address-cont{
+    height: 100%;
+}
+.address-add-btn{
+    width: 60rpx;
+    height: 60rpx;
+    background: #b5272e;
+    color: #fff;
+    border-radius: 10rpx;
+}
+.address-add-text{
+    font-size: 30rpx;
+    letter-spacing: 3rpx;
+    padding-left: 20rpx;
+}
+
+
+
 .user-name{
     width: 90rpx;
+}
+.user-name text{
+    width: 100%;
+    display: inline-block;
 }
 .user-name-tag{
     font-size: 20rpx;
@@ -82,6 +112,9 @@
 .goods-list-info{
     padding: 0 15rpx;
     box-sizing: border-box;
+}
+.goods-remark{
+    padding-left: 1em;
 }
 .goods-list-title{
     color: #333;

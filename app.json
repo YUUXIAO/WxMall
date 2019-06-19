@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/checkOrder/index",
-    "pages/shoppingCart/index",
+    "pages/addressAdd/index",
     "pages/index/index",
+    "pages/shoppingCart/index",
     "pages/category/index",
     "pages/detail/index",
     "pages/goodsList/index",

@@ -7,13 +7,13 @@ const request = (url, needSubDomain, method, data, header) => {
     let defaultHeader = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    defaultHeader = header ? header : defaultHeader
+    // data.token = wx.getStorageSync('token')
     return new Promise((resolve, reject) => {
         wx.request({
             url: _url,
             method: method,
-            data: data,
-            header: defaultHeader,
+            data: data || {},
+            header: header || defaultHeader,
             success(request) {
                 resolve(request.data)
             },
@@ -66,6 +66,10 @@ module.exports = {
         // return request('/api/checkToken', true, 'post', data)
         return true
     },
+    // 记录formId
+    saveFormId: (data) => {
+        // return request('/formId/save', false, 'post', data )
+    },
     // 注册 
     register: (data) => {
         // return request('/api/register', true, 'post', data)
@@ -114,6 +118,15 @@ module.exports = {
     getCategoryDetailLists: (data) => {
         return request('/item/listByCategory.json', false, 'get', data)
     },
+    // 添加收货地址    
+    addAddress: (data) => {
+        // return request('/addAddress/addd', false, 'post', data)
+    },
+
+
+
+
+
 
 
     queryMobileLocation: (data) => {

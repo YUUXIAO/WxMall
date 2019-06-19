@@ -24,6 +24,10 @@ module.exports = {
     checkOrder: {
         path: '/pages/checkOrder/index'
     },
+    // 购买确认页面
+    addressAdd: {
+        path: '/pages/addressAdd/index'
+    },
     // 个人中心
     personal: {
         type: 'tab',

@@ -1,0 +1,35 @@
+/* pages/addressAdd/index.wxss */
+.page{
+    font-size: 30rpx;
+}
+.address-list-info{
+    padding: 20rpx 0;
+    border-bottom: 1px solid #efefef;
+}
+.address-info-input input{
+    font-size: 28rpx;
+}
+.palceholder{
+    color: #888;
+}
+
+
+
+.set-address-box{
+    margin: 25rpx 0;
+}
+.icon-select{
+    color: #999;
+}
+.icon-select-choose{
+    color: #b5272e;
+}
+.set-detault-text,.set-wx-text{
+    font-size: 26rpx;
+    color: #999;
+    margin-left: 10rpx;
+}
+.icon-wx,.set-wx-text{
+    color: #439057;
+}
+
