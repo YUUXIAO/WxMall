@@ -24,9 +24,9 @@ module.exports = {
     checkOrder: {
         path: '/pages/checkOrder/index'
     },
-    // 购买确认页面
+    // 添加地址页面
     addressAdd: {
-        path: '/pages/addressAdd/index'
+        path: '/pages/address/addressAdd/index'
     },
     // 个人中心
     personal: {

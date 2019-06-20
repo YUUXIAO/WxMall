@@ -1,56 +1,30 @@
 <!-- pages/address/index.wxml -->
-<view class="addressManage">
+<view class="page">
   <!-- 显示地址列表 -->
-  <view class='address-list'>
-    <view class='address-name'>
-      <view class='name'>张三</view>
-      <view class='tag'>默认</view>
-    </view>
-    <view class='address-info'>
-      <text class='phone'>{{phone}}</text>
-      <text class='address-detail'>广东省深圳市南山区沙河街道沙河中路东一坊9栋</text>
-    </view>
-    <view class='address-edit'>
-      <view class='edit-image'>
-        <image src="../../images/menu/icon_type.png" mode="aspectFill"></image>
+  <block wx:if="{{addressLists.length>0}}">
+    <view class='dis-flex flex-x-between flex-y-center address-list' wx:for="{{addressLists}}">
+      <view class='address-name'>
+        <view class='name'>{{item.name}}</view>
+        <view class='tag'>默认</view>
+      </view>
+      <view class='address-info'>
+        <text class='phone'>{{item.phone}}</text>
+        <text class='address-detail twolist-hidden'>{{item.region[0]}}{{item.region[1]}}{{item.region[2]}}{{item.address}}</text>
+      </view>
+      <view class='address-edit'>
+        <view class='edit-image' data-index="{{index}}" bindtap="addressEdit">
+          <text class="iconfont icon-edit" />
+        </view>
       </view>
     </view>
-  </view>
-  <view class='address-list'>
-    <view class='address-name'>
-      <view class='name'>张三</view>
-    </view>
-    <view class='address-info'>
-      <text class='phone'>{{phone}}</text>
-      <text class='address-detail'>广东省深圳市南山区沙河街道沙河中路东一坊9栋</text>
-    </view>
-    <view class='address-edit'>
-      <view class='edit-image'>
-        <image src="../../images/menu/icon_type.png" mode="aspectFill"></image>
-      </view>
-    </view>
-  </view>
-  <view class='address-list'>
-    <view class='address-name'>
-      <view class='name'>张三</view>
-    </view>
-    <view class='address-info'>
-      <text class='phone'>{{phone}}</text>
-      <text class='address-detail'>广东省深圳市南山区沙河街道</text>
-    </view>
-    <view class='address-edit'>
-      <view class='edit-image'>
-        <image src="../../images/menu/icon_type.png" mode="aspectFill"></image>
-      </view>
-    </view>
-  </view>
+  </block>
   <!-- 没有保存地址显示 -->
-  <!-- <view class="no-address">
+  <view class="dis-flex flex-x-around no-address" wx:else>
     <view class="no-address-warp">
-      <image class="no-address-image" src="../../images/bg1.jpg" mode="aspectFill"></image>
-      <text class="no-address-tip">收货地址在哪里</text>
+      <image class="no-address-image" src="../../images/no_content.png" mode="aspectFill"></image>
+      <text class="no-address-tip">没有收货地址哦~</text>
     </view>
-  </view> -->
+  </view>
   <!-- 新建收货地址 -->
   <view class="addAddress">+ 新建地址</view>
 </view>

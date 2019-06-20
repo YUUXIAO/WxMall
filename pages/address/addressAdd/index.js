@@ -1,7 +1,8 @@
 // pages/addressAdd/index.js
 const App = getApp()
-const WXAPI = require('../../wxapi/index')
-const routes = require('../../router/index.js');
+const WXAPI = require('../../../wxapi/index')
+const routes = require('../../../router/index.js');
+
 
 Page({
 
@@ -13,6 +14,7 @@ Page({
     disabled: false,
     errorMsg: '',
     default: false,
+    addressInfo: {},
 
 
     addressLists: []    // 收货地址列表
@@ -22,12 +24,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let addressLists = wx.getStorageSync('addressLists') ? wx.getStorageSync('addressLists') : []
-    // let addressLists = wx.getStorageSync('addressLists')
-    console.log(addressLists)
-    this.setData({
-      addressLists
-    })
+    let _this = this, json = routes.extract(options)
+    if (options.type == 'edit') {
+      // 编辑地址
+      let addressInfo = wx.getStorageSync('addressInfo')
+      _this.setData({
+        addressInfo
+      })
+    } else {
+      // 新增地址
+      let addressLists = wx.getStorageSync('addressLists') || []
+      _this.setData({
+        addressLists
+      })
+    }
+
   },
 
   /**
@@ -36,7 +47,7 @@ Page({
   regionChange(e) {
     let region = e.detail.value
     this.setData({
-      region
+      'addressInfo.region': region
     })
   },
   /**
@@ -51,30 +62,56 @@ Page({
     * 提交表单信息
     */
   saveData(e) {
-    let _this = this, formData = e.detail.value
+    let _this = this, formData = e.detail.value, addressLists = this.data.addressLists
     formData.region = this.data.region
     formData.isDefault = this.data.default
+    // 发起请求按钮禁用
+    this.setData({
+      disabled: true
+    })
     // 表单验证
     if (!_this.validation(formData)) {
       App.showError(_this.data.errorMsg)
       return false
     }
-    // 发起请求按钮禁用
-    this.setData({
-      disabled: true
-    })
 
     // WXAPI.addAddress(formData).then(res => {
     //   console.log(res)
     // })
-    console.log(this.data.addressLists)
-    this.data.addressLists.push(formData)
-    wx.setStorageSync("addressLists", this.data.addressLists);
-    App.showSuccess('添加成功！', function () {
-      // routes.navigateTo('')
+    let defaultAddress = addressLists.find(s => {
+      return s.isDefault
     })
-
+    // 存在默认地址
+    if (defaultAddress && formData.isDefault) {
+      wx.showModal({
+        title: '提示',
+        content: '已经存在默认地址是否覆盖？',
+        success(res) {
+          if (res.confirm) {
+            addressLists.map(s => {
+              s.isDefault = false
+            })
+          } else if (res.cancel) {
+            formData.isDefault = false
+          }
+          _this.addressAdd(_this, addressLists, formData)
+        }
+      })
+    } else {
+      _this.addressAdd(_this, addressLists, formData)
+    }
   },
+  addressAdd(_this, addressLists, formData) {
+    addressLists.push(formData)
+    wx.setStorageSync("addressLists", addressLists);
+    App.showSuccess('添加成功！', function () {
+      _this.setData({
+        disabled: false
+      })
+      wx.navigateBack();
+    })
+  },
+
   /**
     * 提交表单信息
     */
@@ -88,10 +125,10 @@ Page({
       this.data.errorMsg = '手机号不能为空'
       return false
     }
-    // if (!reg.test(data.phone)) {
-    //   this.data.errorMsg = '手机号不符合要求'
-    //   return false
-    // }
+    if (!reg.test(data.phone)) {
+      this.data.errorMsg = '手机号不符合要求'
+      return false
+    }
     if (!this.data.region) {
       this.data.error = '省市区不能空';
       return false
@@ -101,6 +138,23 @@ Page({
       return false
     }
     return true
+  },
+  /**
+    * 获取微信地址
+    */
+  chooseWxAddress() {
+    let _this = this
+    wx.chooseAddress({
+      success: function (res) {
+        _this.setData({
+          'addressInfo.name': res.userName,
+          'addressInfo.phone': res.telNumber,
+          'addressInfo.address': res.detailInfo,
+          'addressInfo.post': res.nationalCode,
+          'addressInfo.region': [res.provinceName, res.cityName, res.countyName],
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

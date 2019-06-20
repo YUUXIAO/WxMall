@@ -1,7 +1,7 @@
 <!--pages/checkOrder/index.wxml-->
 <view class="page">
-   <view class="address-info-box {{addressInfo?'':'address-info-add'}}">
-       <view class="dis-flex flex-x-between flex-y-center address-info-cont" wx:if="{{addressInfo}}">
+   <view class="address-info-box {{addressInfo.name?'':'address-info-add'}}">
+       <view class="dis-flex flex-x-between flex-y-center address-info-cont" wx:if="{{addressInfo.name}}">
            <view class=" user-name">
                <text>{{addressInfo.name}}</text>
                <view class="user-name-tag">默认</view>
@@ -24,7 +24,7 @@
    <view class="goods-info-box">
         <view class="dis-flex flex-x-between goods-info-list">
            <text class="goods-list-title">合计</text>
-           <text class="goods-total-price">￥189</text>
+           <text class="goods-total-price">￥{{totalPrice}}</text>
         </view>
         <view class="dis-flex flex-x-between goods-info-list">
            <text class="goods-list-title">邮费</text>
@@ -33,41 +33,26 @@
         <view class="dis-flex flex-x-between goods-info-list">
            <text class="goods-list-title">备注</text>
            <view class="flex goods-remark">
-               <input name="input" placeholder="填写与卖家协商内容" />
+               <input name="input" placeholder="填写与卖家协商内容" value="{{remark}}" />
            </view>
        </view>
    </view>
    <view class="goods-lists-box">
        <view class="goods-lists-title">商品列表</view>
-       <view class="goods-lists-cont">
+       <view class="goods-lists-cont" wx:for="{{goodsInfo}}" wx:key="index">
            <view class="dis-flex flex-x-center goods-list">
                 <view class="goods-list-image">
-                   <image mode="scaleToFill" src="../../images/bg1.jpg"></image>
+                   <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
                 </view>
                 <view class="dis-flex flex-dir-column flex-x-between flex goods-list-info">
-                    <view class="goods-list-title list-hidden">123123123123</view>
+                    <view class="goods-list-title list-hidden">{{item.name}}</view>
                     <view>
-                        <text class="goods-list-price">￥199 </text>
-                        <text class="goods-list-delprice">￥299</text>
+                        <text class="goods-list-price">￥{{item.retailPrice}} </text>
+                        <text class="goods-list-delprice" wx:if="{{item.counterPrice>0}}">￥{{item.counterPrice}}</text>
                     </view>
                 </view>
                 <view class="dis-flex flex-x-center flex-y-center good-list-count">
-                    <text>X 2</text>
-                </view>
-           </view>
-           <view class="dis-flex flex-x-center goods-list">
-                <view class="goods-list-image">
-                   <image mode="scaleToFill" src="../../images/bg1.jpg"></image>
-                </view>
-                <view class="dis-flex flex-dir-column flex-x-between flex goods-list-info">
-                    <view class="goods-list-title list-hidden">123123123123</view>
-                    <view>
-                        <text class="goods-list-price">￥199 </text>
-                        <text class="goods-list-delprice">￥299</text>
-                    </view>
-                </view>
-                <view class="dis-flex flex-x-center flex-y-center good-list-count">
-                    <text>X 2</text>
+                    <text>X {{item.goodCount}}</text>
                 </view>
            </view>
        </view>
@@ -75,7 +60,7 @@
 
    <view class="dis-flex flex-x-between footer-menu-box">
         <view class="dis-flex flex-dir-column flex-x-start flex pay-price">
-           <text>实付金额：￥1908</text>
+           <text>实付金额：￥{{totalPrice}}</text>
            <text class="good-delivery">邮费：￥0.00</text>
         </view>
         <view class="dis-flex flex-x-center flex-y-center pay-order-btn" bindtap="payOrder">付款</view>

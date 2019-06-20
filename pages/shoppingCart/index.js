@@ -8,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        shoppingCartList: [],
+        cartLists: [],
         showEdit: false,
         selectAll: true,
         priceCount: 0,      // 合计金额
@@ -253,6 +253,10 @@ Page({
       * 批量删除商品
       */
     takeOrders: function () {
+        let cartLists = this.data.cartLists.filter(s => {
+            return s.selected
+        })
+        wx.setStorageSync('goodsInfo', cartLists)
         routes.navigateTo('checkOrder')
     },
     /**

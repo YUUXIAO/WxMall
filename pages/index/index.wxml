@@ -103,7 +103,7 @@
     <view class='goods-list-box'>
       <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
         <view class="goods-image">
-          <image mode="scaleToFill" src="{{item.listPicUrl}}"></image>
+          <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
         </view>
         <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
         <text class="goods-title twolist-hidden">{{item.name}}</text>

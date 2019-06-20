@@ -74,6 +74,7 @@
 .goods-info-list{
     padding: 10rpx 0;
     border-bottom: 1px solid #ddd;
+    text-align: right;
 }
 .goods-info-list:last-child{
     border-bottom: 0;
@@ -85,7 +86,6 @@
 
 
 .goods-lists-box{
-    border: 1px solid red;
     padding: 20rpx;
     background: #fff;
     color: #777;
