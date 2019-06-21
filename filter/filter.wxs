@@ -1,0 +1,29 @@
+/** 
+ * 数字格式化,每三位加逗号
+ * number: 传入需格式化数字
+*/
+function formateNumber(number) {
+    var result = '', counter = 0, dot = number.toString().indexOf('.')
+    if (dot > -1) {
+        // 有小数部份
+        var dotCnt = number.toString().substring(dot + 1, number.length)
+        number = number.toString().split('.')[0]
+        number = (number || 0).toString();
+        for (var i = number.length - 1; i >= 0; i--) {
+            counter++;
+            result = number.charAt(i) + result;
+            if (!(counter % 3) && i != 0) { result = ',' + result; }
+        }
+        result = result + '.' + dotCnt;
+        return result;
+    } else {
+        // 没有小数部份
+        var reg = getRegExp('(\d)(?=(?:\d{3})+$)', 'g')
+        var text = number || 0
+        return text.toString().replace(reg, '$1,')
+    }
+}
+
+module.exports = {
+    formateNumber: formateNumber
+}

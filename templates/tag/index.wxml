@@ -1,0 +1,5 @@
+<template name="tag">
+  <view class="tag">
+    <text>{{promTag}}</text>
+  </view>
+</template>

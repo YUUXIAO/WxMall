@@ -1,4 +1,7 @@
 /* pages/address/index.wxss */
+@import "../../templates/tag/index.wxss";
+
+
 page{
    background: url('https://cdn.it120.cc/images/weappshop/addr-line.png') no-repeat top center;
    background-size: 100% ;
@@ -17,15 +20,6 @@ page{
 .address-name {
   width: 200rpx;
   text-align: left;
-}
-
-.tag {
-  font-size: 22rpx;
-  color: #b5272e;
-  display: inline-block;
-  padding: 0 10rpx;
-  border-radius: 12rpx;
-  border: 1px solid #b5272e;
 }
 
 .name {

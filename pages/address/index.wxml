@@ -5,7 +5,7 @@
     <view class='dis-flex flex-x-between flex-y-center address-list' wx:for="{{addressLists}}">
       <view class='address-name'>
         <view class='name'>{{item.name}}</view>
-        <view class='tag'>默认</view>
+        <template is="tag" data="{{...tagData}}"></template>
       </view>
       <view class='address-info'>
         <text class='phone'>{{item.phone}}</text>
@@ -28,3 +28,6 @@
   <!-- 新建收货地址 -->
   <view class="addAddress">+ 新建地址</view>
 </view>
+
+
+<import src="../../templates/tag/index.wxml"/>

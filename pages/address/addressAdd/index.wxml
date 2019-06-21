@@ -1,4 +1,7 @@
 <!--pages/addressAdd/index.wxml-->
+<!-- <wxs src="../../../filter/filter.wxs" module="filter"/> -->
+
+
 <view class="page">
   <form bindsubmit="saveData" report-submit="true">
     <view class="address-list-info address-name">

@@ -1,4 +1,8 @@
 <!-- pages/detail/index.wxml -->
+<import src="../../templates/tag/index.wxml"/>
+
+
+
 <view class='main'>
   <!-- 详情轮播图 -->
   <view class='detail-images'>
@@ -86,8 +90,9 @@
           </view>
           <text class="recommend-title list-hidden">{{item.name}}</text>
           <text class="recommend-price">￥{{item.retailPrice}}</text>
-          <view class="dis-flex  recommend-tags-box">
-            <text class="recommend-tag" wx:if="{{item.promTag}}">{{item.promTag}}</text>
+          <view class="dis-flex recommend-tags-box">
+            <template wx:if="{{item.promTag}}" is="tag" data="{{...item}}"></template>
+            <!-- <text class="recommend-tag" wx:if="{{item.promTag}}">{{item.promTag}}</text> -->
           </view>
         </view>
       </view>

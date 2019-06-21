@@ -1,5 +1,4 @@
-<!-- index.wxml
-商城首页 -->
+<!-- index.wxml -->
 <view class="main">
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
@@ -99,7 +98,7 @@
     </view>
   </view> -->
   <!-- 商品列表 -->
-  <scroll-view scroll-y>
+  <!-- <scroll-view scroll-y height="2000px"> -->
     <view class='goods-list-box'>
       <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
         <view class="goods-image">
@@ -124,7 +123,7 @@
         </view>
       </view>
     </view>
-  </scroll-view>
+  <!-- </scroll-view> -->
   <!-- 回到顶部 -->
   <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="goTop">
     <text class="iconfont icon-arrowon" />

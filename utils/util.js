@@ -40,7 +40,17 @@ function formatTime(number, format) {
   return format;
 }
 
+/**
+ * 获取当前时间戳
+ */
+function getCurrentTimeStamp() {
+  let timestamp = Date.parse(new Date());
+  return timestamp + "";
+}
+
+
 module.exports = {
   formatDate,
-  formatTime
+  formatTime,
+  getCurrentTimeStamp
 }

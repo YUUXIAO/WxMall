@@ -1,4 +1,5 @@
 /* pages/detail/index.wxss */
+@import "../../templates/tag/index.wxss";
 
 .main {
   padding-bottom: 130rpx;
@@ -226,12 +227,6 @@ swiper {
   align-items: center;
 }
 
-.recommend-tag {
-  color: #b5272e;
-  border: 1px solid #b5272e;
-  padding: 0 5rpx;
-  font-size: 22rpx;
-}
 
 /* 底部操作栏-Start */
 

@@ -25,8 +25,9 @@ Page({
    */
   onLoad: function (options) {
     let _this = this, json = routes.extract(options)
-    if (options.type == 'edit') {
+    if (json.type == 'edit') {
       // 编辑地址
+      console.log(12312312)
       let addressInfo = wx.getStorageSync('addressInfo')
       _this.setData({
         addressInfo

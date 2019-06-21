@@ -4,36 +4,42 @@
   color: #333;
 }
 
-
+/* flex布局 */
 .dis-flex{
-    display: flex;
+  display: flex;
 }
 .flex-x-start{
+  display: flex;
   justify-content: flex-start;
 }
 .flex-x-center {
+  display: flex;
   justify-content: center;
 }
 .flex-x-between {
+  display: flex;
   justify-content: space-between;
 }
 .flex-x-around {
+  display: flex;
   justify-content: space-around;
 }
 .flex-y-center {
+  display: flex;
   align-items: center;
 }
 .flex-dir-column {
   flex-direction: column;
 }
 .flex-y-end {
+  display: flex;
   align-items: flex-end;
 }
 .flex{
   flex:1
 }
 
-
+/* 文字多行溢出 */
 .twolist-hidden {
   display: -webkit-box;
   word-break: break-all;
@@ -50,3 +56,10 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+
+
+.box-sizing{
+  box-sizing: border-box;
+}
+
+

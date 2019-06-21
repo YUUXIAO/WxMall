@@ -1,4 +1,7 @@
 /**index.wxss**/
+/* @import "../../templates/tag/index.wxss"; */
+
+
 
 .tab {
   display: flex;
