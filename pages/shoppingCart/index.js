@@ -208,6 +208,13 @@ Page({
         }
         _this.getCount()
     },
+    getCountNum: function (e) {
+        console.log(e)
+        // this.cartLists[index].goodCount = detail
+        // this.setData({
+        //     cartLists
+        // })
+    },
     /**
       * 绑定加数量事件
       */

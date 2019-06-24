@@ -92,7 +92,6 @@
           <text class="recommend-price">￥{{item.retailPrice}}</text>
           <view class="dis-flex recommend-tags-box">
             <template wx:if="{{item.promTag}}" is="tag" data="{{...item}}"></template>
-            <!-- <text class="recommend-tag" wx:if="{{item.promTag}}">{{item.promTag}}</text> -->
           </view>
         </view>
       </view>

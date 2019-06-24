@@ -1,0 +1,18 @@
+/* components/counter/index.wxss */
+.counter{
+    width: 240rpx;
+    height: 60rpx;
+    display: flex;
+    border: 1px solid red;
+}
+.countBtn{
+    height: 100%;
+    line-height: 60rpx;
+    width:80rpx;
+    display: inline-block;
+    background: #fff;
+    text-align: center;
+}
+.countInput{
+    border: 1px solid green;
+}
