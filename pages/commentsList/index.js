@@ -32,7 +32,8 @@ Page({
   */
   getTagsList: function (json) {
     let param = {
-      __timestamp: Date.parse(new Date()),
+      // __timestamp: Date.parse(new Date()),
+      __timestamp: util.getCurrentTimeStamp(),
       itemId: json.itemId
     }
     WXAPI.getTagsList(param).then(res => {

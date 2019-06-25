@@ -33,6 +33,8 @@
 }
 .shopping-cart-image{
   width: 200rpx;
+  border: 1px solid #efefef;
+  border-radius: 10rpx;
 }
 .shopping-cart-image image{
   width: 100%;
@@ -50,7 +52,7 @@
   font-size: 30rpx;
   color: #b5272e;
 }
-.countGroup{
+/* .countGroup{
   width: 240rpx;
   height: 60rpx;
 }
@@ -66,7 +68,7 @@
 .countGroup .default-btn{
   border: 1px solid #ddd;
   background: #efefef;
-}
+} */
 .addCartBtn {
   width: 100%;
   color: #fff;
@@ -76,9 +78,9 @@
   line-height: 100rpx;
   font-weight: bold;
 }
-.countGroup .default-btn{
+/* .countGroup .default-btn{
   border: 1px solid #ddd;
-}
+} */
 .cart-item-info{
   width:750rpx;
   padding: 0 15rpx;

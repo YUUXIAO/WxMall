@@ -20,8 +20,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    reduceCount() {
-      let nums = this.data.count > 0 ? this.data.count : wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
+    reduceEvent() {
+      let nums = this.data.count
       this.setData({
         count: --nums
       })
@@ -29,8 +29,7 @@ Component({
       this.triggerEvent('reduceEvent')
     },
     changeCount({ detail: { value } }) {
-      value > 0 ? value : wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" })
-      if (value.indexOf('0') == 0) {
+      if (value.indexOf('0') == 0 && value.length > 1) {
         value = value.substring(1)
       }
       this.setData({
@@ -38,7 +37,7 @@ Component({
       })
       this.triggerEvent('getCountNum', value)
     },
-    increaseCount() {
+    addEvent() {
       this.setData({
         count: ++this.data.count
       })

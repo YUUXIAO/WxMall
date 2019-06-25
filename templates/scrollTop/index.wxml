@@ -1,0 +1,6 @@
+<template name="scrollTop">
+  <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="scrollToTop">
+    <text class="iconfont icon-arrowon" />
+    <text class="text-top">顶部</text>
+  </view>
+</template>

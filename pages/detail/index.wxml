@@ -125,11 +125,12 @@
       <view>
         <text>购买数量</text>
       </view>
-      <view class='dis-flex flex-y-center countGroup'>
+      <counter count="{{goodDetail.goodCount}}"  bind:getCountNum="getCountNum"></counter>
+      <!-- <view class='dis-flex flex-y-center countGroup'>
         <view class='flex reduceBtn {{goodDetail.goodCount>1?"":"default-btn"}}' bindtap='reduceCount'>-</view>
         <view class='flex count'>{{goodDetail.goodCount}}</view>
         <view class='flex increaseBtn' bindtap='increaseCount'>+</view>
-      </view>
+      </view> -->
     </view>
     <view class='addCartBtn' bindtap='confirmOrder'>确定</view>
   </view>

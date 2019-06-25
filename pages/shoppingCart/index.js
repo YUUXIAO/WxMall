@@ -192,38 +192,44 @@ Page({
     /**
       * 绑定减数量事件
       */
-    reduceCount: function (e) {
-        let _this = this, cartLists = this.data.cartLists, index = e.currentTarget.dataset.index, goodCount = cartLists[index].goodCount
-        if (goodCount > 1) {
-            cartLists[index].goodCount--
-            _this.setData({
-                cartLists
-            })
-        } else {
-            wx.showToast({
-                title: '不能再少了哦！',
-                icon: 'error',
-                duration: 1000
-            })
-        }
-        _this.getCount()
+    // reduceCount: function (e) {
+    //     let _this = this, cartLists = this.data.cartLists, index = e.currentTarget.dataset.index, goodCount = cartLists[index].goodCount
+    //     if (goodCount > 1) {
+    //         cartLists[index].goodCount--
+    //         _this.setData({
+    //             cartLists
+    //         })
+    //     } else {
+    //         wx.showToast({
+    //             title: '不能再少了哦！',
+    //             icon: 'error',
+    //             duration: 1000
+    //         })
+    //     }
+    //     _this.getCount()
+    // },
+    changeCount: function () {
+        this.getCount()
     },
-    getCountNum: function (e) {
-        console.log(e)
-        // this.cartLists[index].goodCount = detail
-        // this.setData({
-        //     cartLists
-        // })
+    getCountNum: function ({ currentTarget: { dataset: { index } }, detail }) {
+        let cartLists = this.data.cartLists
+        cartLists[index].goodCount = detail
+        this.setData({
+            cartLists
+        })
     },
     /**
       * 绑定加数量事件
       */
-    increaseCount: function (e) {
-        let cartLists = this.data.cartLists, index = e.currentTarget.dataset.index
-        cartLists[index].goodCount++
-        this.setData({
-            cartLists
-        })
+    // increaseCount: function (e) {
+    //     let cartLists = this.data.cartLists, index = e.currentTarget.dataset.index
+    //     cartLists[index].goodCount++
+    //     this.setData({
+    //         cartLists
+    //     })
+    //     this.getCount()
+    // },
+    increaseCount: function ({ currentTarget: { dataset: { index } } }) {
         this.getCount()
     },
     /**

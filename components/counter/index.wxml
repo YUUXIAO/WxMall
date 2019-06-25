@@ -1,6 +1,6 @@
 <!--components/counter/index.wxml-->
 <view class='dis-flex flex-x-between flex-y-center counter'>
-   <button class='flex countBtn reduceBtn ' disabled='{{count<=1}}' catchtap='reduceCount'>-</button>
-   <input class="flex countBtn" type='number' value='{{count}}' bindinput='changeCount'></input>
-   <button class='flex countBtn increaseBtn' catchtap='increaseCount'>+</button>
+   <button class='flex countBtn reduceBtn ' disabled='{{count<=1}}' catchtap='reduceEvent'>-</button>
+   <input class="flex countBtn countInput" type='number' value='{{count}}' bindinput='changeCount'></input>
+   <button class='flex countBtn increaseBtn' catchtap='addEvent'>+</button>
 </view>

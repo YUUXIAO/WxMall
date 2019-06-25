@@ -1,6 +1,3 @@
-.tag{
-    border: 1px solid red;
-}
 .tag text{
   font-size: 22rpx;
   color: #b5272e;

@@ -40,6 +40,12 @@ Page({
     routes.navigateTo('addressAdd', { type: 'edit' })
   },
   /**
+    * 新建地址
+    */
+  addAddress() {
+    routes.navigateTo('addressAdd')
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

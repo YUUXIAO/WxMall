@@ -1,96 +1,64 @@
 /* pages/user/index.wxss */
-page {
-  height: 100%;
-  background: #efefef;
-  border: 1px solid red;
+.page{
+  min-height: 100%;
+  padding:0;
 }
-view {
+
+.user-header-box{
+  border: 1px solid green;
+  background: #b5272e;
+  padding: 20rpx 0;
+}
+
+.user-header-avatar{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-header-name{
+  color: #fff;
+}
+
+
+
+
+/* 我的订单 */
+.user-orders-box{
+  border: 1px solid blue;
+  padding: 20rpx;
   box-sizing: border-box;
 }
-.main {
-  height: 100%;
+.user-orders-title{
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #efefef;
 }
-
-/* 用户信息-Start */
-.user-info {
-  width: 100%;
-  height: 250rpx;
-  background: #555;
-  padding: 30rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.icon-enterinto_fill{
+  color: #b5272e;
 }
-.user-image {
-  width: 150rpx;
-  height: 150rpx;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 1px solid red;
+.user-orders-list{
+  padding: 15rpx 0;
 }
-.user-image button {
-  width: 100%;
-  height: 100%;
+.user-orders-item{
+  font-size: 26rpx;
 }
-.notLogin {
-  background: green;
-}
-.user-name {
-  height: 110rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20rpx;
-}
-.user-name text {
-  display: block;
-  font-size: 32rpx;
+.user-orders-icon{
+  font-size: 42rpx;
   color: #aaa;
 }
-.user-name text:nth-child(1) {
-  color: #fff;
-  font-size: 36rpx;
-}
-/* 用户信息-End */
-/* 用户权力-Start */
-.user-center {
-  overflow: hidden;
-  margin-bottom: 20rpx;
-}
-.user-center view {
-  width: 250rpx;
-  height: 180rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30rpx 0;
-  float: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 32rpx;
-  background: #fff;
-}
-.user-center view:nth-child(3n + 1) {
-  border-right: 1px solid #ddd;
-}
 
-.user-center view:nth-child(3n-1) {
-  border-right: 1px solid #ddd;
+
+/* 用户信息 */
+.user-info-box{
+  padding: 0 20rpx;
 }
-.user-center view image {
-  width: 64rpx;
-  height: 64rpx;
-  font-size: 0;
+.user-info-icon{
+  margin-right: 20rpx;
 }
-/* 用户权力-End */
-.switchCount {
-  width: 100%;
-  height: 100rpx;
-  background: #fff;
-  text-align: center;
-  line-height: 100rpx;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  clear: both;
-  font-size: 36rpx;
+.user-info-item{
+  font-size: 30rpx;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #efefef;
 }

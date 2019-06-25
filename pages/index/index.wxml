@@ -1,5 +1,9 @@
 <!-- index.wxml -->
 <view class="main">
+  123123123
+  <template is="scrollTop" data="{{floorstatus}}"></template>
+
+
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
   <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
@@ -98,35 +102,36 @@
     </view>
   </view> -->
   <!-- 商品列表 -->
-  <!-- <scroll-view scroll-y height="2000px"> -->
-    <view class='goods-list-box'>
-      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
-        <view class="goods-image">
-          <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
+  <view class='goods-list-box'>
+    <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
+      <view class="goods-image">
+        <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
+      </view>
+      <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
+      <text class="goods-title twolist-hidden">{{item.name}}</text>
+      <view class="goods-price-box">
+        <text class="goods-price">￥{{item.retailPrice}}</text>
+        <text class="goods-line-price" wx:if="{{item.counterPrice}}">￥{{item.counterPrice}}</text>
+      </view>
+      <view class="goods-tag" wx:for="{{item.itemTagList}}" wx:for-item="tag" wx:key="tag.tagId">
+        {{tag.name}}
+      </view>
+      <view class="dis-flex flex-y-center flex-x-start goods-comments">
+        <view class="comments-image">
+          <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl?item.hotSaleListBottomInfo.iconUrl:'../../images/user.jpg'}}"></image>
         </view>
-        <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
-        <text class="goods-title twolist-hidden">{{item.name}}</text>
-        <view class="goods-price-box">
-          <text class="goods-price">￥{{item.retailPrice}}</text>
-          <text class="goods-line-price">￥{{item.counterPrice}}</text>
-        </view>
-        <view class="goods-tag" wx:for="{{item.itemTagList}}" wx:for-item="tag" wx:key="tag.tagId">
-          {{tag.name}}
-        </view>
-        <view class="dis-flex flex-y-center flex-x-start goods-comments">
-          <view class="comments-image">
-            <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl?item.hotSaleListBottomInfo.iconUrl:'../../images/user.jpg'}}"></image>
-          </view>
-          <text class="flex dis-flex flex-y-center flex-x-around flex-dir-column goods-comment">
+        <text class="flex dis-flex flex-y-center flex-x-around flex-dir-column goods-comment">
             <text class="twolist-hidden">{{item.hotSaleListBottomInfo.content}}</text>
-          </text>
-        </view>
+        </text>
       </view>
     </view>
-  <!-- </scroll-view> -->
+  </view>
   <!-- 回到顶部 -->
-  <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="goTop">
+  <!-- <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="goTop">
     <text class="iconfont icon-arrowon" />
     <text class="text-top">顶部</text>
-  </view>
+  </view> -->
 </view>
+
+
+<import src="../../templates/scrollTop/index.wxml"/>

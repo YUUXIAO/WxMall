@@ -20,7 +20,7 @@
               <view class="shopping-cart-title ist-hidden">{{item.name}}</view>
               <view class="dis-flex flex-x-between flex-y-center">
                 <view class="shopping-cart-price">￥ {{item.retailPrice}}</view>
-                <counter count="{{item.goodCount}}" data-index="{{index}}" bind:getCountNum="getCountNum" ></counter>
+                <counter count="{{item.goodCount}}" data-index="{{index}}" bind:getCountNum="getCountNum" bind:increaseEvent="changeCount" bind:reduceEvent="changeCount"></counter>
                 <!-- <view class='dis-flex flex-y-center countGroup'>
                   <view class='flex reduceBtn {{item.goodCount>1?"":"default-btn"}}' bindtap="reduceCount" data-index="{{index}}">-</view>
                   <view class='flex count'>{{item.goodCount}}</view>

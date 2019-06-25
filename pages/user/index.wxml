@@ -1,6 +1,55 @@
 <!-- pages/user/index.wxml -->
-<view class='main'>
-  <!-- 用户信息 -->
+<view class="page">
+  <!-- 用户头像信息 -->
+  <view class="dis-flex flex-dir-column flex-y-center user-header-box">
+    <view class="user-header-avatar">
+      <open-data class="userAvatar" lang="zh_CN" type="userAvatarUrl"></open-data>
+    </view>
+    <view class="user-header-name">
+      <open-data type="userNickName"></open-data>
+    </view>
+  </view>
+  <!-- 我的订单 -->
+  <view class="user-orders-box">
+    <view class="dis-flex flex-x-between flex-y-center user-orders-title">
+      <text>我的订单</text>
+      <view>
+        <text>全部订单</text>
+        <text class="iconfont icon-enterinto_fill" />
+      </view>
+    </view>
+    <view class="dis-flex flex-x-between flex-y-center user-orders-list">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+        <text class="iconfont icon-daifukuan user-orders-icon" />
+        <text>待付款</text>
+      </view>
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+        <text class="iconfont icon-icon-test user-orders-icon" />
+        <text>待发货</text>
+      </view>
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+        <text class="iconfont icon-yifahuodefuben user-orders-icon" />
+        <text>待收货</text>
+      </view>
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+        <text class="iconfont icon-daipingjia user-orders-icon" />
+        <text>待评价</text>
+      </view>
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+        <text class="iconfont icon-yiwancheng user-orders-icon" />
+        <text>已完成</text>
+      </view>
+    </view>
+  </view>
+  <view class="user-info-box">
+    <view class="user-info-item" bindtap="intoAddress">
+      <text class="iconfont icon-yiwancheng user-info-icon" />
+      <text>收货地址</text>
+    </view>
+  </view>
+</view>
+
+<!-- <view class='main'>
   <view class="user-info">
     <view class="user-image">
       <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
@@ -13,7 +62,6 @@
       <text>点击账号登陆</text>
     </view>
   </view>
-  <!-- 用户权力 -->
   <view class="user-center">
     <view class="user-orders">
       <image src="/images/user/orders.png" mode="aspectFit"></image>
@@ -53,4 +101,4 @@
     </view>
   </view>
   <view class="switchCount">切换账号</view>
-</view>
+</view> -->

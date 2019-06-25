@@ -1,6 +1,7 @@
 // pages/goodsList/index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
+const util = require('../../utils/util')
 const pageIndex = 'goodsList::'
 
 Page({
@@ -12,7 +13,8 @@ Page({
     // 商品列表高度
     scrollHeight: null,
     searchControl: {
-      _timestamp: Date.parse(new Date()),
+      // _timestamp: Date.parse(new Date()),
+      __timestamp: util.getCurrentTimeStamp(),
       page: 1,
       sortType: 0,
       categoryId: 0,
@@ -132,7 +134,8 @@ Page({
   getCategoryGoodsList: function (json) {
     // if (!this.data.pagination.lastPage) {
     let param = {
-      __timestamp: Date.parse(new Date()),
+      // __timestamp: Date.parse(new Date()),
+      __timestamp: util.getCurrentTimeStamp(),
       sortType: 0,
       descSorted: false,
       deliveryAreaId: 0,

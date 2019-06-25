@@ -28,6 +28,10 @@ module.exports = {
     addressAdd: {
         path: '/pages/address/addressAdd/index'
     },
+    // 地址列表页面
+    addressList: {
+        path: '/pages/address/index'
+    },
     // 个人中心
     personal: {
         type: 'tab',

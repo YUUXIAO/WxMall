@@ -338,7 +338,7 @@ swiper {
   color: #666;
 }
 
-.countGroup {
+/* .countGroup {
   width: 240rpx;
   height: 60rpx;
 }
@@ -354,6 +354,13 @@ swiper {
   line-height: 60rpx;
 }
 
+
+
+.countGroup .default-btn{
+  border: 1px solid #ddd;
+  background: #efefef;
+} */
+
 .addCartBtn {
   width: 100%;
   color: #fff;
@@ -362,11 +369,6 @@ swiper {
   height: 100rpx;
   line-height: 100rpx;
   font-weight: bold;
-}
-
-.countGroup .default-btn{
-  border: 1px solid #ddd;
-  background: #efefef;
 }
 /* mask遮罩层-Start */
 

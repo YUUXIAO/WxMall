@@ -1,6 +1,7 @@
 // pages/detail/index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
+const util = require('../../utils/util')
 
 
 Page({
@@ -16,7 +17,8 @@ Page({
     commentList: [],
     recommendList: [],
     commentData: {
-      __timestamp: Date.parse(new Date()),
+      // __timestamp: Date.parse(new Date()),
+      __timestamp: util.getCurrentTimeStamp(),
       itemId: '',
       tag: '全部',
       size: 10,
@@ -101,7 +103,8 @@ Page({
    */
   getRecommend: function () {
     let param = {
-      __timestamp: Date.parse(new Date()),
+      // __timestamp: Date.parse(new Date()),
+      __timestamp: util.getCurrentTimeStamp(),
       itemId: this.data.id
     }
     WXAPI.getRecommendList(param).then(res => {
@@ -172,20 +175,29 @@ Page({
   /**
   * 减少商品数量
   */
-  reduceCount: function () {
-    let _this = this
-    if (_this.data.goodDetail.goodCount > 1) {
-      _this.setData({
-        'goodDetail.goodCount': --this.data.goodDetail.goodCount
-      })
-    }
-  },
+  // reduceCount: function () {
+  //   let _this = this
+  //   if (_this.data.goodDetail.goodCount > 1) {
+  //     _this.setData({
+  //       'goodDetail.goodCount': --this.data.goodDetail.goodCount
+  //     })
+  //   }
+  // },
   /**
   * 增加商品数量
   */
-  increaseCount: function () {
+  // increaseCount: function () {
+  //   this.setData({
+  //     'goodDetail.goodCount': ++this.data.goodDetail.goodCount
+  //   })
+  // },
+  /**
+    * 修改商品数量
+    */
+  getCountNum: function ({ detail }) {
+    let goodDetail = this.data.goodDetail
     this.setData({
-      'goodDetail.goodCount': ++this.data.goodDetail.goodCount
+      'goodDetail.goodCount': detail
     })
   },
   /**

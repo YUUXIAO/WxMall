@@ -1,6 +1,7 @@
 // pages/category/index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
+const util = require('../../utils/util')
 
 
 
@@ -76,7 +77,8 @@ Page({
   getCategoryLists() {
     let _this = this
     let data = {
-      _timestamp: Date.parse(new Date())
+      // _timestamp: Date.parse(new Date())
+      _timestamp: util.getCurrentTimeStamp()
     }
     WXAPI.getCategoryLists(data).then(res => {
       let navigationArr = []
