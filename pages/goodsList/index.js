@@ -13,7 +13,6 @@ Page({
     // 商品列表高度
     scrollHeight: null,
     searchControl: {
-      // _timestamp: Date.parse(new Date()),
       __timestamp: util.getCurrentTimeStamp(),
       page: 1,
       sortType: 0,
@@ -45,11 +44,11 @@ Page({
       // 获取分类商品列表
       this.getCategoryGoodsList(json);
     } else {
-      // 获取搜索商品列表
-      this.getSearchGoodsList();
       this.setData({
         'searchControl.keyword': json.searchValue
       });
+      // 获取搜索商品列表
+      this.getSearchGoodsList();
     }
     // 设置商品列表高度
     this.setListHeight();
@@ -106,7 +105,7 @@ Page({
       pagination: {},
 
     }, () => {
-      _this.getGoodsList()
+      _this.getSearchGoodsList()
     })
   },
   /**
@@ -132,9 +131,7 @@ Page({
    * 获取分类商品列表
    */
   getCategoryGoodsList: function (json) {
-    // if (!this.data.pagination.lastPage) {
     let param = {
-      // __timestamp: Date.parse(new Date()),
       __timestamp: util.getCurrentTimeStamp(),
       sortType: 0,
       descSorted: false,
@@ -146,15 +143,8 @@ Page({
       let data = res.data.itemList
       this.setData({
         goodsList: data
-        // pagination: data.pagination
       })
-      // if (this.data.pagination.lastPage) {
-      //   this.setData({
-      //     showLoadEnd: true
-      //   })
-      // }
     })
-    // }
   },
   goDetail: function (e) {
     let index = e.currentTarget.dataset.index
@@ -188,7 +178,7 @@ Page({
       });
     }
     // 加载下一页
-    this.getGoodsList()
+    this.getSearchGoodsList()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

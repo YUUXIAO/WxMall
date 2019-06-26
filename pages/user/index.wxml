@@ -11,7 +11,7 @@
   </view>
   <!-- 我的订单 -->
   <view class="user-orders-box">
-    <view class="dis-flex flex-x-between flex-y-center user-orders-title">
+    <view class="dis-flex flex-x-between flex-y-center user-orders-title" bindtap="enterOrders">
       <text>我的订单</text>
       <view>
         <text>全部订单</text>
@@ -19,23 +19,23 @@
       </view>
     </view>
     <view class="dis-flex flex-x-between flex-y-center user-orders-list">
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="0">
         <text class="iconfont icon-daifukuan user-orders-icon" />
         <text>待付款</text>
       </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="1">
         <text class="iconfont icon-icon-test user-orders-icon" />
         <text>待发货</text>
       </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="2">
         <text class="iconfont icon-yifahuodefuben user-orders-icon" />
         <text>待收货</text>
       </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="3">
         <text class="iconfont icon-daipingjia user-orders-icon" />
         <text>待评价</text>
       </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item">
+      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="4">
         <text class="iconfont icon-yiwancheng user-orders-icon" />
         <text>已完成</text>
       </view>
@@ -48,57 +48,3 @@
     </view>
   </view>
 </view>
-
-<!-- <view class='main'>
-  <view class="user-info">
-    <view class="user-image">
-      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-        授权登录
-      </button>
-      <button wx:else class="notLogin"></button>
-    </view>
-    <view class="user-name">
-      <text>未登陆</text>
-      <text>点击账号登陆</text>
-    </view>
-  </view>
-  <view class="user-center">
-    <view class="user-orders">
-      <image src="/images/user/orders.png" mode="aspectFit"></image>
-      <text>我的订单</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/ticket.png" mode="aspectFit"></image>
-      <text>我的积分</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/refund.png" mode="aspectFit"></image>
-      <text>退换/售后</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/coupon.png" mode="aspectFit"></image>
-      <text>优惠券</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/redPacket.png" mode="aspectFit"></image>
-      <text>红包</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/location.png" mode="aspectFit"></image>
-      <text>地址管理</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/contact.png" mode="aspectFit"></image>
-      <text>联系客服</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/feedBack.png" mode="aspectFit"></image>
-      <text>用户反馈</text>
-    </view>
-    <view class="user-orders">
-      <image src="/images/user/question.png" mode="aspectFit"></image>
-      <text>帮助中心</text>
-    </view>
-  </view>
-  <view class="switchCount">切换账号</view>
-</view> -->

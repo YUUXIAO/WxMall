@@ -196,8 +196,8 @@ swiper{
   height: 100%;
 }
 .goods-simple-desc{
-  background: #f1f4df;
-  color: #dfe38e;
+  background: #f6ef98;
+  color: #c36a2d;
   font-size: 22rpx;
   padding: 10rpx 5rpx;
 }

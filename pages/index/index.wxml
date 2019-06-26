@@ -1,9 +1,5 @@
 <!-- index.wxml -->
 <view class="main">
-  123123123
-  <template is="scrollTop" data="{{floorstatus}}"></template>
-
-
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
   <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
@@ -16,21 +12,6 @@
       </view>
     </view>
   </scroll-view>
-  <!-- 商品特卖待放 -->
-  <!-- <view class="goodsSales">
-    <view class="goodsSale">
-      <view class="goodsSale-image">
-        <image src="../../images/beef.jpg" mode="aspectFill"></image>
-      </view>
-      <view class="goodsSale-info">
-        <view class="goodsSale-title">
-          <view class="goodsSale-tag">限时</view>
-          <text>瑞典Diro 进口西冷牛排</text>
-        </view>
-        <view class="goodsSale-price">￥420.00</view>
-      </view>
-    </view>
-  </view> -->
   <!-- 首页轮播图 -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
     <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
@@ -66,41 +47,6 @@
       <text>大神推荐</text>
     </view>
   </view>
-  <!-- 限时特惠 -->
-  <!-- <view class='discount-title page-title'>
-    <text>限时特惠</text>
-  </view>
-  <scroll-view scroll-x="true" class="discount">
-    <view class="discount-good" wx:for="{{discountList}}" wx:key="{{index}}">
-      <image class="discount-image" src="{{item.image}}" mode="aspectFill"></image>
-      <view class="discount-price">
-        <view class="discount-tag">限时</view>
-        <text class="discount-prePrice">￥{{item.price}}</text>
-      </view>
-      <view class="discount-oldPrice">￥{{item.price}}</view>
-    </view>
-  </scroll-view> -->
-  <!-- 精选主题 -->
-  <!-- <view class='selectedCenter'>
-    <view class='selected-title page-title'>
-      <text>精选主题</text>
-    </view>
-    <view class='selected-goods'>
-      <view class='selected-top'>
-        <view class='selected-small' bindtap='goodsDetail'>
-          <image src='{{wellChosen[0]}}' mode='aspectFill'></image>
-        </view>
-        <view class='selected-small' bindtap='goodsDetail'>
-          <image src='{{wellChosen[1]}}' mode='aspectFill'></image>
-        </view>
-      </view>
-      <view class='selected-bottom' bindtap='goodsDetail'>
-        <view class='selected-big'>
-          <image src='{{wellChosen[2]}}' mode='aspectFill'></image>
-        </view>
-      </view>
-    </view>
-  </view> -->
   <!-- 商品列表 -->
   <view class='goods-list-box'>
     <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
@@ -132,6 +78,3 @@
     <text class="text-top">顶部</text>
   </view> -->
 </view>
-
-
-<import src="../../templates/scrollTop/index.wxml"/>

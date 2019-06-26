@@ -10,11 +10,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    region: [],
+    // region: [],
     disabled: false,
     errorMsg: '',
     default: false,
-    addressInfo: {},
+    addressInfo: {
+      name: '',
+      phone: '',
+      post: '',
+      address: '',
+      region: []
+    },
 
 
     addressLists: []    // 收货地址列表
@@ -24,10 +30,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this, json = routes.extract(options)
-    if (json.type == 'edit') {
+    let _this = this
+    if (options.encodedData != 'undefined') {
+      let json = routes.extract(options)
       // 编辑地址
-      console.log(12312312)
       let addressInfo = wx.getStorageSync('addressInfo')
       _this.setData({
         addressInfo
@@ -64,7 +70,7 @@ Page({
     */
   saveData(e) {
     let _this = this, formData = e.detail.value, addressLists = this.data.addressLists
-    formData.region = this.data.region
+    formData.region = this.data.addressInfo.region
     formData.isDefault = this.data.default
     // 发起请求按钮禁用
     this.setData({
@@ -73,6 +79,9 @@ Page({
     // 表单验证
     if (!_this.validation(formData)) {
       App.showError(_this.data.errorMsg)
+      this.setData({
+        disabled: true
+      })
       return false
     }
 
@@ -103,13 +112,14 @@ Page({
     }
   },
   addressAdd(_this, addressLists, formData) {
+    console.log(formData)
     addressLists.push(formData)
     wx.setStorageSync("addressLists", addressLists);
     App.showSuccess('添加成功！', function () {
       _this.setData({
         disabled: false
       })
-      wx.navigateBack();
+      // wx.navigateBack();
     })
   },
 
@@ -117,12 +127,13 @@ Page({
     * 提交表单信息
     */
   validation(data) {
+    console.log(data)
     let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
     if (data.name.trim() === '') {
       this.data.errorMsg = '收件人不能为空'
       return false
     }
-    if (data.phone.length < 1) {
+    if (!data.phone.length) {
       this.data.errorMsg = '手机号不能为空'
       return false
     }
@@ -130,12 +141,12 @@ Page({
       this.data.errorMsg = '手机号不符合要求'
       return false
     }
-    if (!this.data.region) {
-      this.data.error = '省市区不能空';
+    if (!data.region.length) {
+      this.data.errorMsg = '省市区不能空';
       return false
     }
     if (data.address.trim() === '') {
-      this.data.error = '详细地址不能为空';
+      this.data.errorMsg = '详细地址不能为空';
       return false
     }
     return true

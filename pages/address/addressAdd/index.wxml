@@ -1,7 +1,4 @@
 <!--pages/addressAdd/index.wxml-->
-<!-- <wxs src="../../../filter/filter.wxs" module="filter"/> -->
-
-
 <view class="page">
   <form bindsubmit="saveData" report-submit="true">
     <view class="address-list-info address-name">
@@ -14,9 +11,9 @@
       <input name="post" placeholder="邮政编码" value="{{addressInfo.post}}"/>
     </view>
     <view class="address-list-info address-region">
-      <picker mode="region" bindchange="regionChange" value="{{region}}">
+      <picker mode="region" bindchange="regionChange" value="{{ addressInfo.region}}">
         <view class="picker">
-          <text wx:if="{{ addressInfo.region.length }}">{{addressInfo.region[0]}} {{addressInfo.region[1]}} {{addressInfo.region[2]}}</text>
+          <text wx:if="{{ addressInfo.region.length>0 }}">{{addressInfo.region[0]}} {{addressInfo.region[1]}} {{addressInfo.region[2]}}</text>
           <text class="palceholder" wx:else>详细地址,如街道、楼盘号等</text>
         </view>
       </picker>

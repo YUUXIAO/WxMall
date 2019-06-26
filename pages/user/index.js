@@ -16,6 +16,14 @@ Page({
   intoAddress() {
     routes.navigateTo('addressList')
   },
+  enterOrders() {
+    routes.navigateTo('orders')
+  },
+  enterOrder(e) {
+    let index = e.currentTarget.dataset.index
+    console.log(index)
+    routes.navigateTo('orders', { type: index })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

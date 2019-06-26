@@ -26,7 +26,7 @@
     </view>
   </view>
   <!-- 新建收货地址 -->
-  <view class="addAddress">+ 新建地址</view>
+  <view class="addAddress" bindtap="addAddress">+ 新建地址</view>
 </view>
 
 

@@ -1,0 +1,4 @@
+<template name="counter">
+  <view class="counter">
+  </view>
+</template>

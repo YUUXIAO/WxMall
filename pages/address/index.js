@@ -19,14 +19,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAddressLists()
+
   },
   /**
   * 获取收货地址
   */
   getAddressLists() {
+    console.log(wx.getStorageSync('addressLists'))
     let addressLists = wx.getStorageSync('addressLists') || []
-    console.log(addressLists)
     this.setData({
       addressLists
     })
@@ -43,6 +43,7 @@ Page({
     * 新建地址
     */
   addAddress() {
+    console.log(1231231)
     routes.navigateTo('addressAdd')
   },
   /**
@@ -60,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAddressLists()
   },
 
   /**

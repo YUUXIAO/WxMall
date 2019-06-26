@@ -1,8 +1,6 @@
 <!-- pages/detail/index.wxml -->
 <import src="../../templates/tag/index.wxml"/>
 
-
-
 <view class='main'>
   <!-- 详情轮播图 -->
   <view class='detail-images'>

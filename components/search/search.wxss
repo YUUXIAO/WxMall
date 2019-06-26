@@ -1,5 +1,6 @@
 @import '../../dist/css/weui.wxss';
 @import '../../dist/css/icon.wxss';
+
 .search-bar{
     width:90%;
     margin: 0 auto;

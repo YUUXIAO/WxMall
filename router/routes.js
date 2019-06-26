@@ -32,6 +32,10 @@ module.exports = {
     addressList: {
         path: '/pages/address/index'
     },
+    // 所有订单
+    orders: {
+        path: '/pages/orders/index'
+    },
     // 个人中心
     personal: {
         type: 'tab',
