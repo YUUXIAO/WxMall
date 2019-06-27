@@ -5,7 +5,6 @@
   min-height: 100vh;
 }
 .order-tab-box{
-  border: 1px solid blue;
   padding:20rpx 15rpx ;
   border-bottom: 1px solid #aaa;
   background: #fff;
@@ -18,4 +17,79 @@
   color: #b5272e;
   font-weight: bold;
   border-bottom: 5rpx solid #b5272e;
+}
+
+
+
+.orders-tab-show{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+.order-item{
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.order-title-box{
+  width: 545rpx;
+}
+.order-item-title{
+  padding-bottom: 15rpx;
+  font-size: 24rpx;
+}
+
+.order-content{
+  padding: 20rpx 0;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+.order-image-box{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 15rpx;
+}
+.order-image-box image{
+  width: 100%;
+  height: 100%;
+}
+.order-title{
+  font-size: 32rpx;
+  font-weight: bolder;
+  
+}
+.order-description{
+  color: #999;
+  font-size: 28rpx;
+  padding-top: 10rpx;
+}
+
+.order-item-footer{
+  padding-top: 20rpx;
+
+}
+.total-amount{
+  color: var(--mainColor)
+}
+.order-btn{
+  font-size: 24rpx;
+  border: 1px solid #aaa;
+  padding: 5rpx 15rpx;
+  border-radius: 15rpx;
+  margin-left: 10rpx;
+}
+.cancel-btn,.confirm-btn{
+  color: var(--mainColor);
+  border: 1px solid var(--mainColor);
+}
+.pay-btn{
+  color: var(--succColor);
+  border: 1px solid var(--succColor);
+}
+.comment-btn{
+  color: orange;
+  border: 1px solid orange;
 }

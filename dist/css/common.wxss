@@ -4,6 +4,12 @@
   color: #333;
 }
 
+
+view,text{
+  --mainColor: #b5272e;
+  --succColor:#439057
+}
+
 /* flex布局 */
 .dis-flex{
   display: flex;

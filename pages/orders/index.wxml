@@ -1,17 +1,50 @@
 <!-- pages/orders/index.wxml -->
+<wxs src="../../filter/filter.wxs" module="filter"></wxs>
+
 <view class="page">
   <view class='order-tab-box'>
     <view class='dis-flex flex-x-between order-nav'>
-      <view class='order-tab {{ currentTab == index ?"active-tab" :"" }}' wx:for="{{statusType}}" wx:key="index" data-index='{{index}}'>
+      <view class='order-tab {{ currentTab == index ?"active-tab" :"" }}' wx:for="{{statusType}}" wx:key="index" data-index='{{index}}' bindtap="swichNav">
         {{item.name}}
       </view>
     </view>
   </view>
-  <swiper class='orders-tab-show' duration="300" current='{{currentTab}}' wx:for="{{orderList}}" wx:key="index" >
-    <block >
-      <swiper-item>
-        {{currentTab}}
-      </swiper-item>
-    </block>
+  <swiper class='orders-tab-show' duration="300" current='{{currentTab}}' style="height: {{windowHeight-55}}px;" bindchange="swiperChange">
+      <block wx:for="{{orderList}}" wx:key="index">
+        <swiper-item>
+          <scroll-view scroll-y="true" class="order-list" scroll-with-animation="true"  style="height: {{windowHeight-35}}px;">
+          <view style="padding-bottom: 60rpx;">
+            <view class="order-item" wx:for="{{item}}" wx:key="index" wx:for-item="atem">
+            <view class="dis-flex flex-x-between order-item-title">
+              <view class="order-item-number">订单编号：{{atem.orderNumber}}</view>
+              <view class="order-item-date">创建时间：{{filter.formatTime(atem.createTime,'yyyy-MM-dd')}}</view>
+            </view>
+            <view class="dis-flex order-content">
+              <view class="order-image-box" wx:for="{{atem.imageUrls}}" wx:key="index" wx:for-item="btem">
+                <image class="no-address-image" src="{{btem}}" mode="aspectFill"></image>
+              </view>
+              <view class="dis-flex flex-x-between order-title-box" wx:if="{{atem.imageUrls.length==1}}">
+                <view class="dis-flex flex-dir-column">
+                  <text class="order-title">{{atem.name}}</text>
+                  <text class="order-description">{{atem.description}}</text>
+                </view>
+                <view>X{{atem.count}}</view>
+              </view>
+            </view>
+            <view class="dis-flex flex-x-between order-item-footer">
+              <text class="total-amount">合计：￥{{atem.totalAmount}}</text>
+              <view class="order-btn-group">
+                <text class="order-btn cancel-btn" wx:if="{{atem.status == 0}}" bindtap="cancelOrderTap">取消订单</text>
+                <text class="order-btn remind-btn" wx:if="{{atem.status == 1}}" bindtap="toRemindTap">提醒发货</text>
+                <text class="order-btn confirm-btn" wx:if="{{atem.status == 2}}" bindtap="toConfirmTap">确认收货</text>
+                <text class="order-btn pay-btn" wx:if="{{atem.status == 0}}" bindtap="toPayTap">马上付款</text>
+                <text class="order-btn comment-btn" wx:if="{{atem.status == 3}}" bindtap="toCommentTap">马上评价</text>
+              </view>
+            </view>
+          </view>
+          </view>
+          </scroll-view>
+        </swiper-item>
+      </block>
   </swiper>
 </view>

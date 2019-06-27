@@ -122,6 +122,8 @@ module.exports = {
     addAddress: (data) => {
         // return request('/addAddress/addd', false, 'post', data)
     },
+    // 获取我的订单
+    getOrders: (data) => { },
 
 
 
