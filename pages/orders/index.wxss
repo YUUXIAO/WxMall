@@ -1,5 +1,4 @@
 .page{
-  border: 1px solid red;
   padding: 0;
   background: #efefef;
   min-height: 100vh;
@@ -24,7 +23,6 @@
 .orders-tab-show{
   font-size: 30rpx;
   margin-top: 20rpx;
-  border: 1px solid red;
   box-sizing: border-box;
 }
 .order-item{
@@ -51,6 +49,7 @@
   border-radius: 20rpx;
   overflow: hidden;
   margin-right: 15rpx;
+  border: 1px solid #efefef;
 }
 .order-image-box image{
   width: 100%;

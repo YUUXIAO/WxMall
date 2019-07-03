@@ -39,6 +39,7 @@
                 <text class="order-btn confirm-btn" wx:if="{{atem.status == 2}}" bindtap="toConfirmTap">确认收货</text>
                 <text class="order-btn pay-btn" wx:if="{{atem.status == 0}}" bindtap="toPayTap">马上付款</text>
                 <text class="order-btn comment-btn" wx:if="{{atem.status == 3}}" bindtap="toCommentTap">马上评价</text>
+                <text class="order-btn confirm-btn" wx:if="{{atem.status == 4}}" bindtap="toCommentTap">删除订单</text>
               </view>
             </view>
           </view>
