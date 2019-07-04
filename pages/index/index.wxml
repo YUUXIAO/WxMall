@@ -1,5 +1,9 @@
 <!-- index.wxml -->
 <view class="main">
+
+  <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" selectColor="yellow" tabItem="title"></component-tab>
+
+
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
   <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">

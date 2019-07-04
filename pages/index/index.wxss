@@ -26,10 +26,10 @@
   color: #888;
 }
 
-.curActive {
+/* .curActive {
   font-weight: bold;
   color: #333;
-}
+} */
 
 .tab_line {
   width: 18%;
