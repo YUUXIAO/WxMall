@@ -15,7 +15,7 @@
 }
 .comments-rate{
   font-size: 48rpx;
-  color: #b5272e;
+  color: var(--mainColor);
   font-weight: bold;
 }
 .comments-star-box{

@@ -6,7 +6,7 @@
 
 .user-header-box{
   border: 1px solid green;
-  background: #b5272e;
+  background: var(--mainColor);
   padding: 20rpx 0;
 }
 
@@ -36,7 +36,7 @@
   border-bottom: 1px solid #efefef;
 }
 .icon-enterinto_fill{
-  color: #b5272e;
+  color: var(--mainColor);
 }
 .user-orders-list{
   padding: 15rpx 0;

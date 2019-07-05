@@ -42,7 +42,7 @@ page,.category-nav{
 }
 
 .currItem {
-  color: #b5272e;
+  color: var(--mainColor);
   position: relative;
   font-weight: bold;
 }
@@ -51,7 +51,7 @@ page,.category-nav{
   content: '';
   width: 6rpx;
   height: 60rpx;
-  background: #b5272e;
+  background: var(--mainColor);
   position: absolute;
   left: 0;
   top: 15rpx;

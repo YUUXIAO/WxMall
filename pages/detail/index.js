@@ -14,6 +14,10 @@ Page({
       duration: 200
     },
     currentTab: 0,
+    detailTabs: [
+      { title: '商品详情' },
+      { title: '商品推荐' }
+    ],
     commentList: [],
     recommendList: [],
     commentData: {
@@ -67,12 +71,12 @@ Page({
   /**
    * 切换商品选项
    */
-  tabClick: function (e) {
-    let index = e.currentTarget.dataset.index
+  changeCurrent: function (res) {
+    if (this.data.currentTab == res.detail.currentNum) return
+    res.detail.currentNum == 1 && this.getRecommend()
     this.setData({
-      currentTab: index
+      currentTab: res.detail.currentNum
     })
-    index == 1 && this.getRecommend()
   },
   /**
    * 获取用户评价列表

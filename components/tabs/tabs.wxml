@@ -6,7 +6,7 @@
         <text class='text' style="font-size:{{textSize}}rpx;color:{{_curIndex == index?selectColor:''}}">{{item._name}}</text>
       </view>
       <!-- 动画条 -->
-      <view class="tab-bar" style="transform:translateX({{100*_curIndex}}%);backgroundColor:{{ selectColor }};width:{{_itemWidth}}rpx"></view>
+      <view class="tab-bar" style="transform:translateX({{100*_curIndex}}%);background-color:{{ selectColor }};width:{{_itemWidth}}rpx"></view>
     </view>
   </scroll-view>
 </view>

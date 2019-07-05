@@ -22,7 +22,7 @@
     color: #999;
 }
 .icon-select-choose{
-    color: #b5272e;
+    color: var(--mainColor);
 }
 .set-detault-text,.set-wx-text{
     font-size: 26rpx;

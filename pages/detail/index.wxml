@@ -64,7 +64,9 @@
     </view>
   </view>
   <!-- 详情操作 -->
-  <view class='detail-tabs'>
+  <component-tab currentTab="{{currentTab}}" tabLists="{{detailTabs}}" tabItem="title" bind:changeCurrent="changeCurrent"></component-tab>
+  <!-- <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" currentTab="{{currentTab}}" selectColor="#b5272e" tabItem="title"  bind:changeCurrent="changeCurrent"></component-tab> -->
+  <!-- <view class='detail-tabs'>
     <view class='detail-nav'>
       <view class='detail-tab {{ currentTab == 0 ?"detail-cur" :"" }}' bindtap='tabClick' data-index='0'>
         商品详情
@@ -73,7 +75,7 @@
         更多推荐
       </view>
     </view>
-  </view>
+  </view> -->
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
     <swiper-item>
       <view class="good-detail-box" wx:for="{{swiper.bannerImage}}" wx:key="index">

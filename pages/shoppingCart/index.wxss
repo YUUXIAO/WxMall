@@ -11,7 +11,7 @@
   color: #aaa;
 }
 .icon-choose{
-  color: #b5272e;
+  color: var(--mainColor);
 }
 .shopping-cart-tite{
   height: 60rpx;
@@ -50,7 +50,7 @@
 .shopping-cart-price{
   display: inline-block;
   font-size: 30rpx;
-  color: #b5272e;
+  color: var(--mainColor);
 }
 /* .countGroup{
   width: 240rpx;
@@ -72,7 +72,7 @@
 .addCartBtn {
   width: 100%;
   color: #fff;
-  background: #b5272e;
+  background: var(--mainColor);
   text-align: center;
   height: 100rpx;
   line-height: 100rpx;
@@ -87,7 +87,7 @@
   box-sizing: border-box;
 }
 .cart-item-del{
-  background: #b5272e;
+  background: var(--mainColor);
   width: 120rpx;
   float: left;
   color: #fff;
@@ -137,13 +137,13 @@
   height: 100%;
 }
 .shopping-total-price{
-  color: #b5272e;
+  color: var(--mainColor);
   font-size: 26rpx;
   padding-right: 20rpx;
 }
 .btn-take-order,.btn-delete-all{
   width: 200rpx;
-  background: #b5272e;
+  background: var(--mainColor);
   color: #fff;
   text-align: center;
   letter-spacing: 10rpx;
@@ -153,5 +153,5 @@
   background: #aaa;
 }
 .btn-delete-red{
-  background: #b5272e;
+  background: var(--mainColor);
 }

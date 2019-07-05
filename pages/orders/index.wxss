@@ -13,9 +13,9 @@
   padding: 5rpx 10rpx;
 }
 .active-tab{
-  color: #b5272e;
+  color: var(--mainColor);
   font-weight: bold;
-  border-bottom: 5rpx solid #b5272e;
+  border-bottom: 5rpx solid var(--mainColor);
 }
 
 

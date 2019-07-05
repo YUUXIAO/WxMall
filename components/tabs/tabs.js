@@ -30,7 +30,7 @@ Component({
     // tab高度
     height: {
       type: String,
-      value: '120'
+      value: '80'
     },
     // 字体大小
     textSize: {
@@ -40,10 +40,10 @@ Component({
     // 字体选中颜色
     selectColor: {
       type: String,
-      value: 'red'
+      value: '#b5272e'
     },
     // 当前选中项
-    selected: {
+    currentTab: {
       type: String,
       value: 0,
       observer: function (newVal, oldVal) {
@@ -60,12 +60,7 @@ Component({
   data: {
     // 当前切换卡index
     _curIndex: 0,
-    _left: 0,
-    _right: 750,
-    _bottom: 0,
     _itemWidth: 128,
-    _transition: 'left 0.5s, right 0.2s'
-
   },
 
   /**
@@ -74,7 +69,7 @@ Component({
   methods: {
     _swichNav({ currentTarget: { dataset: { index } } }) {
       this.triggerEvent('changeCurrent', {
-        currentNum: e.currentTarget.dataset.current
+        currentNum: index
       })
     }
 

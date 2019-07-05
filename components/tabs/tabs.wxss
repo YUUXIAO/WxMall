@@ -4,35 +4,23 @@
     white-space: nowrap;
     background: #fff;
     box-sizing: border-box;
+    margin: 20rpx 0;
 }
 .content{
     position: relative;
 }
-
-
 .tab-item{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 30rpx;
-    border: 1px solid red;
 }
-.text{
-    transition: color 0.2s
-}
-
 .curActive{
     color: red;
 }
-
-
-
-
 .tab-bar{
     position: absolute;
-    height: 2px;
+    height: 4px;
     border-radius: 2px;
-    border: 1px solid red;
     transition: all 0.3s;
-    bottom: 0;left: 30rpx;
+    bottom: 0;
 }

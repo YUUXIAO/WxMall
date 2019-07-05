@@ -92,7 +92,7 @@ page{
   position: fixed;
   bottom: 0;
   left: 0;
-  background: #b5272e;
+  background: var(--mainColor);
   color: #fff;
   line-height: 100rpx;
   text-align: center;

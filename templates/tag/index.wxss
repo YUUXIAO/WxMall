@@ -1,8 +1,8 @@
 .tag text{
   font-size: 22rpx;
-  color: #b5272e;
+  color: var(--mainColor);
   display: inline-block;
   padding: 0 10rpx;
   border-radius: 8rpx;
-  border: 1px solid #b5272e;
+  border: 1px solid var(--mainColor);
 }

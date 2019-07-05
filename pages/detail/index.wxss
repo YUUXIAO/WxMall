@@ -75,13 +75,13 @@ swiper {
 }
 
 .icon-share {
-  color: #b5272e;
+  color: var(--mainColor);
   display: inline-block;
 }
 
 .detail-share-text {
   font-size: 26rpx;
-  color: #b5272e;
+  color: var(--mainColor);
 }
 
 .detail-tag-box {
@@ -93,7 +93,7 @@ swiper {
   width: 32%;
   font-size: 24rpx;
   margin-right: 5rpx;
-  color: #b5272e;
+  color: var(--mainColor);
 }
 
 /* 详情操作 */
@@ -256,7 +256,7 @@ swiper {
   flex: 2;
 }
 .buyImmediatly {
-  background: #b5272e;
+  background: var(--mainColor);
   color: #fff;
   border-right: 0;
 }
@@ -320,7 +320,7 @@ swiper {
 }
 
 .choose-price {
-  color: #b5272e;
+  color: var(--mainColor);
 }
 
 .choose-bottom {
@@ -364,7 +364,7 @@ swiper {
 .addCartBtn {
   width: 100%;
   color: #fff;
-  background: #b5272e;
+  background: var(--mainColor);
   text-align: center;
   height: 100rpx;
   line-height: 100rpx;

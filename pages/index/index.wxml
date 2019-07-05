@@ -1,29 +1,18 @@
 <!-- index.wxml -->
 <view class="main">
-
-  <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" selectColor="yellow" tabItem="title"></component-tab>
-
-
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
-  <scroll-view scroll-x="true" style="width: 100%;white-space: nowrap;">
-    <view class="tab">
-      <view class="tab_nav">
-        <view class="tab_nav-item {{tabnav.tabIndex == index ? 'curActive':''}}" wx:for='{{tabnav.tabItems}}' wx:key='{{index}}' data-tabIndex='{{index}}' bindtap='setTab'>
-          {{item.title}}
-        </view>
-        <view class="tab_line" style="transform:translateX({{100*tabnav.tabIndex}}%);"></view>
-      </view>
-    </view>
-  </scroll-view>
+  <!-- TAB标题栏 -->
+  <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" currentTab="{{currentTab}}" selectColor="#b5272e" tabItem="title"  bind:changeCurrent="changeCurrent"></component-tab>
   <!-- 首页轮播图 -->
-  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+  <template is="carousel" data="{{...carouselParams}}"></template>
+ <!-- <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
     <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
       <swiper-item>
         <image src="{{item}}" class="carouselImg" mode="aspectFill" />
       </swiper-item>
     </block>
-  </swiper>
+  </swiper> -->
   <!-- 分类商品 -->
   <view class="category">
     <view class="category_item">
@@ -82,3 +71,7 @@
     <text class="text-top">顶部</text>
   </view> -->
 </view>
+
+
+
+<import src="../../templates/carousel/index.wxml"/>

@@ -1,14 +1,15 @@
 /**index.wxss**/
+@import "../../templates/carousel/index.wxss";
 /* @import "../../templates/tag/index.wxss"; */
 
 
 
-.tab {
+/* .tab {
   display: flex;
   flex-direction: column;
-}
+} */
 
-.tab_nav {
+/* .tab_nav {
   height: 80rpx;
   background: #fff;
   border-bottom: 0.5rpx dotted #ddd;
@@ -24,13 +25,13 @@
   display: inline-block;
   font-size: 32rpx;
   color: #888;
-}
+} */
 
 /* .curActive {
   font-weight: bold;
   color: #333;
 } */
-
+/* 
 .tab_line {
   width: 18%;
   position: absolute;
@@ -39,15 +40,15 @@
   height: 4rpx;
   background: #333;
   transition: all 0.3s;
-}
-swiper{
+} */
+/* swiper{
   width: 100%;
   height: 400rpx;
 }
 .carouselImg {
   width: 100%;
   height: 100%;
-}
+} */
 
 /* 分类商品-Start */
 

@@ -4,6 +4,7 @@ const WXAPI = require('../../wxapi/index')
 //获取应用实例
 Page({
   data: {
+    currentTab: 0,
     tabnav: {
       tabnum: 4,
       tabIndex: 0,
@@ -41,7 +42,6 @@ Page({
       ]
     },
     bannerImgs: [],
-    // discountList: [],
     goodsList: [],
     wellChosen: [],
     indicatorDots: false,
@@ -57,6 +57,10 @@ Page({
         height: '80rpx'
       }
     },
+    // 轮播图
+    carouselParams: {
+      bannerImgs: [],
+    },
     floorstatus: true
   },
   onLoad: function (options) {
@@ -68,14 +72,26 @@ Page({
       url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/home/banner',
       success: function (res) {
         that.setData({
-          bannerImgs: res.data.bannerImgs
-          // discountList: res.data.lastestLists,
-          // wellChosen: res.data.wellChosen,
-          // lastestLists: res.data.lastestLists
+          'carouselParams.bannerImgs': res.data.bannerImgs
         })
       }
     })
   },
+  // 切换顶部导航样式
+  changeCurrent(res) {
+    if (this.data.currentTab == res.detail.currentNum) return;
+    this.setData({
+      currentTab: res.detail.currentNum
+    })
+  },
+
+
+  // setTab(e) {
+  //   const tabData = e.currentTarget.dataset
+  //   this.setData({
+  //     'tabnav.tabIndex': tabData.tabindex
+  //   })
+  // },
   /**
    * 获取商品列表
    */
@@ -135,13 +151,7 @@ Page({
       })
     }
   },
-  // 切换顶部导航样式
-  setTab(e) {
-    const tabData = e.currentTarget.dataset
-    this.setData({
-      'tabnav.tabIndex': tabData.tabindex
-    })
-  },
+
   // 点击商品跳转商品详情
   goodsDetail: function () {
     wx.navigateTo({

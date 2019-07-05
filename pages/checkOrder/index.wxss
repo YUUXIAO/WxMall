@@ -26,7 +26,7 @@
 .address-add-btn{
     width: 60rpx;
     height: 60rpx;
-    background: #b5272e;
+    background: var(--mainColor);
     color: #fff;
     border-radius: 10rpx;
 }
@@ -47,9 +47,9 @@
 }
 .user-name-tag{
     font-size: 20rpx;
-    color: #b5272e;
+    color: var(--mainColor);
     padding: 0 7rpx;
-    border: 1px solid #b5272e;
+    border: 1px solid var(--mainColor);
     border-radius: 5rpx;
     display: inline-block;
 }
@@ -149,7 +149,7 @@
 }
 .pay-price text{
     font-size: 30rpx;
-    color: #b5272e;
+    color: var(--mainColor);
 }
 .pay-price .good-delivery{
     font-size: 22rpx;
@@ -157,7 +157,7 @@
 }
 .pay-order-btn{
     width: 200rpx;
-    background: #b5272e;
+    background: var(--mainColor);
     color: #fff;
     letter-spacing: 10rpx;
 }

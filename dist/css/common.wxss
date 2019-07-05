@@ -7,7 +7,7 @@
 
 view,text{
   --mainColor: #b5272e;
-  --succColor:#439057
+  --succColor: #439057;
 }
 
 /* flex布局 */
