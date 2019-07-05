@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/index/index",
     "pages/orders/index",
     "pages/user/index",
@@ -11,11 +12,9 @@
     "pages/category/index",
     "pages/goodsList/index",
     "pages/search/index",
-    "pages/address/address_edit/index",
     "pages/authorize/index",
     "pages/commentsList/index",
-    "pages/test/index",
-    "pages/login/index"
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

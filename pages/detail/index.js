@@ -43,27 +43,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // if (options) {
-    //   let json = routes.extract(options)
-    //   let goodDetail = wx.getStorageSync('goodDetail')
-    //   goodDetail.deliver = '免邮'
-    //   let bannerImage = [goodDetail.listPicUrl, goodDetail.primaryPicUrl, goodDetail.scenePicUrl]
-    //   this.setData({
-    //     goodDetail,
-    //     id: json.id,
-    //     'swiper.bannerImage': bannerImage
-    //   })
-    // }
-    let goodDetail = wx.getStorageSync('goodDetail')
-    goodDetail.deliver = '免邮'
-    goodDetail.goodCount = 1
-    let bannerImage = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
-    this.setData({
-      goodDetail,
-      id: goodDetail.id,
-      'swiper.bannerImage': bannerImage
-    })
-    this.getGoodRates()
+    if (options) {
+      let json = routes.extract(options)
+      let goodDetail = wx.getStorageSync('goodDetail')
+      goodDetail.deliver = '免邮'
+      goodDetail.goodCount = 1
+      let bannerImage = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
+      this.setData({
+        goodDetail,
+        id: json.id,
+        'swiper.bannerImage': bannerImage
+      })
+      // 获取用户评价好评率
+      this.getGoodRates()
+    }
   },
   goHome: function () {
     routes.navigateTo('home')
@@ -73,10 +66,11 @@ Page({
    */
   changeCurrent: function (res) {
     if (this.data.currentTab == res.detail.currentNum) return
-    res.detail.currentNum == 1 && this.getRecommend()
     this.setData({
       currentTab: res.detail.currentNum
     })
+    // 获取商品推荐列表
+    res.detail.currentNum == 1 && this.getRecommend()
   },
   /**
    * 获取用户评价列表

@@ -1,1 +1,36 @@
 /* pages/login/index.wxss */
+.page{
+    font-size: 30rpx;
+    background: #fff;
+    min-height: 100%;
+}
+
+.wechatapp{
+    margin-bottom: 70rpx;
+    padding-bottom: 50rpx;
+    border-bottom: 1px solid #eee;
+}
+.header{
+    border: 1px solid #efefef;
+    width:200rpx;
+    height: 200rpx;
+    border-radius: 50%; 
+    margin: 0 auto;
+    overflow: hidden;
+}
+.auth-title {
+  color: #585858;
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.auth-subtitle {
+  color: #888;
+  margin-bottom: 88rpx;
+}
+.login-btn{
+    background: #04be01;
+    color: #fff;
+    letter-spacing: 6rpx;
+    border-radius: 50rpx;
+}

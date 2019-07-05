@@ -7,7 +7,7 @@ const request = (url, needSubDomain, method, data, header) => {
     let defaultHeader = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    // data.token = wx.getStorageSync('token')
+    data.token = wx.getStorageSync('token')
     return new Promise((resolve, reject) => {
         wx.request({
             url: _url,
@@ -75,6 +75,9 @@ module.exports = {
         // return request('/api/register', true, 'post', data)
         return true
     },
+
+
+
     // 首页获取商品列表
     getGoodsList: (data) => {
         let header = {

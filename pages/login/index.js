@@ -7,6 +7,37 @@ Page({
   data: {
 
   },
+  authorLogin(e) {
+    let userInfo = e.detail.rawData
+    let encryptedData = e.data.encryptedData
+    let iv = e.data.iv
+    let signature = e.data.signature
+    let _this = this;
+    // 拒绝登陆
+    if (e.detail.errMsg !== 'getUserInfo:ok') {
+      return false;
+    }
+    wx.showLoading({
+      title: "正在登录",
+      mask: true
+    });
+    wx.login({
+      success: function (res) {
+        let code = res.code
+        let param = {
+          code,
+          userInfo,
+          encryptedData,
+          iv,
+          signature
+        }
+        wx.hideLoading();
+      }
+    })
+  },
+  /**
+  * 跳转回原页面
+  */
 
   /**
    * 生命周期函数--监听页面加载

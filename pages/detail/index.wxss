@@ -97,7 +97,7 @@ swiper {
 }
 
 /* 详情操作 */
-
+/* 
 .detail-tabs {
   border-top: 1px solid #888;
 }
@@ -121,7 +121,7 @@ swiper {
 
 .detail-cur {
   border-bottom: 5rpx solid #888;
-}
+} */
 
 /* 用户评价 */
 .user-comments-box{

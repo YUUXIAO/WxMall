@@ -1,6 +1,6 @@
 // pages/shoppingCart/index.js
 const routes = require('../../router/index.js');
-
+const App = getApp()
 
 
 Page({
@@ -17,45 +17,60 @@ Page({
         delBtnWidth: 120
     },
     onLoad: function (options) {
-        // var that = this
-        // 获取购物车列表数据
-        // wx.request({
-        //     url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/getCartList',
-        //     success: function (res) {
-        //         that.setData({
-        //             cartList: res.data.cartList
-        //         })
-        //         // 获取新加入购物车数据
-        //         wx.getStorage({
-        //             //获取数据的key
-        //             key: 'shoppingCart',
-        //             success: function (res) {
-        //                 that.setData({
-        //                     cartList: that.data.cartList.concat(res.data)
-        //                 })
-        //                 // 判断购物车是否有数据
-        //                 if (that.data.cartList.length) {
-        //                     that.setData({
-        //                         hasList: true,
-        //                         selectAll: true
-        //                     })
-        //                 } else {
-        //                     that.setData({
-        //                         hasList: false,
-        //                         selectAll: false
-        //                     })
-        //                 }
-        //                 that.getTotalPrice()
-        //             },
-        //             fail: function (res) {
-        //                 console.log(res)
-        //             }
-        //         })
-        //     }
-        // })
+
     },
     /**
-      * 获取购物车初始数据
+      * 获取购物车数据
+      */
+    getCartLists() {
+        // let cartLists = wx.getStorageSync('shoppingCart')
+        // console.log(cartLists)
+
+        var that = this
+        wx.request({
+            url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/getCartList',
+            data: {
+                token: App.getToken()
+            },
+            success: function (res) {
+                if (res.data.code.code == 500) {
+                    App.showError(res.data.code.message)
+                    App.doLogin()
+                }
+                that.setData({
+                    cartLists: res.data.data.cartList
+                })
+                // 获取新加入购物车数据
+                // wx.getStorage({
+                //     //获取数据的key
+                //     key: 'shoppingCart',
+                //     success: function (res) {
+                //         that.setData({
+                //             cartList: that.data.cartList.concat(res.data)
+                //         })
+                //         // 判断购物车是否有数据
+                //         if (that.data.cartList.length) {
+                //             that.setData({
+                //                 hasList: true,
+                //                 selectAll: true
+                //             })
+                //         } else {
+                //             that.setData({
+                //                 hasList: false,
+                //                 selectAll: false
+                //             })
+                //         }
+                //         that.getTotalPrice()
+                //     },
+                //     fail: function (res) {
+                //         console.log(res)
+                //     }
+                // })
+            }
+        })
+    },
+    /**
+      * 获取页面宽度初始数据
       */
     getEleWidth: function (w) {
         //以宽度750px设计稿做宽度的自适应
@@ -72,16 +87,16 @@ Page({
     /**
       * 获取购物车初始数据
       */
-    getCartLists: function () {
-        let cartLists = wx.getStorageSync('shoppingCart')
-        cartLists = cartLists.map(s => {
-            s.selected = true
-            return s
-        })
-        this.setData({
-            cartLists
-        })
-    },
+    // getCartLists: function () {
+    //     let cartLists = wx.getStorageSync('shoppingCart')
+    //     cartLists = cartLists.map(s => {
+    //         s.selected = true
+    //         return s
+    //     })
+    //     this.setData({
+    //         cartLists
+    //     })
+    // },
     /**
       * 选中购物车
       */
@@ -281,6 +296,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        // 获取购物车列表数据
         this.getCartLists()
         this.getCount()
         this.initEleWidth()

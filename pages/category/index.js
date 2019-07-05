@@ -3,8 +3,6 @@ const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
 const util = require('../../utils/util')
 
-
-
 Page({
   data: {
     curIndex: 0,
@@ -12,7 +10,6 @@ Page({
     getCategoryLists: [],
     categoryNavigation: [],
     toView: 'ID1010000',
-    // scrollTop: 0,
     scrollHeight: '',
     products: [],
     windowHeight: ''
@@ -31,29 +28,6 @@ Page({
     this.setData({
       windowHeight: _windowHeight
     })
-    // 获取banner图片
-    // wx.request({
-    //   url: "https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/goods/category",
-    //   success: function (res) {
-    //     that.setData({
-    //       products: res.data.products
-    //     })
-    //   }
-    // })
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     console.log(res);
-    //     // 可使用窗口宽度、高度 
-    //     console.log('height=' + res.windowHeight);
-    //     console.log('width=' + res.windowWidth);
-    //     // 计算主体部分高度,单位为px 
-    //     that.setData({
-    //       // second部分高度 = 利用窗口可使用高度 - first部分高度（这里的高度单位为px，所有利用比例将100rpx转换为px） 
-    //       // main: res.windowHeight - res.windowWidth / 750 * 100
-    //     })
-    //   }
-    // })
-
     this.getCategoryLists()
   },
   searchCategory(e) {

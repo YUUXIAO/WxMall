@@ -141,9 +141,15 @@ App({
       console.log(res)
     })
   },
+  /**
+   * 获取Token
+   */
+  getToken() {
+    let token = wx.getStorageSync('token')
+    return token
+  },
   onShow: function () {
-    const _this = this
-    const TOKEN = wx.getStorageSync('token')
+    const _this = this, TOKEN = wx.getStorageSync('token')
     if (TOKEN) {
       // 验证TOKEN
       WXAPI.checkToken(TOKEN).then(res => {
@@ -169,3 +175,11 @@ App({
     isConnected: true
   }
 })
+
+
+// setdata: function (e) {
+//   var obj = {};
+//   obj[e.currentTarget.dataset.key] = e.currentTarget.dataset.val;
+//   this.setData(obj);
+// }
+

@@ -68,10 +68,36 @@ Page({
     // 获取商品列表
     this.getGoodsList()
     // 获取banner图片
+    this.getBanner()
+
+
+    this.login()
+  },
+  // 登陆
+  login() {
+    wx.request({
+      url: 'https://easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/user/login',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        username: 'admin',
+        password: 'admin'
+      },
+      success: function (res) {
+
+      }
+    })
+  },
+
+  // 获取banner图片
+  getBanner() {
+    let _this = this
     wx.request({
       url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/home/banner',
       success: function (res) {
-        that.setData({
+        _this.setData({
           'carouselParams.bannerImgs': res.data.bannerImgs
         })
       }
