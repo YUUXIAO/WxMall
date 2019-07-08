@@ -70,11 +70,6 @@ module.exports = {
     saveFormId: (data) => {
         // return request('/formId/save', false, 'post', data )
     },
-    // 注册 
-    register: (data) => {
-        // return request('/api/register', true, 'post', data)
-        return true
-    },
 
 
 
@@ -127,6 +122,23 @@ module.exports = {
     },
     // 获取我的订单
     getOrders: (data) => { },
+    // 删除购物车数据
+    cartDelete: (data) => {
+        return new Promise((resolve, reject) => {
+            let data = {
+                code: 200
+            }
+            resolve(data)
+        })
+    },
+    setCartLists: (data) => {
+        return new Promise((resolve, reject) => {
+            let data = {
+                code: 200
+            }
+            resolve(data)
+        })
+    },
 
 
 

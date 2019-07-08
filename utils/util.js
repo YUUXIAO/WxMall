@@ -49,8 +49,24 @@ function getCurrentTimeStamp() {
 }
 
 
+/**
+ * 加法
+ */
+function mathadd(arg1, arg2) {
+  return (Number(arg1) + Number(arg2)).toFixed(2);
+}
+
+/**
+ * 减法
+ */
+function mathsub(arg1, arg2) {
+  return (Number(arg1) - Number(arg2)).toFixed(2);
+}
+
 module.exports = {
   formatDate,
   formatTime,
-  getCurrentTimeStamp
+  getCurrentTimeStamp,
+  mathadd,
+  mathsub
 }

@@ -39,10 +39,10 @@ module.exports = {
     // 个人中心
     personal: {
         type: 'tab',
-        path: 'pages/index/index'
+        path: '/pages/index/index'
     },
     // 登陆
     login: {
-        path: 'pages/login/index'
+        path: '/pages/login/index'
     },
 }
