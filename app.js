@@ -54,7 +54,6 @@ App({
       content: content,
       showCancel: showCancel || false,
       success(res) {
-        console.log(res)
         callback && callback(res);
       }
     });

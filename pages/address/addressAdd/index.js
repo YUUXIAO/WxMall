@@ -78,7 +78,7 @@ Page({
     })
     // 表单验证
     if (!_this.validation(formData)) {
-      App.showError(_this.data.errorMsg)
+      App.showError('', _this.data.errorMsg, false)
       this.setData({
         disabled: true
       })

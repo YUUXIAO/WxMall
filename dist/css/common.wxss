@@ -30,6 +30,10 @@ view,text{
   display: flex;
   justify-content: space-around;
 }
+.flex-x-end {
+  display: flex;
+  justify-content: flex-end;
+}
 .flex-y-center {
   display: flex;
   align-items: center;

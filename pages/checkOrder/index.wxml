@@ -1,68 +1,67 @@
 <!--pages/checkOrder/index.wxml-->
 <view class="page">
-   <view class="address-info-box {{addressInfo.name?'':'address-info-add'}}">
-       <view class="dis-flex flex-x-between flex-y-center address-info-cont" wx:if="{{addressInfo.name}}">
-           <view class=" user-name">
-               <text>{{addressInfo.name}}</text>
-               <view class="user-name-tag">默认</view>
-           </view>
-           <view class="flex address-info">
-               <view class="phone">{{addressInfo.phone}}</view>
-               <view class="address list-hidden">{{addressInfo.region[0]}}{{addressInfo.region[1]}}{{addressInfo.region[2]}}{{addressInfo.address}}</view>
-           </view>
-           <view class="turn-arrow">
-               <text class="iconfont icon-arrowright" />
-           </view>
-       </view>
-       <view class="dis-flex flex-y-center no-address-cont" bindtap="addAddress" wx:else>
-           <view class="dis-flex flex-x-center flex-y-center address-add-btn">
-               <text class="iconfont icon-add" />  
-           </view>
-           <text class="address-add-text">新增收货地址</text>
-       </view>
-   </view>
-   <view class="goods-info-box">
-        <view class="dis-flex flex-x-between goods-info-list">
-           <text class="goods-list-title">合计</text>
-           <text class="goods-total-price">￥{{totalPrice}}</text>
+  <view class="address-info-box {{addressInfo.name?'':'address-info-add'}}">
+    <view class="flex-x-between flex-y-center address-info-cont" wx:if="{{addressInfo.name}}">
+      <view class=" user-name">
+        <text>{{addressInfo.name}}</text>
+        <view class="user-name-tag">默认</view>
+      </view>
+      <view class="flex address-info">
+        <view class="phone">{{addressInfo.phone}}</view>
+        <view class="address list-hidden">{{addressInfo.region[0]}}{{addressInfo.region[1]}}{{addressInfo.region[2]}}{{addressInfo.address}}</view>
+      </view>
+      <view class="turn-arrow">
+        <text class="iconfont icon-arrowright" />
+      </view>
+    </view>
+    <view class="flex-y-center no-address-cont" bindtap="addAddress" wx:else>
+      <view class="flex-x-center flex-y-center address-add-btn">
+        <text class="iconfont icon-add" />
+      </view>
+      <text class="address-add-text">新增收货地址</text>
+    </view>
+  </view>
+  <!-- 合计信息 -->
+  <view class="goods-info-box">
+    <template is="devideCell" data="{{leftTitle:'合计',rightTitle:'￥'+totalPrice}}"></template>
+    <template is="devideCell" data="{{leftTitle:'邮费',rightTitle:'￥0.00'}}"></template>
+    <view class="flex-x-between goods-info-list">
+      <text class="goods-list-title">备注</text>
+      <view class="flex goods-remark">
+        <input name="input" placeholder="填写与卖家协商内容" value="{{remark}}" />
+      </view>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-lists-box">
+    <view class="goods-lists-title">商品列表</view>
+    <view class="goods-lists-cont" wx:for="{{goodsInfo}}" wx:key="index">
+      <view class="flex-x-center goods-list">
+        <view class="goods-list-image">
+          <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
         </view>
-        <view class="dis-flex flex-x-between goods-info-list">
-           <text class="goods-list-title">邮费</text>
-           <text class="goods-delivery">￥0.00</text>
+        <view class="flex-dir-column flex-x-between flex goods-list-info">
+          <view class="goods-list-title list-hidden">{{item.name}}</view>
+          <view>
+            <text class="goods-list-price">￥{{item.retailPrice}} </text>
+            <text class="goods-list-delprice" wx:if="{{item.counterPrice>0}}">￥{{item.counterPrice}}</text>
+          </view>
         </view>
-        <view class="dis-flex flex-x-between goods-info-list">
-           <text class="goods-list-title">备注</text>
-           <view class="flex goods-remark">
-               <input name="input" placeholder="填写与卖家协商内容" value="{{remark}}" />
-           </view>
-       </view>
-   </view>
-   <view class="goods-lists-box">
-       <view class="goods-lists-title">商品列表</view>
-       <view class="goods-lists-cont" wx:for="{{goodsInfo}}" wx:key="index">
-           <view class="dis-flex flex-x-center goods-list">
-                <view class="goods-list-image">
-                   <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
-                </view>
-                <view class="dis-flex flex-dir-column flex-x-between flex goods-list-info">
-                    <view class="goods-list-title list-hidden">{{item.name}}</view>
-                    <view>
-                        <text class="goods-list-price">￥{{item.retailPrice}} </text>
-                        <text class="goods-list-delprice" wx:if="{{item.counterPrice>0}}">￥{{item.counterPrice}}</text>
-                    </view>
-                </view>
-                <view class="dis-flex flex-x-center flex-y-center good-list-count">
-                    <text>X {{item.goodCount}}</text>
-                </view>
-           </view>
-       </view>
-   </view>
+        <view class="flex-x-center flex-y-center good-list-count">
+          <text>X {{item.goodCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 
-   <view class="dis-flex flex-x-between footer-menu-box">
-        <view class="dis-flex flex-dir-column flex-x-start flex pay-price">
-           <text>实付金额：￥{{totalPrice}}</text>
-           <text class="good-delivery">邮费：￥0.00</text>
-        </view>
-        <view class="dis-flex flex-x-center flex-y-center pay-order-btn" bindtap="payOrder">付款</view>
-   </view>
+  <view class="flex-x-between footer-menu-box">
+    <view class="flex-dir-column flex-x-start flex pay-price">
+      <text>实付金额：￥{{totalPrice}}</text>
+      <text class="good-delivery">邮费：￥0.00</text>
+    </view>
+    <view class="flex-x-center flex-y-center pay-order-btn" bindtap="payOrder">付款</view>
+  </view>
 </view>
+
+
+<import src="../../templates/devideCell/index.wxml" />

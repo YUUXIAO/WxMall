@@ -1,0 +1,25 @@
+.devideCell{
+  width: 100%;
+  border-bottom: 1px solid #efefef;
+}
+.icon{
+  color: #999;
+  font-size: 36rpx;
+}
+.leftfont{
+  margin-right: 20rpx;
+}
+
+.rightfont{
+  margin-left: 15rpx;
+}
+.leftItem{
+  width:100%;
+}
+.leftTitle{
+  white-space: nowrap;
+}
+.cellItem{
+  font-size: 30rpx;
+  padding: 15rpx 0;
+}

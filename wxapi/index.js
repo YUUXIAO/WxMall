@@ -7,7 +7,7 @@ const request = (url, needSubDomain, method, data, header) => {
     let defaultHeader = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    data.token = wx.getStorageSync('token')
+    // data.token = wx.getStorageSync('token')
     return new Promise((resolve, reject) => {
         wx.request({
             url: _url,
@@ -131,6 +131,7 @@ module.exports = {
             resolve(data)
         })
     },
+    // 保存购物车数据
     setCartLists: (data) => {
         return new Promise((resolve, reject) => {
             let data = {
@@ -139,6 +140,8 @@ module.exports = {
             resolve(data)
         })
     },
+    // 获取用户信息
+
 
 
 

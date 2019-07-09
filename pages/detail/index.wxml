@@ -24,13 +24,13 @@
         <text class="detail-sellVolume">已销{{goodDetail.sellVolume}}</text>
       </view>
     </view>
-    <view class="dis-flex flex-x-between detail-title-box">
-      <view class="dis-flex flex-dir-column flex-x-between flex detail-title-info">
+    <view class="flex-x-between detail-title-box">
+      <view class="flex-dir-column flex-x-between flex detail-title-info">
         <text class="detail-title">{{goodDetail.name}}</text>
         <text class="detail-simpleDesc"> {{goodDetail.simpleDesc}} </text>
       </view>
-      <view class="dis-flex flex-x-center flex-y-center detail-share-box">
-        <view class="dis-flex flex-dir-column flex-x-between">
+      <view class="flex-x-center flex-y-center detail-share-box">
+        <view class="flex-dir-column flex-x-between">
           <text class="iconfont icon-share" />
           <text class="detail-share-text">分享</text>
         </view>
@@ -42,17 +42,12 @@
       </view>
     </view>
   </view>
-  <!-- 用户评价 -->
   <view class="user-comments-box">
-    <view class="dis-flex flex-x-between flex-y-center user-comments-title">
-      <view class="user-comments-count">用户评价( {{goodRates.defGoodCmtCnt}} )</view>
-      <view class="user-comments-rate">
-        {{goodRates.goodCmtRate}} 好评
-        <text class="iconfont icon-arrowright" style="font-size:24rpx;" />
-      </view>
-    </view>
+    <!-- 用户评价好评率 -->
+    <template is="devideCell" data="{{ leftTitle:'用户评价( '+ goodRates.defGoodCmtCnt +' )',rightTitle:goodRates.goodCmtRate+' 好评',rightIcon:'icon-arrowright'}}"></template>
+    <!-- 用户评价 -->
     <view class="user-comments-cont" bindtap="getComment">
-       <view class="dis-flex flex-x-start flex-y-center comment-header">
+       <view class="flex-x-start flex-y-center comment-header">
         <view class="user-comment-avatar">
           <image src='{{goodDetail.hotSaleListBottomInfo.iconUrl}}' mode="aspectFill"></image>
         </view>
@@ -63,14 +58,15 @@
       </view>
     </view>
   </view>
-  <!-- 详情操作 -->
   <component-tab currentTab="{{currentTab}}" tabLists="{{detailTabs}}" tabItem="title" bind:changeCurrent="changeCurrent"></component-tab>
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
+    <!-- 商品详情 -->
     <swiper-item>
       <view class="good-detail-box" wx:for="{{swiper.bannerImage}}" wx:key="index">
         <image src="{{item}}" model='aspectFill'></image>
       </view>
     </swiper-item>
+    <!-- 相似推荐 -->
     <swiper-item>
       <view class="recommend-list-box">
         <view class="recommend-list" wx:for="{{recommendList}}" wx:key="index">
@@ -87,7 +83,7 @@
     </swiper-item>
   </swiper>
   <!-- 底部操作栏 -->
-  <view class='dis-flex flex-x-between goods-operation'>
+  <view class='flex-x-between goods-operation'>
     <view class='shoppingCart' bindtap="goHome">
       <text class="iconfont icon-home" />
     </view>
@@ -114,15 +110,15 @@
       <view>
         <text>购买数量</text>
       </view>
+      <!-- 计数器 -->
       <counter count="{{goodDetail.goodCount}}"  bind:getCountNum="getCountNum"></counter>
-      <!-- <view class='dis-flex flex-y-center countGroup'>
-        <view class='flex reduceBtn {{goodDetail.goodCount>1?"":"default-btn"}}' bindtap='reduceCount'>-</view>
-        <view class='flex count'>{{goodDetail.goodCount}}</view>
-        <view class='flex increaseBtn' bindtap='increaseCount'>+</view>
-      </view> -->
     </view>
     <view class='addCartBtn' bindtap='confirmOrder'>确定</view>
   </view>
   <!-- mask遮罩层 -->
   <view class="mask" wx:if="{{showBottomPopup}}" bindtap="hidePopup"></view>
 </view>
+
+
+
+<import src="../../templates/devideCell/index.wxml" />

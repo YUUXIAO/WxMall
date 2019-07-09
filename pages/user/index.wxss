@@ -1,11 +1,13 @@
 /* pages/user/index.wxss */
+@import "../../templates/devideCell/index.wxss";
+
+
 .page{
   min-height: 100%;
   padding:0;
 }
 
 .user-header-box{
-  border: 1px solid green;
   background: var(--mainColor);
   padding: 20rpx 0;
 }
@@ -22,18 +24,13 @@
 }
 
 
-
-
 /* 我的订单 */
 .user-orders-box{
-  border: 1px solid blue;
   padding: 20rpx;
   box-sizing: border-box;
 }
 .user-orders-title{
   font-size: 28rpx;
-  padding: 20rpx 0;
-  border-bottom: 1px solid #efefef;
 }
 .icon-enterinto_fill{
   color: var(--mainColor);
@@ -43,22 +40,20 @@
 }
 .user-orders-item{
   font-size: 26rpx;
+  position: relative;
 }
 .user-orders-icon{
-  font-size: 42rpx;
+  font-size: 50rpx;
   color: #aaa;
 }
-
+.weui-badge{
+  position: absolute;
+  right: 0; top: 0;
+  font-size: 20rpx;
+  background: var(--mainColor)
+}
 
 /* 用户信息 */
 .user-info-box{
   padding: 0 20rpx;
-}
-.user-info-icon{
-  margin-right: 20rpx;
-}
-.user-info-item{
-  font-size: 30rpx;
-  padding: 15rpx 0;
-  border-bottom: 1px solid #efefef;
 }

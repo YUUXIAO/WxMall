@@ -32,7 +32,7 @@ Page({
             },
             success: function (res) {
                 if (res.data.code.code == 500) {
-                    App.showError(res.data.code.message, function () {
+                    App.showError('', res.data.code.message, true, function () {
                         App.doLogin()
                     })
                 } else {
@@ -44,21 +44,7 @@ Page({
             }
         })
     },
-    /**
-      * 获取页面宽度初始数据
-      */
-    getEleWidth: function (w) {
-        //以宽度750px设计稿做宽度的自适应
-        let realWidth = 0, res = wx.getSystemInfoSync().windowWidth, scale = (750 / 2) / (w / 2);
-        realWidth = Math.floor(res / scale);
-        return realWidth;
-    },
-    initEleWidth: function () {
-        let delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
-        this.setData({
-            delBtnWidth
-        });
-    },
+
     /**
       * 选中购物车
       */
@@ -136,6 +122,9 @@ Page({
             cartLists.splice(index, 1)
             this.setData({
                 cartLists
+            }, function () {
+                // 更新购物车总价格
+                this.getCount()
             })
         }
     },
@@ -172,7 +161,7 @@ Page({
       * 批量下单商品
       */
     takeOrders: function () {
-        let cartIds = _this.getCheckedIds()
+        let cartIds = this.getCheckedIds()
         let cartLists = this.data.cartLists.filter(s => {
             return s.selected
         })
@@ -196,7 +185,21 @@ Page({
                 startX: e.touches[0].clientX
             })
         }
-
+    },
+    /**
+      * 获取页面宽度初始数据
+      */
+    getEleWidth: function (w) {
+        //以宽度750px设计稿做宽度的自适应
+        let realWidth = 0, res = wx.getSystemInfoSync().windowWidth, scale = (750 / 2) / (w / 2);
+        realWidth = Math.floor(res / scale);
+        return realWidth;
+    },
+    initEleWidth: function () {
+        let delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
+        this.setData({
+            delBtnWidth
+        });
     },
     touchM: function (e) {
         let index = e.currentTarget.dataset.index

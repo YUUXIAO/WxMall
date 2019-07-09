@@ -1,4 +1,8 @@
 /* pages/checkOrder/index.wxss */
+@import "../../templates/devideCell/index.wxss";
+
+
+
 .page{
     padding: 0;
     background: #efefef;

@@ -1,5 +1,6 @@
 /* pages/detail/index.wxss */
 @import "../../templates/tag/index.wxss";
+@import "../../templates/devideCell/index.wxss";
 
 .main {
   padding-bottom: 130rpx;
@@ -96,45 +97,12 @@ swiper {
   color: var(--mainColor);
 }
 
-/* 详情操作 */
-/* 
-.detail-tabs {
-  border-top: 1px solid #888;
-}
-
-.detail-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10rpx;
-  line-height: 70rpx;
-  box-sizing: border-box;
-  border-bottom: 1px solid #eee;
-}
-
-.detail-tab {
-  flex: 1;
-  text-align: center;
-  font-size: 28rpx;
-  font-weight: bold;
-  border-bottom: 1px solid #fff;
-}
-
-.detail-cur {
-  border-bottom: 5rpx solid #888;
-} */
-
 /* 用户评价 */
 .user-comments-box{
   width:100%;
   padding: 20rpx;
   box-sizing: border-box;
   color: #555;
-}
-.user-comments-title{
-  height: 70rpx;
-  line-height: 70rpx;
-  font-size: 30rpx;
-  border-bottom: 1px solid #efefef;
 }
 
 .comment-header{

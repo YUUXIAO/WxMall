@@ -27,7 +27,7 @@
           </view>
           <view class="cart-item-del dis-flex flex-x-center flex-y-center" bindtap="delCartItem" data-index="{{index}}">删 除</view>
         </view>
-        <view wx:if="{{cartLists.length>=0}}" class="dis-flex flex-dir-column flex-y-center nothing-box">
+        <view wx:if="{{!cartLists.length}}" class="dis-flex flex-dir-column flex-y-center nothing-box">
           <view class="nothing-box-image">
               <image mode="aspectFit" src="../../images/no_content.png"></image>
             </view>

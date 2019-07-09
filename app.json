@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/checkOrder/index",
+    "pages/shoppingCart/index",
+    "pages/detail/index",
+    "pages/user/index",
     "pages/index/index",
     "pages/login/index",
     "pages/orders/index",
-    "pages/user/index",
     "pages/address/index",
-    "pages/detail/index",
-    "pages/shoppingCart/index",
     "pages/address/addressAdd/index",
-    "pages/checkOrder/index",
     "pages/category/index",
     "pages/goodsList/index",
     "pages/search/index",

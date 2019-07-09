@@ -11,40 +11,32 @@
   </view>
   <!-- 我的订单 -->
   <view class="user-orders-box">
-    <view class="dis-flex flex-x-between flex-y-center user-orders-title" bindtap="enterOrders">
-      <text>我的订单</text>
-      <view>
-        <text>全部订单</text>
-        <text class="iconfont icon-enterinto_fill" />
-      </view>
+    <view class="user-orders-title" bindtap="enterOrder">
+      <template is="devideCell" data="{{leftTitle:'我的订单',rightIcon:'icon-enterinto_fill',rightTitle:'全部订单'}}"></template>
     </view>
-    <view class="dis-flex flex-x-between flex-y-center user-orders-list">
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="0">
-        <text class="iconfont icon-daifukuan user-orders-icon" />
-        <text>待付款</text>
-      </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="1">
-        <text class="iconfont icon-icon-test user-orders-icon" />
-        <text>待发货</text>
-      </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="2">
-        <text class="iconfont icon-yifahuodefuben user-orders-icon" />
-        <text>待收货</text>
-      </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="3">
-        <text class="iconfont icon-daipingjia user-orders-icon" />
-        <text>待评价</text>
-      </view>
-      <view class="dis-flex flex-dir-column flex-y-center user-orders-item" catchtap="enterOrder" data-index="4">
-        <text class="iconfont icon-yiwancheng user-orders-icon" />
-        <text>已完成</text>
+    <view class="flex-x-between flex-y-center user-orders-list">
+      <view class="flex-dir-column flex-y-center user-orders-item" wx:for="{{orderInfo}}" wx:key="index" catchtap="enterOrder" data-index="{{index}}">
+        <text class="iconfont user-orders-icon {{item.icon}}" />
+        <text>{{item.title}}</text>
+        <view class="weui-badge" wx:if="item.badgeCount">{{item.badgeCount}}</view>
       </view>
     </view>
   </view>
+  <!-- 其他信息 -->
   <view class="user-info-box">
-    <view class="user-info-item" bindtap="intoAddress">
-      <text class="iconfont icon-yiwancheng user-info-icon" />
-      <text>收货地址</text>
+    <view bindtap="intoAddress">
+      <template is="devideCell" data="{{leftIcon:'icon-yiwancheng',leftTitle:'收货地址'}}"></template>
+    </view>
+    <view>
+      <template is="devideCell" data="{{leftIcon:'icon-tuikuan',leftTitle:'退款/售后'}}"></template>
+    </view>
+    <view>
+      <template is="devideCell" data="{{leftIcon:'icon-youhuiquan',leftTitle:'优惠券'}}"></template>
+    </view>
+    <view>
+      <template is="devideCell" data="{{leftIcon:'icon-kefu',leftTitle:'我的客服'}}"></template>
     </view>
   </view>
 </view>
+
+<import src="../../templates/devideCell/index.wxml" />

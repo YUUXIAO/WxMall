@@ -1,0 +1,12 @@
+<template name="devideCell">
+    <view class="flex-x-between devideCell">
+        <view class="leftItem cellItem">
+            <text class="iconfont leftfont icon {{leftIcon}}" wx:if="{{leftIcon}}"/>
+            <text class="leftTitle" wx:if="{{leftTitle}}">{{leftTitle}}</text>
+        </view>
+        <view class="rightItem cellItem flex-x-end flex-y-center">
+            <text class="leftTitle" wx:if="{{rightTitle}}">{{rightTitle}}</text>
+            <text class="iconfont rightfont icon {{rightIcon}}" wx:if="{{rightIcon}}"/>
+        </view>
+    </view>
+</template>
