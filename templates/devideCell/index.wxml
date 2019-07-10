@@ -1,5 +1,5 @@
 <template name="devideCell">
-    <view class="flex-x-between devideCell">
+    <view class="flex-x-between devideCell" style="border-bottom:{{border?'1px solid #efefef':''}}">
         <view class="leftItem cellItem">
             <text class="iconfont leftfont icon {{leftIcon}}" wx:if="{{leftIcon}}"/>
             <text class="leftTitle" wx:if="{{leftTitle}}">{{leftTitle}}</text>

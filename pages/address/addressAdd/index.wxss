@@ -14,7 +14,6 @@
 }
 
 
-
 .set-address-box{
     margin: 25rpx 0;
 }
@@ -29,7 +28,6 @@
     color: #999;
     margin-left: 10rpx;
 }
-.icon-wx,.set-wx-text{
+.set-wx-text,.icon-552cd5c76f532{
     color: #439057;
 }
-

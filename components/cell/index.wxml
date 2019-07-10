@@ -1,0 +1,15 @@
+<!--components/counter/index.wxml-->
+<view class="flex-x-between devideCell" style="font-size:{{fontSize}}rpx;border-bottom:{{border?'1px solid #efefef':''}}">
+    <view class="leftItem cellItem" style="color: {{lColor}}" wx:if="{{leftTitle||lfIcon1||lfIcon2}}" catchtap="leftTap">
+       <text class="iconfont icon lfIcon1 {{lfIcon1}}" style="color:{{lColor}}" wx:if="{{lfIcon1}}"/>
+        <!-- <text class="leftTitle">{{leftTitle}}</text> -->
+        <text class="leftTitle">{{lfIcon1}}</text>
+        <text class="iconfont icon lfIcon2 {{lfIcon2}}" style="color:{{lColor}}" wx:if="{{lfIcon2}}" />
+    </view>
+    <view class="rightItem cellItem flex-x-end flex-y-center" style="color: {{rColor}}" wx:if="{{rightTitle||rgIcon1||rgIcon1}}" catchtap="rightTap">
+        <text class="iconfont icon rgIcon1 {{rgIcon1}}" style="color:{{rColor}}" wx:if="rgIcon1"/>
+        <text class="leftTitle">{{rightTitle}}</text>
+        <text class="iconfont icon rgIcon2 {{rgIcon2}}" style="color:{{rColor}}" wx:if="rgIcon2"/>
+    </view>
+    <slot></slot>
+</view>

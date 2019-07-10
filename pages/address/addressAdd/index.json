@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "component-cell": "../../../components/cell/index"
+  }
 }

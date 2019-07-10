@@ -2,13 +2,13 @@
 <view class="page">
   <form bindsubmit="saveData" report-submit="true">
     <view class="address-list-info address-name">
-      <input name="name" placeholder="姓名" value="{{addressInfo.name}}"/>
+      <input name="name" placeholder="姓名" value="{{addressInfo.name}}" />
     </view>
     <view class="address-list-info address-phone">
-      <input name="phone" type="number" placeholder="手机号码" value="{{addressInfo.phone}}"/>
+      <input name="phone" type="number" placeholder="手机号码" value="{{addressInfo.phone}}" />
     </view>
     <view class="address-list-info address-post">
-      <input name="post" placeholder="邮政编码" value="{{addressInfo.post}}"/>
+      <input name="post" placeholder="邮政编码" value="{{addressInfo.post}}" />
     </view>
     <view class="address-list-info address-region">
       <picker mode="region" bindchange="regionChange" value="{{ addressInfo.region}}">
@@ -19,17 +19,17 @@
       </picker>
     </view>
     <view class="address-list-info address-detail">
-      <input name="address" placeholder="详细地址" value="{{addressInfo.address}}"/>
+      <input name="address" placeholder="详细地址" value="{{addressInfo.address}}" />
     </view>
-    <view class="dis-flex flex-x-between flex-y-center set-address-box">
-        <view class="set-default-address" bindtap="setDefaultAddress">
-          <text class="iconfont icon-select {{default?'icon-select-choose':''}}"/>
-          <text class="set-detault-text">设置为默认地址</text>
-        </view>
-        <view class="set-wx-address" bindtap="chooseWxAddress">
-          <text class="iconfont icon-wx"/>
-          <text class="set-wx-text">一键获取微信地址</text>
-        </view>
+    <view class="flex-x-between flex-y-center set-address-box">
+      <view class="set-default-address" bindtap="setDefaultAddress">
+        <text class="iconfont icon-select {{default?'icon-select-choose':''}}" />
+        <text class="set-detault-text">设置为默认地址</text>
+      </view>
+      <view class="set-wx-address" bindtap="chooseWxAddress">
+        <text class="iconfont icon-552cd5c76f532" />
+        <text class="set-wx-text">一键获取微信地址</text>
+      </view>
     </view>
     <view>
       <button class="weui-btn address-save" type="warn" formType="submit" disabled="{{disabled}}">保 存</button>

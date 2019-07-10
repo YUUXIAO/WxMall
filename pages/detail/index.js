@@ -53,9 +53,10 @@ Page({
         goodDetail,
         id: json.id,
         'swiper.bannerImage': bannerImage
+      }, function () {
+        // 获取用户评价好评率
+        this.getGoodRates()
       })
-      // 获取用户评价好评率
-      this.getGoodRates()
     }
   },
   goHome: function () {
@@ -101,7 +102,6 @@ Page({
    */
   getRecommend: function () {
     let param = {
-      // __timestamp: Date.parse(new Date()),
       __timestamp: util.getCurrentTimeStamp(),
       itemId: this.data.id
     }
@@ -163,32 +163,10 @@ Page({
   /**
     * 点击加入购物车and立即购买
     */
-  onConfirmSubmit: function (e) {
-    let type = e.currentTarget.dataset.type
-    this.setData({
-      submitType: type
-    })
+  onConfirmSubmit: function ({ currentTarget: { dataset: { type } } }) {
+    this.setData({ submitType: type })
     this.showPopup()
   },
-  /**
-  * 减少商品数量
-  */
-  // reduceCount: function () {
-  //   let _this = this
-  //   if (_this.data.goodDetail.goodCount > 1) {
-  //     _this.setData({
-  //       'goodDetail.goodCount': --this.data.goodDetail.goodCount
-  //     })
-  //   }
-  // },
-  /**
-  * 增加商品数量
-  */
-  // increaseCount: function () {
-  //   this.setData({
-  //     'goodDetail.goodCount': ++this.data.goodDetail.goodCount
-  //   })
-  // },
   /**
     * 修改商品数量
     */
@@ -202,16 +180,18 @@ Page({
   * 确定规格
   */
   confirmOrder: function () {
-    let submitType = this.data.submitType
-    let _this = this
+    let submitType = this.data.submitType, _this = this
     if (submitType === 'buyNow') {
       // 立即购买
-      routes.navigateTo('checkOrder')
+      let goodsInfo = []
+      goodsInfo.push(_this.data.goodDetail)
+      wx.setStorageSync('goodsInfo', goodsInfo)
+      routes.navigateTo('checkOrder', { type: 'buyNow' })
     } else if (submitType === 'addCart') {
       // 加入购物车
       let shoppingCart = wx.getStorageSync('shoppingCart') || []
-      let a = shoppingCart.findIndex(ele => {
-        return ele.id == _this.data.goodDetail.id
+      let a = shoppingCart.findIndex(item => {
+        return item.id == _this.data.goodDetail.id
       })
       if (a > -1) {
         shoppingCart[a].goodCount += _this.data.goodDetail.goodCount
@@ -227,7 +207,6 @@ Page({
           _this.hidePopup()
         }
       })
-
     }
   },
   onReady: function () { },

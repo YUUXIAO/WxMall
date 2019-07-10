@@ -171,7 +171,7 @@ Page({
         }
         wx.setStorageSync('goodsInfo', cartLists)
         // 跳转订单确认页面，根据ids获取信息
-        routes.navigateTo('checkOrder', { cartIds: cartIds })
+        routes.navigateTo('checkOrder', { cartIds: cartIds, type: 'cart' })
     },
     /**
       * 去购物

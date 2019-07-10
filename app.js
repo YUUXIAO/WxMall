@@ -82,8 +82,33 @@ App({
   setToken(data) {
     wx.setStorageSync('token', data)
   },
-
-  onShow: function () { },
+  /**
+    * 发起微信支付
+    */
+  wxPayment(option) {
+    let options = Object.assign({
+      payment: {},
+      success: () => { },
+      fail: () => { },
+      complete: () => { },
+    }, option)
+    wx.requestPayment({
+      timeStamp: option.payment.timeStamp,
+      nonceStr: option.payment.nonceStr,
+      package: "prepay_id=" + option.payment.prepay_id,
+      signType: 'MD5',
+      paySign: option.payment.paySign,
+      success(res) {
+        option.success(res)
+      },
+      fail(res) {
+        options.fail(res);
+      },
+      complete(res) {
+        options.complete(res);
+      }
+    })
+  },
   /**
     * 小程序主动更新
     */

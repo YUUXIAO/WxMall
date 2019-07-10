@@ -2,7 +2,7 @@ const CONFIG = require('./config.js')
 const token = ''
 
 const request = (url, needSubDomain, method, data, header) => {
-    wx.showNavigationBarLoading();
+    wx.showLoading({ title: '加载中', mask: true })
     let _url = CONFIG.baseUrl + (needSubDomain ? '/' + CONFIG.subDomain : '') + url
     let defaultHeader = {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -21,7 +21,7 @@ const request = (url, needSubDomain, method, data, header) => {
                 reject(error)
             },
             complete(data) {
-                wx.hideNavigationBarLoading();
+                wx.hideLoading()
             }
         })
     })

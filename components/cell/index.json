@@ -1,4 +1,5 @@
 {
   "component": true,
+  "multipleSlots": true,
   "usingComponents": {}
 }

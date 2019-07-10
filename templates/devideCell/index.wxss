@@ -1,6 +1,5 @@
 .devideCell{
   width: 100%;
-  border-bottom: 1px solid #efefef;
 }
 .icon{
   color: #999;

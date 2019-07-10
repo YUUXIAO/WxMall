@@ -130,7 +130,7 @@ Page({
     WXAPI.getGoodsList(param).then(res => {
       if (res.code == 200) {
         _this.setData({
-          goodsList: res.data
+          goodsList: res.data.splice(0, 10)
         })
       }
     })

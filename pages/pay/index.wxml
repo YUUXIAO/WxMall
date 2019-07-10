@@ -1,0 +1,20 @@
+<!--pages/pay/index.wxml-->
+<view class="page">
+    <view class="total-box">
+        <template is="devideCell" data="{{leftTitle:'订单金额',rightTitle:'123元'}}"></template>
+    </view>
+    <view class="pay-methods">
+        <view class="method-title">请选择支付方式</view>
+        <view class="method-lists">
+            <view class="method-item flex-y-center">
+                 <text class="iconfont icon-select icon-choose" />
+                 <text class="iconfont icon-weixinzhifu" />
+                 <text>微信支付</text>
+            </view>
+        </view>
+        <view class="pay-tips">小程序只支持微信支付，如需其它支付方式，请在网页版支付</view>
+    </view>
+    <view class="flex-x-around flex-y-center pay-btn" bindtap="confirmPay">确定</view>
+</view>
+
+<import src="../../templates/devideCell/index.wxml" />

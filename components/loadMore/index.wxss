@@ -1,0 +1,31 @@
+/* components/counter/index.wxss */
+@import '../../dist/css/icon.wxss';
+/* @import '../../dist/css/common.wxss'; */
+
+.devideCell{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.icon{
+  font-size: 36rpx;
+}
+.lfIcon1,.rgIcon1{
+  margin-right: 15rpx;
+}
+.lfIcon2,.rgIcon2{
+  margin-left: 15rpx;
+}
+.leftItem{
+  width:100%;
+}
+.leftTitle{
+  white-space: nowrap;
+}
+.cellItem{
+  padding: 15rpx 0;
+}
+
+/* .icon-select-choose{
+    color: red
+} */

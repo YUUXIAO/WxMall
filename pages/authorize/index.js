@@ -71,7 +71,6 @@ Page({
       return
     }
     if (app.globalData.isConnected) {
-      console.log(e)
       wx.setStorageSync('userInfo', e.detail.userInfo)
       this.login()
     } else {

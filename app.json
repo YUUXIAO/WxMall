@@ -1,20 +1,20 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/checkOrder/index",
+    "pages/pay/index",
+    "pages/address/addressAdd/index",
     "pages/shoppingCart/index",
     "pages/detail/index",
     "pages/user/index",
-    "pages/index/index",
     "pages/login/index",
     "pages/orders/index",
     "pages/address/index",
-    "pages/address/addressAdd/index",
     "pages/category/index",
     "pages/goodsList/index",
     "pages/search/index",
     "pages/authorize/index",
-    "pages/commentsList/index",
-    "pages/test/index"
+    "pages/commentsList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
