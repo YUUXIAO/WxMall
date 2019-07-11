@@ -28,7 +28,7 @@
     <view class="flex-x-between goods-info-list">
       <text class="goods-list-title">备注</text>
       <view class="flex goods-remark">
-        <input name="input" placeholder="填写与卖家协商内容" value="{{remark}}" />
+        <input name="input" placeholder="填写与卖家协商内容" value="{{remark}}" bindinput="onInputRemark" />
       </view>
     </view>
   </view>
@@ -59,7 +59,7 @@
       <text>实付金额：￥{{totalPrice}}</text>
       <text class="good-delivery">邮费：￥0.00</text>
     </view>
-    <view class="flex-x-center flex-y-center pay-order-btn" bindtap="payOrder">付款</view>
+    <view class="flex-x-center flex-y-center pay-order-btn" bindtap="onSubmitOrder">付款</view>
   </view>
 </view>
 

@@ -1,6 +1,12 @@
 //index.js
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
+
+// 枚举类：首页商品分类推荐
+import RecTypeEnum from '../../utils/enum/recommdType';
+
+
+
 //获取应用实例
 Page({
   data: {
@@ -41,14 +47,12 @@ Page({
         }
       ]
     },
+    // 轮播图片
     bannerImgs: [],
+    // 商品列表
     goodsList: [],
-    wellChosen: [],
-    indicatorDots: false,
-    autoplay: false,
-    loadingShow: false,
-    interval: 3000,
-    duration: 800,
+    // 分类商品
+    RecTypeEnum,
     // 搜索栏
     searchParams: {
       placeholder: '搜索更多好物',
@@ -61,36 +65,26 @@ Page({
     carouselParams: {
       bannerImgs: [],
     },
-    floorstatus: true
+    // 是否显示回到顶部 
+    floorstatus: false
   },
   onLoad: function (options) {
-    let that = this
     // 获取商品列表
     this.getGoodsList()
     // 获取banner图片
     this.getBanner()
-
-
-    this.login()
   },
-  // 登陆
-  login() {
-    wx.request({
-      url: 'https://easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/user/login',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        username: 'admin',
-        password: 'admin'
-      },
-      success: function (res) {
-
-      }
+  /**
+    * 获取商品列表
+    */
+  getGoodsList(callback) {
+    let _this = this
+    WXAPI.getGoodsList({ categoryId: 0, subCategoryId: 0 }).then(res => {
+      _this.setData({
+        goodsList: res.data.splice(0, 10)
+      })
     })
   },
-
   // 获取banner图片
   getBanner() {
     let _this = this
@@ -103,105 +97,82 @@ Page({
       }
     })
   },
-  // 切换顶部导航样式
-  changeCurrent(res) {
-    if (this.data.currentTab == res.detail.currentNum) return;
-    this.setData({
-      currentTab: res.detail.currentNum
-    })
-  },
-
-
-  // setTab(e) {
-  //   const tabData = e.currentTarget.dataset
-  //   this.setData({
-  //     'tabnav.tabIndex': tabData.tabindex
-  //   })
-  // },
   /**
-   * 获取商品列表
-   */
-  getGoodsList() {
-    let _this = this
-    let param = {
-      categoryId: 0,
-      subCategoryId: 0
-    }
-    WXAPI.getGoodsList(param).then(res => {
-      if (res.code == 200) {
-        _this.setData({
-          goodsList: res.data.splice(0, 10)
-        })
-      }
+    * 切换顶部导航样式
+    */
+  changeCurrent({ detail: { currentNum } }) {
+    if (this.data.currentTab == currentNum) return;
+    this.setData({
+      currentTab: currentNum
     })
-
   },
+
   /**
     * 进入商品详情页面
     */
-  detail(e) {
-    let index = e.currentTarget.dataset.index
-    let goodDetail = this.data.goodsList[index]
-    let param = {
-      id: e.currentTarget.dataset.id
-    }
+  detail({ currentTarget: { dataset: { index, id } } }) {
+    let goodDetail = this.data.goodsList[index], param = { id }
     wx.setStorageSync('goodDetail', goodDetail)
     routes.navigateTo('goodsDetail', param)
   },
   /**
-   * 获取滚动条当前位置
+    * 获取滚动条当前位置
    */
-  onPageScroll(e) {
-    if (e.scrollTop > 200) {
-      this.setData({
-        floorstatus: true
-      })
-    } else {
-      this.setData({
-        floorstatus: false
-      })
-    }
+  onPageScroll({ scrollTop }) {
+    this.setData({
+      floorstatus: scrollTop > 200 ? true : false
+    })
   },
   /**
-  * 回到顶部
-  */
+    * 回到顶部
+    */
   goTop(e) {
-    if (wx.pageScrollTo) {
-      wx.pageScrollTo({
-        scrollTop: 0
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-      })
-    }
-  },
-
-  // 点击商品跳转商品详情
-  goodsDetail: function () {
-    wx.navigateTo({
-      url: '/pages/detail/index'
+    wx.pageScrollTo({
+      scrollTop: 0
     })
   },
   onReachBottom: function () {
-    let that = this
-    this.setData({
-      loadingShow: true
-    })
     // 获取更多商品
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5b8b9d4a61840c7b40336534/example/home/banner',
-      success: function (res) {
-        let lastestLists = that.data.lastestLists
-        res.data.lastestLists.map(m => {
-          lastestLists.push(m)
-        })
-        that.setData({
-          lastestLists: lastestLists,
-          loadingShow: false
-        })
+  },
+  /**
+  * 下拉刷新
+  */
+  onPullDownRefresh: function () {
+    // 获取首页数据
+    this.getGoodsList(function () {
+      wx.stopPullDownRefresh()
+    });
+  },
+  /**
+    * 分享当前页面
+    */
+  onShareAppMessage(options) {
+    // 按钮转发
+    if (options.from === "button") {
+      return {
+        title: '按钮转发',
+        imageUrl: "",
+        path: '/page/index?shareInfo=' + 'shareBtn',
+        success: res => {
+          console.log(res)
+        },
+        fail: res => {
+          console.log(res)
+        }
       }
-    })
+    } else if (options.from === "menu") {
+      // menu转发
+      return {
+        title: 'menu转发',
+        imageUrl: "",
+        path: '/page/index?shareInfo=' + 'shareQuery',
+        success: res => {
+          console.log(res)
+        },
+        fail: res => {
+          console.log(res)
+        }
+      }
+    }
   }
 })

@@ -1,43 +1,20 @@
 <!-- index.wxml -->
 <view class="main">
+
+  <component-fastNavigation></component-fastNavigation>
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
   <!-- TAB标题栏 -->
   <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" currentTab="{{currentTab}}" selectColor="#b5272e" tabItem="title"  bind:changeCurrent="changeCurrent"></component-tab>
   <!-- 首页轮播图 -->
   <template is="carousel" data="{{...carouselParams}}"></template>
- <!-- <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-    <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{item}}" class="carouselImg" mode="aspectFill" />
-      </swiper-item>
-    </block>
-  </swiper> -->
   <!-- 分类商品 -->
   <view class="category">
-    <view class="category_item">
+    <view class="category_item" wx:for="{{RecTypeEnum}}" wx:key="this" data-type="{{item.type}}">
       <view class="category_imageBox">
-        <image class="category-image" src="../../images/index/hot_icon.png" mode="aspectFill"></image>
+        <image class="category-image" src="{{item.icon}}" mode="aspectFill"></image>
       </view>
-      <text>热卖尖货</text>
-    </view>
-    <view class="category_item">
-      <view class="category_imageBox">
-        <image class="category-image" src="../../images/index/new_icon.png" mode="aspectFill"></image>
-      </view>
-      <text>每周上新</text>
-    </view>
-    <view class="category_item">
-      <view class="category_imageBox">
-        <image class="category-image" src="../../images/index/sale_icon.png" mode="aspectFill"></image>
-      </view>
-      <text>特惠套组</text>
-    </view>
-    <view class="category_item">
-      <view class="category_imageBox">
-        <image class="category-image" src="../../images/index/introduce_icon.png" mode="aspectFill"></image>
-      </view>
-      <text>大神推荐</text>
+      <text>{{item.name}}</text>
     </view>
   </view>
   <!-- 商品列表 -->

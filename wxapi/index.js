@@ -140,7 +140,40 @@ module.exports = {
             resolve(data)
         })
     },
-    // 获取用户信息
+    // 创建订单-立即购买
+    orderBuyNow: (data) => {
+        // return request('/order/buyNow', false, 'post', data)
+        return new Promise((resolve, reject) => {
+            let data = {
+                code: 500,
+                msg: '仅做演示，不支持支付！',
+                payment: {
+                    timeStamp: '',
+                    nonceStr: '',
+                    prepay_id: '',
+                    paySign: 'paySign'
+                }
+            }
+            resolve(data)
+        })
+    },
+    // 创建订单-购物车结算
+    orderCart: (data) => {
+        // return request('/order/cart', false, 'post', data)
+        return new Promise((resolve, reject) => {
+            let data = {
+                code: 500,
+                msg: '仅做演示，不支持支付！',
+                payment: {
+                    timeStamp: '',
+                    nonceStr: '',
+                    prepay_id: '',
+                    paySign: 'paySign'
+                }
+            }
+            resolve(data)
+        })
+    },
 
 
 

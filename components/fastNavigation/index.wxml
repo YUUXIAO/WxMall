@@ -1,0 +1,33 @@
+<!--components/fastNavigation/index.wxml-->
+<view class="fastNavigation" >
+   <!-- 首页 -->
+    <form bindsubmit="_onTargetPage" report-submit="true">
+        <button formType="submit" data-index="0" class="nav-item {{ _isShow?'show_80':( _transparent?'':'hide_80' ) }}" >
+           <text class="iconfont icon-home1" />
+        </button>
+    </form>
+    <!-- 分类页 -->
+    <form bindsubmit="_onTargetPage" report-submit="true">
+        <button formType="submit" data-index="1" class="nav-item {{ _isShow?'show_60':( _transparent?'':'hide_60' ) }}">
+            <text class="iconfont icon-edit" />
+        </button>
+    </form>
+     <!-- 购物车 -->
+    <form bindsubmit="_onTargetPage" report-submit="true">
+        <button formType="submit" data-index="2" class="nav-item {{ _isShow?'show_40':( _transparent?'':'hide_40' ) }}">
+            <text class="iconfont icon-cart" />
+        </button>
+    </form>
+     <!-- 个人中心 -->
+    <form bindsubmit="_onTargetPage" report-submit="true">
+        <button formType="submit" data-index="3" class="nav-item {{ _isShow?'show_20':( _transparent?'':'hide_20' ) }}" >
+            <text class="iconfont icon-mine" />
+        </button>
+    </form>
+     <!-- 显示隐藏开关 -->
+    <form bindsubmit="_onToggleShow" report-submit="true">
+        <button formType="submit" class="nav-item nav-item-switch {{ _isShow?'switch-click':'' }}" >
+            <text class="iconfont icon-categories" />
+        </button>
+    </form>
+</view>

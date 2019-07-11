@@ -1,0 +1,177 @@
+/* components/fastNavigation/index.wxss */
+@import "../../dist/css/icon.wxss";
+
+
+.fastNavigation{
+    border: 1px soldi red;
+    position: fixed;
+    bottom: 100rpx;
+    right: 20rpx;
+    width: 80rpx;
+    z-index: 5;
+    border-radius: 20rpx;
+}
+/* 导航元素 */
+.nav-item {
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    width: 80rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(0,0,0,0.4);
+    transform: rotate(0deg);
+    opacity: 0;
+    border-radius: 50%;
+}
+.iconfont{
+    color: #fff;
+    font-size: 40rpx;
+}
+
+/* 导航开关 */
+.nav-item-switch{
+    opacity: 1;
+}
+.switch-click{
+    background: var(--mainColor);
+}
+
+/* 显示动画 */
+.show_20{
+    bottom: 90rpx;
+    animation: show_20 0.3s forwards;
+}
+.hide_20 {
+  bottom: 0;
+  animation: hide_20 0.3s;
+  opacity: 0;
+}
+@keyframes show_20{
+    from{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    to{
+        bottom: 90rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+@keyframes hide_20{
+    from{
+        bottom: 90rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    to{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+.show_40{
+    bottom:180rpx;
+    animation: show_40 0.3s forwards;
+}
+.hide_40 {
+  bottom: 0;
+  animation: hide_40 0.3s;
+  opacity: 0;
+}
+@keyframes show_40{
+    from{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    to{
+        bottom: 180rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+@keyframes hide_40{
+    from{
+        bottom: 180rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    to{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+.show_60{
+    bottom: 270rpx;
+    animation: show_60 0.3s forwards;
+}
+.hide_60 {
+  bottom: 0;
+  animation: hide_60 0.3s;
+  opacity: 0;
+}
+@keyframes show_60{
+    from{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    to{
+        bottom: 270rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+@keyframes hide_60{
+    from{
+        bottom: 270rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    to{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+.show_80{
+    bottom: 360rpx;
+    animation: show_80 0.3s forwards;
+}
+.hide_80 {
+  bottom: 0;
+  animation: hide_80 0.3s;
+  opacity: 0;
+}
+@keyframes show_80{
+    from{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    to{
+        bottom: 360rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+@keyframes hide_80{
+    from{
+        bottom: 360rpx;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    to{
+        bottom: 0;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}

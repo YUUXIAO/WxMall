@@ -186,7 +186,8 @@ Page({
       let goodsInfo = []
       goodsInfo.push(_this.data.goodDetail)
       wx.setStorageSync('goodsInfo', goodsInfo)
-      routes.navigateTo('checkOrder', { type: 'buyNow' })
+      // 跳转订单确认页面
+      routes.navigateTo('checkOrder', { type: 'buyNow', goodsId: _this.data.goodDetail.id, goodsCount: _this.data.goodDetail.goodCount })
     } else if (submitType === 'addCart') {
       // 加入购物车
       let shoppingCart = wx.getStorageSync('shoppingCart') || []
@@ -208,7 +209,5 @@ Page({
         }
       })
     }
-  },
-  onReady: function () { },
-  inputTyping: function (e) { }
+  }
 })

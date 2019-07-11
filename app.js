@@ -1,6 +1,17 @@
 const WXAPI = require('wxapi/index')
 const routes = require('./router/index.js');
 
+/**
+ * tabBar页面路径列表 (用于链接跳转时判断)
+ * tabBarLinks为常量, 无需修改
+ */
+const tabBarLinks = [
+  '/pages/index/index',
+  '/pages/category/index',
+  '/pages/shoppingCart/index',
+  '/pages/user/index'
+];
+
 App({
   onLaunch: function (e) {
     // 用户版本更新
@@ -50,7 +61,7 @@ App({
     */
   showError(title, content, showCancel, callback) {
     wx.showModal({
-      title: title || '友情提示',
+      title: title || '提示',
       content: content,
       showCancel: showCancel || false,
       success(res) {
@@ -75,6 +86,12 @@ App({
   getToken() {
     let token = wx.getStorageSync('token')
     return token
+  },
+  /**
+  * 获取tabBar页面路径列表
+  */
+  getTabBarLinks() {
+    return tabBarLinks
   },
   /**
    * 设置Token
