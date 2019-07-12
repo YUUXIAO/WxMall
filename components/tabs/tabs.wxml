@@ -2,8 +2,10 @@
 <view class='tabs'>
   <scroll-view class="content-scroll" scroll-x="{{ isScroll }}">
     <view class="content">
-      <view class="tab-item" data-index="{{ index }}" wx:for="{{ tabLists }}" wx:key="index" style="min-width:{{_itemWidth}}rpx;height:{{height}}rpx;" catchtap="_swichNav">
+      <view style="display:flex;">
+        <view class="tab-item" data-index="{{ index }}" wx:for="{{ tabLists }}" wx:key="index" style="min-width:{{_itemWidth}}rpx;height:{{height}}rpx;" catchtap="_swichNav">
         <text class='text' style="font-size:{{textSize}}rpx;color:{{_curIndex == index?selectColor:''}}">{{item._name}}</text>
+      </view>
       </view>
       <!-- 动画条 -->
       <view class="tab-bar" style="transform:translateX({{100*_curIndex}}%);background-color:{{ selectColor }};width:{{_itemWidth}}rpx"></view>

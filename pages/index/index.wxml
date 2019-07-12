@@ -1,12 +1,10 @@
 <!-- index.wxml -->
 <view class="main">
-
-  <component-fastNavigation></component-fastNavigation>
   <!-- 搜索栏 -->
   <component-search-bar params="{{searchParams}}"></component-search-bar>
   <!-- TAB标题栏 -->
-  <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" currentTab="{{currentTab}}" selectColor="#b5272e" tabItem="title"  bind:changeCurrent="changeCurrent"></component-tab>
-  <!-- 首页轮播图 -->
+  <component-tab isScroll="true" tabLists="{{tabnav.tabItems}}" currentTab="{{currentTab}}" selectColor="#b5272e" tabItem="title" bind:changeCurrent="changeCurrent"></component-tab>
+  <!-- 轮播图 -->
   <template is="carousel" data="{{...carouselParams}}"></template>
   <!-- 分类商品 -->
   <view class="category">
@@ -19,36 +17,33 @@
   </view>
   <!-- 商品列表 -->
   <view class='goods-list-box'>
-    <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
-      <view class="goods-image">
-        <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
-      </view>
-      <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
-      <text class="goods-title twolist-hidden">{{item.name}}</text>
-      <view class="goods-price-box">
-        <text class="goods-price">￥{{item.retailPrice}}</text>
-        <text class="goods-line-price" wx:if="{{item.counterPrice}}">￥{{item.counterPrice}}</text>
-      </view>
-      <view class="goods-tag" wx:for="{{item.itemTagList}}" wx:for-item="tag" wx:key="tag.tagId">
-        {{tag.name}}
-      </view>
-      <view class="dis-flex flex-y-center flex-x-start goods-comments">
-        <view class="comments-image">
-          <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl?item.hotSaleListBottomInfo.iconUrl:'../../images/user.jpg'}}"></image>
+    <block wx:if="{{goodsList.length}}">
+      <view class="goods-content" wx:for="{{goodsList}}" wx:key="index" bindtap="detail" data-index="{{index}}" data-id="{{item.id}}">
+        <view class="goods-image">
+          <image mode="scaleToFill" src="{{item.scenePicUrl}}"></image>
         </view>
-        <text class="flex dis-flex flex-y-center flex-x-around flex-dir-column goods-comment">
+        <view class="goods-simple-desc list-hidden">{{item.simpleDesc}}</view>
+        <text class="goods-title twolist-hidden">{{item.name}}</text>
+        <view class="goods-price-box">
+          <text class="goods-price">￥{{item.retailPrice}}</text>
+          <text class="goods-line-price" wx:if="{{item.counterPrice}}">￥{{item.counterPrice}}</text>
+        </view>
+        <view class="goods-tag" wx:for="{{item.itemTagList}}" wx:for-item="tag" wx:key="tag.tagId">
+          {{tag.name}}
+        </view>
+        <view class="flex-y-center flex-x-start goods-comments">
+          <view class="comments-image">
+            <image mode="scaleToFill" src="{{item.hotSaleListBottomInfo.iconUrl?item.hotSaleListBottomInfo.iconUrl:'../../images/user.jpg'}}"></image>
+          </view>
+          <text class="flex flex-y-center flex-x-around flex-dir-column goods-comment">
             <text class="twolist-hidden">{{item.hotSaleListBottomInfo.content}}</text>
-        </text>
+          </text>
+        </view>
       </view>
-    </view>
+    </block>
   </view>
-  <!-- 回到顶部 -->
-  <!-- <view class="scroll-top-box" hidden='{{!floorstatus}}' bindtap="goTop">
-    <text class="iconfont icon-arrowon" />
-    <text class="text-top">顶部</text>
-  </view> -->
 </view>
 
 
 
-<import src="../../templates/carousel/index.wxml"/>
+<import src="../../templates/carousel/index.wxml" />

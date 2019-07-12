@@ -17,7 +17,7 @@ Component({
         // 元素未超过4个平分页面宽度
         if (newVal && newVal.length < 5) {
           this.setData({
-            _itemWidth: (750 / newVal.length) - 60
+            _itemWidth: (750 / newVal.length)
           })
         }
       }

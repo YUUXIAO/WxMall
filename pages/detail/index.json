@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "counter": "../../components/counter/index",
-        "component-tab": "../../components/tabs/tabs"
+        "component-tab": "../../components/tabs/tabs",
+        "component-fastNavigation": "../../components/fastNavigation/index"
     }
 }

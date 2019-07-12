@@ -8,10 +8,9 @@ Page({
   data: {
     id: null,
     goodDetail: {},
-    swiper: {
-      bannerImage: [],
-      interval: 3000,
-      duration: 200
+    // 轮播图
+    carouselParams: {
+      bannerImgs: [],
     },
     currentTab: 0,
     detailTabs: [
@@ -21,7 +20,6 @@ Page({
     commentList: [],
     recommendList: [],
     commentData: {
-      // __timestamp: Date.parse(new Date()),
       __timestamp: util.getCurrentTimeStamp(),
       itemId: '',
       tag: '全部',
@@ -35,7 +33,6 @@ Page({
     goodRates: {},
     showBottomPopup: false,
     popupAnimation: {},
-    // goodCount: 1,
     submitType: ''
   },
 
@@ -43,21 +40,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options) {
-      let json = routes.extract(options)
-      let goodDetail = wx.getStorageSync('goodDetail')
-      goodDetail.deliver = '免邮'
-      goodDetail.goodCount = 1
-      let bannerImage = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
-      this.setData({
-        goodDetail,
-        id: json.id,
-        'swiper.bannerImage': bannerImage
-      }, function () {
-        // 获取用户评价好评率
-        this.getGoodRates()
-      })
-    }
+    // 获取商品信息
+    this.getGoodInfo(options)
+  },
+  /**
+    * 获取商品信息
+    */
+  getGoodInfo(options) {
+    let json = routes.extract(options), goodDetail = wx.getStorageSync('goodDetail'), bannerImgs = [goodDetail.scenePicUrl, goodDetail.listPicUrl, goodDetail.primaryPicUrl]
+    goodDetail = Object.assign(goodDetail, {
+      deliver: '免邮',
+      goodCount: 1
+    })
+    this.setData({
+      goodDetail,
+      id: json.id,
+      'carouselParams.bannerImgs': bannerImgs
+    }, function () {
+      // 获取用户评价好评率
+      this.getGoodRates()
+    })
   },
   goHome: function () {
     routes.navigateTo('home')

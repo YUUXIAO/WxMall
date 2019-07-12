@@ -1,7 +1,6 @@
 {
     "usingComponents": {
         "component-search-bar": "../../components/search/search",
-        "component-tab": "../../components/tabs/tabs",
-        "component-fastNavigation": "../../components/fastNavigation/index"
+        "component-tab": "../../components/tabs/tabs"
     }
 }

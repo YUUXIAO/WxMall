@@ -63,7 +63,7 @@ Page({
     },
     // 轮播图
     carouselParams: {
-      bannerImgs: [],
+      bannerImgs: []
     },
     // 是否显示回到顶部 
     floorstatus: false

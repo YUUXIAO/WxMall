@@ -1,17 +1,8 @@
 <!-- pages/detail/index.wxml -->
-<import src="../../templates/tag/index.wxml"/>
 
 <view class='main'>
-  <!-- 详情轮播图 -->
-  <view class='detail-images'>
-    <swiper indicator-dots="true" autoplay="true" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="true">
-      <block wx:for="{{swiper.bannerImage}}" wx:key="{{index}}">
-        <swiper-item>
-          <image src="{{item}}" class="carouselImg" mode="aspectFill" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <!-- 轮播图 -->
+  <template is="carousel" data="{{...carouselParams}}"></template>
   <!-- 详情信息 -->
   <view class='detail-info-box'>
     <view class="detail-price-box">
@@ -62,7 +53,7 @@
   <swiper current='{{currentTab}}' duration="300" class='swiper-tabs-show' bindchange='tabsChange'>
     <!-- 商品详情 -->
     <swiper-item>
-      <view class="good-detail-box" wx:for="{{swiper.bannerImage}}" wx:key="index">
+      <view class="good-detail-box" wx:for="{{carouselParams.bannerImgs}}" wx:key="index">
         <image src="{{item}}" model='aspectFill'></image>
       </view>
     </swiper-item>
@@ -117,8 +108,10 @@
   </view>
   <!-- mask遮罩层 -->
   <view class="mask" wx:if="{{showBottomPopup}}" bindtap="hidePopup"></view>
+  <!-- 快速导航菜单 -->
+  <component-fastNavigation></component-fastNavigation>
 </view>
 
 
-
 <import src="../../templates/devideCell/index.wxml" />
+<import src="../../templates/carousel/index.wxml" />

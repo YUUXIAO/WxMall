@@ -1,11 +1,9 @@
 /* components/fastNavigation/index.wxss */
 @import "../../dist/css/icon.wxss";
 
-
 .fastNavigation{
-    border: 1px soldi red;
     position: fixed;
-    bottom: 100rpx;
+    bottom: 140rpx;
     right: 20rpx;
     width: 80rpx;
     z-index: 5;

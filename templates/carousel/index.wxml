@@ -1,5 +1,5 @@
 <template name="carousel">
-  <swiper indicator-dots="{{showDots||true}}" autoplay="{{autoplay||true}}" interval="{{interval||3000}}" duration="{{duration||300}}" bindchange="changeCarousel">
+  <swiper indicator-dots="{{showDots||true}}" autoplay="{{autoplay||true}}" interval="{{interval||3000}}" duration="{{duration||300}}">
     <block wx:for="{{bannerImgs}}" wx:key="{{index}}">
       <swiper-item>
         <image src="{{item}}" class="carouselImg" mode="aspectFill" />

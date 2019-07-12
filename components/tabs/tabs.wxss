@@ -8,11 +8,13 @@
 }
 .content{
     position: relative;
+    width: 100%;
 }
 .tab-item{
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
 }
 .curActive{
     color: red;
