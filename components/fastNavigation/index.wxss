@@ -3,7 +3,7 @@
 
 .fastNavigation{
     position: fixed;
-    bottom: 140rpx;
+    bottom: 220rpx;
     right: 20rpx;
     width: 80rpx;
     z-index: 5;

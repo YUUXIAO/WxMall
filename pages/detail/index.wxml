@@ -89,7 +89,7 @@
     <view class='choose-top'>
       <view>
         <view class='choose-image'>
-          <image src='{{swiper.bannerImage[0]}}' mode='aspectFill'></image>
+          <image src='{{carouselParams.bannerImgs[0]}}' mode='aspectFill'></image>
         </view>
         <view class='choose-base'>
           <view class='choose-title'>{{goodDetail.name}}</view>
