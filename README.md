@@ -21,49 +21,49 @@
 │  app.json                     
 │  app.wxss                       
 │  project.config.json                   # 项目配置  
-│
+│  
 ├─ components                            # 公用组件  
-│
+│  
 ├─ dist                                  # 静态资源文件  
-│
+│  
 ├─ filter                                # 自定义过滤器  
-│
+│  
 ├─ images                                # 图片资源  
-│
+│  
 └─ pages                                 # 页面  
-    │
+    │  
     ├─ address                           # 地址管理  
-    │
+    │  
     ├─ autheorize                        # 用户授权登陆  
-    │
+    │  
     ├─ category                          # 商品分类列表  
-    │
+    │  
     ├─ checkOrder                        # 订单确认页  
-    │
+    │  
     ├─ commentsList                      # 用户评价列表  
-    │
+    │  
     ├─ detail                            # 商品详情  
-    │
+    │  
     ├─ goodsList                         # 商品搜索列表  
-    │
+    │  
     ├─ index                             # 首页  
-    │
+    │  
     ├─ login                             # 登陆页面  
-    │
+    │  
     ├─ orders                            # 订单管理  
-    │
+    │  
     ├─ pay                               # 商品结算  
-    │
+    │  
     ├─ search                            # 商品搜索  
-    │
+    │  
     ├─ shoppingCart                      # 购物车  
-    │
+    │  
     └─ user                              # 用户中心  
-
+  
 ├─ router                                # 路由配置  
-│
+│  
 ├─ templates                             # 通用模板  
-│
+│  
 ├─ utils                                 # 一些工具函数  
-│
+│  
 └─ wxapi                                 # api接口管理  
