@@ -12,11 +12,16 @@ module.exports = {
     goodsList: {
         path: '/pages/goodsList/index'
     },
+    // 购物车
+    cartList: {
+        type: 'tab',
+        path: '/pages/shoppingCart/index'
+    },
     // 商品详情
     goodsDetail: {
         path: '/pages/detail/index'
     },
-    // 商品详情
+    // 用户评价列表
     commentsList: {
         path: '/pages/commentsList/index'
     },

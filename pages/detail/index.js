@@ -64,6 +64,9 @@ Page({
   goHome: function () {
     routes.navigateTo('home')
   },
+  goCart: function () {
+    routes.navigateTo('cartList')
+  },
   /**
    * 切换商品选项
    */

@@ -78,7 +78,7 @@
     <view class='shoppingCart' bindtap="goHome">
       <text class="iconfont icon-home" />
     </view>
-    <view class='shoppingStore'>
+    <view class='shoppingStore' bindtap="goCart">
       <text class="iconfont icon-shoppingcart" />
     </view>
     <view class='addtoCart' bindtap="onConfirmSubmit" data-type="addCart">加入购物车</view>
