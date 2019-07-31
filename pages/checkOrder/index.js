@@ -1,11 +1,4 @@
 // pages/checkOrder/index.js
-
-
-
-
-
-
-
 const routes = require('../../router/index.js');
 const WXAPI = require('../../wxapi/index')
 const APP = getApp()
@@ -112,7 +105,6 @@ Page({
 
     // 单创建成功后回调--微信支付
     let callback = result => {
-      console.log(result)
       // 支付失败
       if (result.code === 500) {
         APP.showError('支付失败', result.msg, false, function () {
@@ -172,7 +164,7 @@ Page({
     }
     // 创建订单-购物车购买
     else if (options.type === 'cart') {
-      APP.orderCart(Object.assign({
+      WXAPI.orderCart(Object.assign({
         cartIds: options.cartIds || 0,
       }, postData))
         .then(res => {

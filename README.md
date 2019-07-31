@@ -16,6 +16,7 @@
 - [x] 用户登陆 -- 完成
 
 ## 目录结构
+<pre>
 
 │  app.js                       
 │  app.json                     
@@ -67,3 +68,4 @@
 ├─ utils                                 # 一些工具函数  
 │  
 └─ wxapi                                 # api接口管理  
+</pre>

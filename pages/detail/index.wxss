@@ -157,7 +157,7 @@ swiper {
 }
 
 .recommend-list {
-  width: 32%;
+  width: 231rpx;
   float: left;
   margin-bottom: 10rpx;
   border-bottom: 1px solid #efefef;

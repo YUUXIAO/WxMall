@@ -75,20 +75,17 @@
 }
 .order-btn{
   font-size: 24rpx;
-  border: 1px solid #aaa;
+  background: #aaa;
+  color: #fff;
   padding: 5rpx 15rpx;
-  border-radius: 15rpx;
   margin-left: 10rpx;
 }
 .cancel-btn,.confirm-btn{
-  color: var(--mainColor);
-  border: 1px solid var(--mainColor);
+  background: var(--mainColor);
 }
 .pay-btn{
-  color: var(--succColor);
-  border: 1px solid var(--succColor);
+  background: var(--succColor);
 }
 .comment-btn{
-  color: orange;
-  border: 1px solid orange;
+  background: orange;
 }
