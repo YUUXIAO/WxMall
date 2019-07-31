@@ -69,3 +69,8 @@
 │  
 └─ wxapi                                 # api接口管理  
 </pre>
+
+## 项目部分页面预览
+
+![Image text](https://raw.githubusercontent.com/YUUXIAO/WxMall/master/images/demo1.jpg)
+![Image text](https://raw.githubusercontent.com/YUUXIAO/WxMall/master/images/demo2.jpg)  
